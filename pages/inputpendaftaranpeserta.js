@@ -74,7 +74,7 @@ export default function inputpendaftaranpeserta() {
     setNamaLengkap(newValue);
   };
 
-  console.log("nama lengkap", namaLengkap)
+
 
   return (
     <div className={classes.root}>
