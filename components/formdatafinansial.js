@@ -812,7 +812,7 @@ export default function formdatafinansial(props) {
       //initialValues,
       initialValues: {
         nomorRekeningBankTujuanRedemption: '',
-        namaPemilikRekeningBankTujuanRedemption: props.namaLengkap,
+        namaPemilikRekeningBankTujuanRedemption: props.namaLengkap ? props.namaLengkap:'',
         kodeBankTujuanRedemption: '',
         namaBankTujuanRedemption:'',
         cabangRekeningBankTujuanRedemption:'',
