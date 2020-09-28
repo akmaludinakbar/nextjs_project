@@ -24,7 +24,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import Home from './Home';
+
 import ListUser from './ListUser';
 import TableUser from './TableUser';
 import { Avatar } from '@material-ui/core';
@@ -138,7 +138,7 @@ function getSteps() {
  function getStepContent(step) {
   switch (step) {
     case 0:
-      return <Home/>;
+      return "tes";
     case 1:
       return 'What is an ad group anyways?';
     case 2:
