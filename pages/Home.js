@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 // react component for creating beautiful carousel
-import CarouselSlide from './CarouselSlide';
+//import CarouselSlide from './CarouselSlide';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -93,9 +93,9 @@ export default function Home() {
           clickFunction={() => onArrowClick('left')}
         />
         <Slide in={slideIn} direction={slideDirection}>
-          <div>
+          {/* <div>
             <CarouselSlide content={content} />
-          </div>
+          </div> */}
         </Slide>
         <Arrow
           direction='right'
