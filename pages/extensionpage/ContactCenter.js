@@ -40,7 +40,7 @@ export default function ContactCenter() {
             </Grid>
             <Grid item>
                 <Grid container 
-                direction="rows"
+                direction="row"
                 spacing={1}
                 justify="flex-start"
                 alignItems="start">
@@ -51,7 +51,7 @@ export default function ContactCenter() {
              </Grid>
              <Grid item>
                 <Grid container 
-                direction="rows"
+                direction="row"
                 spacing={1}
                 justify="flex-start"
                 alignItems="start">
@@ -62,7 +62,7 @@ export default function ContactCenter() {
              </Grid>
              <Grid item>
                 <Grid container 
-                direction="rows"
+                direction="row"
                 spacing={1}
                 justify="flex-start"
                 alignItems="start">
@@ -73,7 +73,7 @@ export default function ContactCenter() {
              </Grid>
              <Grid item>
                 <Grid container 
-                direction="rows"
+                direction="row"
                 spacing={1}
                 justify="flex-start"
                 alignItems="start">

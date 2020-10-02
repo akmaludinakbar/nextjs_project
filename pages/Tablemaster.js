@@ -40,6 +40,7 @@ import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import MuiDialogContent from '@material-ui/core/DialogContent';
 import MuiDialogActions from '@material-ui/core/DialogActions';
 import Router from 'next/router'
+import color from '@material-ui/core/colors/amber';
 
 
 
@@ -273,8 +274,13 @@ export default function Tablemaster() {
       boxShadow: 'none',
       width: '100px',
       height: '100px',
+
       '&:hover':{
-        backgroundColor:'grey'
+        backgroundColor:'grey',
+        color:'red',
+        
+    
+        
     }
 
 
@@ -335,7 +341,7 @@ export default function Tablemaster() {
           <DialogContent dividers>
             <Grid container direction="column" >
               <Grid item>
-                <Grid container direction="rows" spacing={2} fullWidth>
+                <Grid container direction="row" spacing={2} fullWidth>
                   <Grid item>
                     <TextField
                       margin="dense"
@@ -358,7 +364,7 @@ export default function Tablemaster() {
                 </Grid>
               </Grid>
               <Grid item>
-                <Grid container direction="rows" spacing={2} fullWidth>
+                <Grid container direction="row" spacing={2} fullWidth>
                   <Grid item>
                     <TextField
                       margin="dense"
@@ -381,7 +387,7 @@ export default function Tablemaster() {
                 </Grid>
               </Grid>
               <Grid item>
-                <Grid container direction="rows" spacing={2} fullWidth>
+                <Grid container direction="row" spacing={2} fullWidth>
                   <Grid item>
                     <TextField
                       margin="dense"
@@ -404,7 +410,7 @@ export default function Tablemaster() {
                 </Grid>
               </Grid>
               <Grid item>
-                <Grid container direction="rows" spacing={2} fullWidth>
+                <Grid container direction="row" spacing={2} fullWidth>
                   <Grid item>
                     <TextField
                       margin="dense"
@@ -515,9 +521,9 @@ export default function Tablemaster() {
                   <Paper className={classes.paperborder} onClick={handleClickOpen} >
                     <Grid container direction="column">
                       <Grid item>
-                        <PersonAdd style={{ fontSize: 40, color: 'lightblue' }} />
+                        <PersonAdd style={{ fontSize: 40,  }} />
                       </Grid>
-                      <Grid item>  <Typography align="center" variant="caption" style={{ color: 'grey' }} > Tambah Data</Typography>
+                      <Grid item>  <Typography align="center" variant="caption"  > Tambah Data</Typography>
                       </Grid>
                     </Grid>
                   </Paper>
@@ -528,9 +534,9 @@ export default function Tablemaster() {
                   <Paper className={classes.paperborder } onClick={handleUbahdata} >
                     <Grid container direction="column">
                       <Grid item>
-                        <Create style={{ fontSize: 40, color: 'lightblue' }} />
+                        <Create style={{ fontSize: 40,  }} />
                       </Grid>
-                      <Grid item>  <Typography align="center" variant="caption" style={{ color: 'grey' }} >Ubah Data</Typography>
+                      <Grid item>  <Typography align="center" variant="caption"  >Ubah Data</Typography>
                       </Grid>
                     </Grid>
                   </Paper>
@@ -541,9 +547,9 @@ export default function Tablemaster() {
                   <Paper className={classes.paperborder} >
                     <Grid container direction="column">
                       <Grid item>
-                        <SearchIcon style={{ fontSize: 40, color: 'lightblue' }} />
+                        <SearchIcon style={{ fontSize: 40 }} />
                       </Grid>
-                      <Grid item>  <Typography align="center" variant="caption" style={{ color: 'grey' }} >Lihat Data</Typography>
+                      <Grid item>  <Typography align="center" variant="caption" >Lihat Data</Typography>
                       </Grid>
                     </Grid>
                   </Paper>
@@ -554,9 +560,9 @@ export default function Tablemaster() {
                   <Paper className={classes.paperborder} >
                     <Grid container direction="column">
                       <Grid item>
-                        <RemoveCircle style={{ fontSize: 40, color: '#f5a623' }} />
+                        <RemoveCircle style={{ fontSize: 40 }} />
                       </Grid>
-                      <Grid item>  <Typography align="center" variant="caption" style={{ color: 'grey' }} > Pengakhiran Kepersetaan</Typography>
+                      <Grid item>  <Typography align="center" variant="caption" > Pengakhiran Kepersetaan</Typography>
                       </Grid>
                     </Grid>
                   </Paper>
@@ -567,9 +573,9 @@ export default function Tablemaster() {
                   <Paper className={classes.paperborder} >
                     <Grid container direction="column">
                       <Grid item>
-                        <Publish style={{ fontSize: 40, color: 'grey' }} />
+                        <Publish style={{ fontSize: 40}} />
                       </Grid>
-                      <Grid item>  <Typography align="center" variant="caption" style={{ color: 'grey' }} > Upload Data Pekerja</Typography>
+                      <Grid item>  <Typography align="center" variant="caption"  > Upload Data Pekerja</Typography>
                       </Grid>
                     </Grid>
                   </Paper>

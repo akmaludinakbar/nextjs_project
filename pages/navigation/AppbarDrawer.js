@@ -27,6 +27,7 @@ import LiveHelpIcon from '@material-ui/icons/LiveHelp';
 import HelpIcon from '@material-ui/icons/Help';
 import Router from 'next/router'
 import Link from '@material-ui/core/Link';
+
 const secondaryListItems = (
   <div>
     <ListSubheader inset>Extension</ListSubheader>
@@ -137,6 +138,16 @@ export default function AppbarDrawer({children,href}) {
     const [auth, setAuth] = React.useState(true);
     const [anchorEl, setAnchorEl] = React.useState(null);
     const openmenu = Boolean(anchorEl);
+    const [anchorEl2, setAnchorEl2] = React.useState(null);
+    const openmenu2 = Boolean(anchorEl2);
+
+    const handleMenu2 = (event) => {
+      setAnchorEl2(event.currentTarget);
+    };
+  
+    const handleClose2 = () => {
+      setAnchorEl2(null);
+    };
   
     const handleChange = (event) => {
       setAuth(event.target.checked);
@@ -152,6 +163,14 @@ export default function AppbarDrawer({children,href}) {
     const navigate = ()=>
     {
       Router.push(`/`);
+    };
+    const navigatePengguna=()=>
+    {
+      Router.push(`/extensionpage/PanduanPengguna`);
+    };
+    const navigateFAQ=()=>
+    {
+      Router.push(`/extensionpage/FAQ`);
     };
     const handleprofile =()=>
     {
@@ -193,7 +212,7 @@ export default function AppbarDrawer({children,href}) {
                 className={classes.title}
             >
                 {/* {router.pathname} */}
-                <Grid container direction="rows"
+                <Grid container direction="row"
                    justify="flex-start"
                    alignItems="center"
                    spacing={2}>
@@ -208,13 +227,35 @@ export default function AppbarDrawer({children,href}) {
           
       <Link style={{color:'grey',paddingRight:'10px'}}>Bantuan & Informasi</Link>
       <Link style={{color:'grey'}}>Data Kepesertaan</Link>
-            <IconButton style={{color:'grey'}}>
-                <Badge badgeContent={4} color="secondary">
+      <IconButton color="inherit" style={{color:'grey'}}
+            onClick={handleMenu2} >
+                <Badge badgeContent={6} color="secondary">
                     <NotificationsIcon />
-
+                   
                 </Badge>
 
             </IconButton>
+            <Menu
+                id="menu-appbar"
+                anchorEl={anchorEl2}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={openmenu2}
+                onClose={handleClose2}
+              >
+                <MenuItem >Ilham mengirim anda sebuah  pesan</MenuItem>
+                <MenuItem >Anda mendapatkan satu notif</MenuItem>
+                <MenuItem >Data telah disetujui !!</MenuItem>
+                <MenuItem onClick={navigateFAQ}>FAQ telah diupdate</MenuItem>
+                <MenuItem onClick={navigatePengguna}>Panduan Pengguna</MenuItem>
+              </Menu>
             <IconButton color="inherit" style={{color:'grey'}}
             onClick={handleMenu} >
 

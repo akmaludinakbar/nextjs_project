@@ -19,17 +19,17 @@ import Router from 'next/router'
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 const tutorialSteps = [
     {
-      label: 'San Francisco – Oakland Bay Bridge, United States',
-      imgPath:
-      './../assets/img/image1.png',
+        label: 'San Francisco – Oakland Bay Bridge, United States',
+        imgPath:
+            './../assets/img/image1.png',
     },
     {
-      label: 'Bird',
-      imgPath:
-      './../assets/img/image2.png',
+        label: 'Bird',
+        imgPath:
+            './../assets/img/image2.png',
     },
-   
-  ];
+
+];
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
@@ -63,17 +63,25 @@ const useStyles = makeStyles((theme) => ({
     },
     gridheightbgminigrey:
     {
-    
-        height: '20vh',
+        width: '10vw',
+        height: '15vh',
         boxShadow: 'none',
-       
-        
+
+
+
 
     },
-    hover:{
-        '&:hover':{
-            backgroundColor:'grey',
-            marginLeft:'10px'
+
+    hover: {
+        color: 'black',
+       // borderBottom: '3px solid #a8b092',
+        margin: "5px",
+        '&:hover': {
+            backgroundColor: 'white',
+            marginLeft: '2px',
+            color: 'red',
+          //  borderBottom: '3px solid red',
+
 
         },
     },
@@ -84,11 +92,11 @@ const useStyles = makeStyles((theme) => ({
         height: '24vh',
         backgroundImage: `url(${"/assets/img/bg.jpeg"})`,
     },
-    img:{
-        padding:0,
+    img: {
+        padding: 0,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
-        margin:0,
+        margin: 0,
         height: '24vh',
         display: 'block',
         overflow: 'hidden',
@@ -96,8 +104,7 @@ const useStyles = makeStyles((theme) => ({
     },
     overlay: {
         position: 'absolute',
-        top: '17vh',
-        left: '47.3%',
+
         color: 'black',
         backgroundColor: 'transparent'
 
@@ -121,27 +128,26 @@ const useStyles = makeStyles((theme) => ({
 }));
 const handleStepChange = (step) => {
     setActiveStep(step);
-  };
+};
 export default function InputPP() {
     const classes = useStyles();
     const [activeStep, setActiveStep] = React.useState(0);
     const maxSteps = tutorialSteps.length;
-    
-  
+
+
     const handleNext = () => {
-      setActiveStep((prevActiveStep) => prevActiveStep + 1);
+        setActiveStep((prevActiveStep) => prevActiveStep + 1);
     };
-  
+
     const handleBack = () => {
-      setActiveStep((prevActiveStep) => prevActiveStep - 1);
+        setActiveStep((prevActiveStep) => prevActiveStep - 1);
     };
-  
+
     const handleStepChange = (step) => {
-      setActiveStep(step);
+        setActiveStep(step);
     };
-    const handleMenu = ()=>
-    {
-      Router.push(`/Tablemaster`);
+    const handleMenu = () => {
+        Router.push(`/Tablemaster`);
     };
 
     return (
@@ -150,101 +156,92 @@ export default function InputPP() {
                 direction="column"
                 justify="flex-start"
                 alignItems="stretch">
-                <Card className={classes.cardstyle}>
-                    <Grid item xs={12} >
-                        <AutoPlaySwipeableViews
-                            //axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-                            //  index={activeStep}
-                            onChangeIndex={handleStepChange}
-                            enableMouseEvents
-                        >
-                            {tutorialSteps.map((step, index) => (
-                                <div key={step.label}>
-                                    {Math.abs(activeStep - index) <= 2 ? (
-                                        <img className={classes.img} src={step.imgPath} />
-                                    ) : null}
-                                </div>
-                            ))}
-                        </AutoPlaySwipeableViews>
-                    </Grid>
-                    <div className={classes.overlay}> <Avatar aria-label="recipe" className={classes.avatar}>
-                        R
-          </Avatar></div>
-                    <Grid item xs={12}  >
-                        <Paper className={classes.gridheight}>
-                            <Grid container
-                                style={{ padding: '30px' }}
-                                direction="row"
 
-                                justify="center"
-                                alignItems="flex-end">
+                <Grid item xs={12} container>
+                    <AutoPlaySwipeableViews
+                        //axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+                        //  index={activeStep}
+                        onChangeIndex={handleStepChange}
+                        enableMouseEvents
+                    >
+                        {tutorialSteps.map((step, index) => (
+                            <div key={step.label}>
+                                {Math.abs(activeStep - index) <= 2 ? (
+                                    <img className={classes.img} src={step.imgPath} />
+                                ) : null}
+                            </div>
+                        ))}
+                    </AutoPlaySwipeableViews>
+                    <Grid item xs={12} container justify="center"
+                        alignItems="center"> <div className={classes.overlay}> <Avatar aria-label="recipe" className={classes.avatar}>
+                            R
+          </Avatar></div></Grid>
+                </Grid>
+
+                <Grid item xs={12}  >
+                    <Paper className={classes.gridheight}>
+                        <Grid container
+                            style={{ paddingTop: '50px' }}
+                            direction="row"
+                            justify="center"
+                            alignItems="center">
 
 
-                                <Grid item xs={2} >
-                                    <Paper className={classes.gridheightbgminigrey} onClick={handleMenu} onTouchMove>
-                                        <Grid container direction="column"
-                                            justify="center"
-                                            alignItems="center" 
-                                            className={classes.hover}>
-                                            <Grid item><PeopleIcon style={{ fontSize: 50 }} /></Grid>
-                                            <Grid item><Typography align='center' style={{ color: '#a8b092' }}>Pengelolaan  </Typography>
-                                            </Grid>
+                            <Grid item >
+                                <Paper className={classes.gridheightbgminigrey} onClick={handleMenu} onTouchMove>
+                                    <Grid container direction="column"
+                                        justify="center"
+                                        alignItems="center"
+                                        className={classes.hover}>
+                                        <Grid item><PeopleIcon style={{ fontSize: 50 }} /></Grid>
+                                        <Grid item ><Typography align='center' >Pengelolaan  </Typography>
                                         </Grid>
-                                    </Paper>
-                                </Grid>
-                                <Grid item >
-                                    <Paper style={{
-                                        height: '15vh',
-                                        boxShadow: 'none', marginBottom: '40px'
-                                    }}><Divider orientation="vertical" /></Paper>
-                                </Grid>
-                                <Grid item xs={2} >
-                                    <Paper className={classes.gridheightbgminigrey}>
-                                        <Grid container direction="column"
-                                            justify="center"
-                                            alignItems="center"
-                                            className={classes.hover}>
-                                            <Grid item><ReceiptIcon style={{ fontSize: 50 }} /></Grid>
-                                            <Grid item><Typography align='center' style={{ color: '#a8b092' }}>Billing Info  </Typography>
-                                            </Grid>
-                                        </Grid>
-                                    </Paper>
-                                </Grid>
-                                <Grid item >
-                                    <Paper style={{
-                                        height: '15vh',
-                                        boxShadow: 'none', marginBottom: '40px'
-                                    }}><Divider orientation="vertical" /></Paper>
-                                </Grid>
-
-
-                                <Grid item xs={2} >
-                                    <Paper className={classes.gridheightbgminigrey}>
-                                        <Grid container direction="column"
-                                            justify="center"
-                                            alignItems="center"
-                                            className={classes.hover}>
-                                            <Grid item><ContactMailIcon style={{ fontSize: 50 }} /></Grid>
-                                            <Grid item><Typography align='center' style={{ color: '#a8b092' }}>Pengajuan Claim  </Typography>
-                                            </Grid>
-                                        </Grid>
-                                    </Paper>
-                                </Grid>
-
+                                    </Grid>
+                                </Paper>
                             </Grid>
-                        </Paper>
-                    </Grid>
-                </Card>
+
+                            <Grid item >
+                                <Paper className={classes.gridheightbgminigrey}>
+                                    <Grid container direction="column"
+                                        justify="center"
+                                        alignItems="center"
+                                        className={classes.hover}>
+                                        <Grid item><ReceiptIcon style={{ fontSize: 50 }} /></Grid>
+                                        <Grid item><Typography align='center' >Billing Info  </Typography>
+                                        </Grid>
+                                    </Grid>
+                                </Paper>
+                            </Grid>
+
+
+
+                            <Grid item>
+                                <Paper className={classes.gridheightbgminigrey}>
+                                    <Grid container direction="column"
+                                        justify="center"
+                                        alignItems="center"
+                                        className={classes.hover}>
+                                        <Grid item><ContactMailIcon style={{ fontSize: 50 }} /></Grid>
+                                        <Grid item><Typography align='center' >Pengajuan Claim  </Typography>
+                                        </Grid>
+                                    </Grid>
+                                </Paper>
+                            </Grid>
+
+                        </Grid>
+                    </Paper>
+                </Grid>
+
                 <Grid item xs={12}  >
                     <Paper className={classes.gridheightbggrey}>
                         <Grid container
-                        
+
                             direction="row"
                             justify="center"
                             alignItems="center">
                             <Grid item xs={3} >
 
-                                <Paper style={{ marginLeft: '10px', marginTop: '5px',marginBottom:'5px' }}>
+                                <Paper style={{ marginLeft: '10px', marginTop: '5px', marginBottom: '5px' }}>
                                     <Grid container direction='column' justify="space-between"
                                         alignItems="stretch">
                                         <Grid item container direction="column" justify="space-between"
@@ -267,7 +264,7 @@ export default function InputPP() {
                             </Grid>
                             <Grid item xs={3} >
 
-                                <Paper style={{ marginLeft: '10px', marginTop: '5px',marginBottom:'5px'  }}>
+                                <Paper style={{ marginLeft: '10px', marginTop: '5px', marginBottom: '5px' }}>
                                     <Grid container direction='column' justify="space-between"
                                         alignItems="stretch">
                                         <Grid item container direction="column" justify="space-between"
@@ -290,7 +287,7 @@ export default function InputPP() {
                             </Grid>
                             <Grid item xs={3} >
 
-                                <Paper style={{ marginLeft: '10px', marginTop: '5px' ,marginBottom:'5px' }}>
+                                <Paper style={{ marginLeft: '10px', marginTop: '5px', marginBottom: '5px' }}>
                                     <Grid container direction='column' justify="space-between"
                                         alignItems="stretch">
                                         <Grid item container direction="column" justify="space-between"

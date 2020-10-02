@@ -1,11 +1,13 @@
 import Dashboard from '../Dashboard'
-import { TextField,Grid, FormControlLabel, Checkbox, Box, Button, Card, CardContent, Avatar, Typography, CardActions, Divider } from '@material-ui/core';
+import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary, TextField,Grid, FormControlLabel, Checkbox, Box, Button, Card, CardContent, Avatar, Typography, CardActions, Divider } from '@material-ui/core';
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
 import React from "react";
 import PropTypes from "prop-types";
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { makeStyles ,withStyles} from "@material-ui/core/styles";
 import Collapse from "@material-ui/core/Collapse";
+import { styled } from "@material-ui/core/styles";
 import IconButton from "@material-ui/core/IconButton";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -16,7 +18,16 @@ import Paper from "@material-ui/core/Paper";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import MuiTableCell from "@material-ui/core/TableCell";
+import fetch from 'node-fetch';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 
+const MyTypography = styled(Typography)({
+  fontStyle: 'normal',
+  fontWeight: '600',
+  lineHeight: '39px',
+  color: '#008F4C'
+});
 const useRowStyles = makeStyles({
     root: {
       "& > *": {
@@ -84,34 +95,28 @@ const useRowStyles = makeStyles({
       </React.Fragment>
     );
   }
-  
-  Row.propTypes = {
-    row: PropTypes.shape({
-      calories: PropTypes.number.isRequired,
-      carbs: PropTypes.number.isRequired,
-      fat: PropTypes.number.isRequired,
-      history: PropTypes.arrayOf(
-        PropTypes.shape({
-          amount: PropTypes.number.isRequired,
-          customerId: PropTypes.string.isRequired,
-          date: PropTypes.string.isRequired
-        })
-      ).isRequired,
-      name: PropTypes.string.isRequired,
-      price: PropTypes.number.isRequired,
-      protein: PropTypes.number.isRequired
-    }).isRequired
-  };
-  
-  const rows = [
-    createData("Frozen yoghurt", 159, 6.0, 24, 4.0, 3.99),
-    createData("Ice cream sandwich", 237, 9.0, 37, 4.3, 4.99),
-    createData("Eclair", 262, 16.0, 24, 6.0, 3.79),
-    createData("Cupcake", 305, 3.7, 67, 4.3, 2.5),
-    createData("Gingerbread", 356, 16.0, 49, 3.9, 1.5)
-  ];
-export default function FAQ() {
 
+  
+
+export default function FAQ({infolist}) {
+  const router = useRouter();
+
+ const [info, setOwners] = useState(infolist);
+  useEffect(() => {
+    async function loadData() {
+      const response = await fetch('http://10.172.24.130/informations/faq');
+      const infolist = await response.json();
+      setOwners(infolist);
+    }
+
+    if(infolist.length == 0) {
+        loadData();
+    }
+  }, []);
+
+  if(!info[0]) { 
+      return <div>loading...</div>
+  }
     
     return <div style={{ margin: '50px' }} >
         <Grid container
@@ -141,14 +146,26 @@ export default function FAQ() {
                     }}
                 />
             </Grid>
-            <Grid item xs={8}>
-            <Table aria-label="collapsible table">
-        <TableBody>
-          {rows.map((row) => (
-            <Row key={row.name} row={row} />
-          ))}
-        </TableBody>
-      </Table>
+            <Grid item xs={10}>
+            {info.map((b) => (
+                    <ExpansionPanel key={b.id} style={{margin:'10px'}}>
+                        <ExpansionPanelSummary
+                            expandIcon={<ExpandMoreIcon />}
+                            aria-controls="panel1a-content"
+                            id="panel1a-header"
+                        >
+                            <MyTypography id='titleFAQ'>
+                                {b.title}
+                            </MyTypography>
+                        </ExpansionPanelSummary>
+                        <ExpansionPanelDetails>
+                            <Typography id='detailFAQ'>
+                                {b.detail}
+                            </Typography>
+                        </ExpansionPanelDetails>
+                    </ExpansionPanel>
+                ))}
+
             </Grid>
             
             
@@ -156,5 +173,20 @@ export default function FAQ() {
     </div>
 }
 
+
+FAQ.getInitialProps = async (ctx) =>{
+  const res = await fetch(process.env.Dev.FaqInv);
+  const infolist = await res.json();
+  // const res2 = await fetch('http://10.172.24.130/informations/bantuan')
+  // const data = await res2.json()
+  // const join = info.concat(data);
+  const data = [{
+    title:  'Panduan Pengisian Form Pendaftaran Peserta',
+    detail: 'Panduan untuk pengisian form pendaftaran peserta dapat diunduh melalui url berikut : ',
+    url:    '/assets/pdf/Panduan Pengisian Data Untuk Pendaftaran Peserta Tapera kedalam Portal Sitara.pdf'
+  }]
+  
+  return {infolist:infolist};
+}
 
 FAQ.Layout = Dashboard;
