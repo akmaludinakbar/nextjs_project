@@ -38,7 +38,7 @@ import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Icon from '@material-ui/core/Icon';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Dashboard from './Dashboard'
-import Visibility from '@material-ui/icons/Visibility';
+import VisibilityOutlinedIcon from '@material-ui/icons/VisibilityOutlined';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import MuiDialogContent from '@material-ui/core/DialogContent';
 import MuiDialogActions from '@material-ui/core/DialogActions';
@@ -255,6 +255,14 @@ export default function tablelistpeserta() {
 
   const useStyles = makeStyles((theme) => ({
 
+    imageIcon3: {
+      height: '100%',
+      width: '30px'
+  },
+  iconRoot3: {
+
+      textAlign: 'center'
+  },
     roottextfield: {
       background: "#f2e6b7"
     },
@@ -296,8 +304,8 @@ export default function tablelistpeserta() {
       height: '100px',
 
       '&:hover': {
-        backgroundColor: 'grey',
-        color: 'red',
+        backgroundColor: '#F0F1F2',
+        color: '#FFB548',
 
 
 
@@ -468,7 +476,7 @@ export default function tablelistpeserta() {
 
         >
    
-            <Paper className={classes.paper} style={{ margin: 10 }}>
+            <Paper className={classes.paper} style={{ marginLeft:'20px',marginRight:'20px' ,marginBottom:'10px'}}>
               <Grid container spacing={2} direction="row" >
                 <Grid item xs={4}>
                   <Grid item xs container direction="column" spacing={1} alignItems="flex-start" >
@@ -560,7 +568,7 @@ export default function tablelistpeserta() {
                       <Box style={{ paddingRight: '15px', marginTop: '15px' }}> Status Pekerja</Box>
                     </Typography>
                     </Grid>
-                    <Grid item>   <TextField
+                    <Grid item style={{marginRight:'20px'}}>    <TextField
                       fullWidth="true"
                       margin="dense"
                       variant="outlined"
@@ -715,11 +723,12 @@ export default function tablelistpeserta() {
                           }}
                         /></Grid>
                       <Grid item ><EventNoteOutlinedIcon style={{ fontSize: 30,color:"white"  }}/></Grid>
+
+                      <Grid item style={{marginLeft:'50px'}}>  <Icon classes={{ root: classes.iconRoot3 }}><img className={classes.imageIcon3} src="./../assets/svg/Asset10.svg" /></Icon></Grid>
                     </Grid>
 
                 </Grid>
-
-              </Grid>
+                </Grid>
             </Paper>
          
           <Paper className={classes.paperbtn} style={{ boxShadow: 'none', backgroundColor: '#d7efd7' }}>
@@ -802,7 +811,7 @@ export default function tablelistpeserta() {
 
             xs={12} sm={12} md={12}
             justify="space-between">
-            <div style={{ margin: '10px' }}>
+            <div style={{ marginLeft:'20px',marginRight:'20px',marginTop:'10px' }}>
               <MaterialTable
 
                 style={{ boxShadow: "none" }}
@@ -851,7 +860,7 @@ export default function tablelistpeserta() {
                       return (
                         <>
 
-                          <IconButton  href="/profilepemberikerja"><Visibility></Visibility></IconButton>
+                          <IconButton  href="/profilepemberikerja"><VisibilityOutlinedIcon></VisibilityOutlinedIcon></IconButton>
                           {/* <IconButton href="/perubahandatapekerja"><Edit></Edit></IconButton> */}
                         </>
                       )

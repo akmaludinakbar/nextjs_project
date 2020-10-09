@@ -33,8 +33,21 @@ const tutorialSteps = [
 
 ];
 const useStyles = makeStyles((theme) => ({
+    imageIcon3: {
+        height: '100%',
+        width: '40px'
+    },
+    iconRoot3: {
+
+        textAlign: 'center'
+    },
     imageIcon: {
-        height: '100%'
+        height: '70px',
+        position: 'relative',
+        zIndex: 10,
+        display: 'block',
+        top: -40,
+        marginBottom: '-50vh',
     },
     iconRoot: {
         textAlign: 'center'
@@ -50,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
     },
     gridheight:
     {
-        height: '22vh'
+        height: '250px'
     },
     gridmini:
     {
@@ -105,14 +118,12 @@ const useStyles = makeStyles((theme) => ({
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         margin: 0,
-        height: '24vh',
+        height: '250px',
         display: 'block',
         overflow: 'hidden',
         width: '100%',
     },
     overlay: {
-        position: 'absolute',
-        height:'70px',
         color: 'black',
         backgroundColor: 'transparent'
 
@@ -166,6 +177,7 @@ export default function InputPP() {
                 alignItems="stretch">
 
                 <Grid item xs={12} container>
+
                     <AutoPlaySwipeableViews
                         //axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
                         //  index={activeStep}
@@ -182,7 +194,7 @@ export default function InputPP() {
                     </AutoPlaySwipeableViews>
                     <Grid item xs={12} container justify="center"
                         alignItems="center"> <div className={classes.overlay}>
-                         
+
                             <Icon classes={{ root: classes.iconRoot }}><img className={classes.imageIcon} src="./../assets/svg/LogoTaperaOrange01.svg" /></Icon>
                             {/* <Avatar aria-label="recipe" className={classes.avatar}>
                             R
@@ -193,7 +205,7 @@ export default function InputPP() {
                 <Grid item xs={12}  >
                     <Paper className={classes.gridheight}>
                         <Grid container
-                            style={{ paddingTop: '50px' }}
+                            style={{ paddingTop: '75px' }}
                             direction="row"
                             justify="center"
                             alignItems="center">
@@ -204,12 +216,15 @@ export default function InputPP() {
                                         justify="center"
                                         alignItems="center"
                                         className={classes.hover}>
-                                        <Grid item><PeopleIcon style={{ fontSize: 50 }} /></Grid>
-                                        <Grid item ><Typography align='center' >Pengelolaan  </Typography>
+                                        <Grid item>    <Icon classes={{ root: classes.iconRoot3 }}><img className={classes.imageIcon3} src="./../assets/svg/Asset2.svg" /></Icon></Grid>
+                                        <Grid item ><Typography align='center' >Pengelolaan Peserta</Typography>
                                         </Grid>
                                     </Grid>
                                 </Paper>
                             </Grid>
+
+                            <Grid item> <Paper style={{widht:'50px',height:'100px'}}> <Divider orientation="vertical" flexItem /></Paper></Grid>
+                      
 
                             <Grid item >
                                 <Paper className={classes.gridheightbgminigrey}>
@@ -217,20 +232,23 @@ export default function InputPP() {
                                         justify="center"
                                         alignItems="center"
                                         className={classes.hover}>
-                                        <Grid item><ReceiptIcon style={{ fontSize: 50 }} /></Grid>
+                                        <Grid item><Icon classes={{ root: classes.iconRoot3 }}><img className={classes.imageIcon3} src="./../assets/svg/Asset6.svg" /></Icon></Grid>
                                         <Grid item><Typography align='center' >Billing Info  </Typography>
                                         </Grid>
                                     </Grid>
                                 </Paper>
                             </Grid>
-
+                                
+                                    <Grid item> <Paper style={{widht:'50px',height:'100px'}}> <Divider orientation="vertical" flexItem /></Paper></Grid>
                             <Grid item>
+                         
                                 <Paper className={classes.gridheightbgminigrey}>
+                                     
                                     <Grid container direction="column"
                                         justify="center"
                                         alignItems="center"
                                         className={classes.hover}>
-                                        <Grid item><ContactMailIcon style={{ fontSize: 50 }} /></Grid>
+                                        <Grid item><Icon classes={{ root: classes.iconRoot3 }}><img className={classes.imageIcon3} src="./../assets/svg/Asset4.svg" /></Icon></Grid>
                                         <Grid item><Typography align='center' >Pengajuan Claim  </Typography>
                                         </Grid>
                                     </Grid>
@@ -254,16 +272,20 @@ export default function InputPP() {
                                     <Grid container direction='column' justify="space-between"
                                         alignItems="stretch">
                                         <Grid item container direction="column" justify="space-between"
-                                            style={{ height: '15vh', backgroundColor: '#62b7cc', color: 'white' }} >
-                                            <Grid item style={{ margin: '10px' }} >
-                                                <Typography gutterBottom variant="subtittle" > TOTAL PESERTA
-                                            </Typography>
+                                            style={{ height: '7vh', backgroundColor: '#62b7cc', color: 'white' }}>
+                                            <Grid item style={{ margin: '10px' }}>
+                                                <Typography gutterBottom variant="subtitle"> TOTAL PESERTA
+                                                </Typography>
                                             </Grid>
-                                            <Grid item> <Typography variant='h6' align='center' style={{ marginBottom: '20px' }}>4.213.456</Typography></Grid>
+                                        </Grid>
+                                        <Grid item container direction="column" justify="space-between"
+                                            style={{ height: '7vh', backgroundColor: '#62b7cc', color: 'white' }}>
+                                            <Grid item> <Typography variant='h6' align='center'
+                                                style={{ marginBottom: '20px' }}>4.213.456</Typography></Grid>
                                         </Grid>
                                         <Grid item container direction="row" style={{ backgroundColor: '#135f72', color: 'white' }} justify="flex-end"
                                             alignItems="flex-end">
-                                            <Typography gutterBottom variant="subtittle" style={{ paddingBottom: '3px' }}>  View Detail
+                                            <Typography gutterBottom variant="subtitle2" style={{ paddingBottom: '3px' }}>  View Detail
         </Typography>  <ArrowRightIcon fontSize="large" />
 
                                         </Grid>
@@ -276,13 +298,17 @@ export default function InputPP() {
                                 <Paper style={{ marginLeft: '10px', marginTop: '5px', marginBottom: '5px' }}>
                                     <Grid container direction='column' justify="space-between"
                                         alignItems="stretch">
-                                        <Grid item container direction="column" justify="space-between"
-                                            style={{ height: '15vh', backgroundColor: '#7ecc66', color: 'white' }} >
-                                            <Grid item style={{ margin: '10px' }} >
-                                                <Typography gutterBottom variant="subtittle" >  PENSIUN BULAN INI
-            </Typography>
+                                     <Grid item container direction="column" justify="space-between"
+                                              style={{height: '7vh', backgroundColor: '#4CB648', color: 'white'}}>
+                                            <Grid item style={{margin: '10px'}}>
+                                                <Typography gutterBottom variant="subtitle"> PENSIUN BULAN INI
+                                                </Typography>
                                             </Grid>
-                                            <Grid item> <Typography variant='h6' align='center' style={{ marginBottom: '20px' }}>4.122</Typography></Grid>
+                                        </Grid>
+                                        <Grid item container direction="column" justify="space-between"
+                                              style={{height: '7vh', backgroundColor: '#4CB648', color: 'white'}}>
+                                            <Grid item> <Typography variant='h6' align='center'
+                                                                    style={{marginBottom: '20px'}}>4.213.456</Typography></Grid>
                                         </Grid>
                                         <Grid item container direction="row" style={{ backgroundColor: '#327a16', color: 'white' }} justify="flex-end"
                                             alignItems="flex-end">
@@ -299,13 +325,17 @@ export default function InputPP() {
                                 <Paper style={{ marginLeft: '10px', marginTop: '5px', marginBottom: '5px' }}>
                                     <Grid container direction='column' justify="space-between"
                                         alignItems="stretch">
-                                        <Grid item container direction="column" justify="space-between"
-                                            style={{ height: '15vh', backgroundColor: '#cf738c', color: 'white' }} >
-                                            <Grid item style={{ margin: '10px' }} >
-                                                <Typography gutterBottom variant="subtittle" > TOTAL TABUNGAN
-            </Typography>
+                                       <Grid item container direction="column" justify="space-between"
+                                              style={{height: '7vh', backgroundColor: '#cf738c', color: 'white'}}>
+                                            <Grid item style={{margin: '10px'}}>
+                                                <Typography gutterBottom variant="subtitle"> PENSIUN BULAN INI
+                                                </Typography>
                                             </Grid>
-                                            <Grid item> <Typography variant='h6' align='center' style={{ marginBottom: '20px' }}>4.123.123</Typography></Grid>
+                                        </Grid>
+                                        <Grid item container direction="column" justify="space-between"
+                                              style={{height: '7vh', backgroundColor: '#cf738c', color: 'white'}}>
+                                            <Grid item> <Typography variant='h6' align='center'
+                                                                    style={{marginBottom: '20px'}}>4.213.456</Typography></Grid>
                                         </Grid>
                                         <Grid item container direction="row" style={{ backgroundColor: '#8f1d3f', color: 'white' }} justify="flex-end"
                                             alignItems="flex-end">
@@ -331,7 +361,7 @@ export default function InputPP() {
                                                 <Paper style={{ boxShadow: 'none', borderRadius: 'none', textAlign: 'center', backgroundColor: '#d04435' }}>10%</Paper>
                                             </Grid>
                                             <Grid item xs={10}>
-                                                <Paper style={{ boxShadow: 'none', borderRadius: 'none', textAlign: 'center', backgroundColor: '#48c833' }}>90% Aktiv</Paper>
+                                                <Paper style={{ boxShadow: 'none', borderRadius: 'none', textAlign: 'center', backgroundColor: '#4CB648' }}>90% Aktiv</Paper>
                                             </Grid>
                                         </Grid>
                                         <Grid Item style={{ paddingTop: '20px' }}>
@@ -342,7 +372,7 @@ export default function InputPP() {
                                                 <Paper style={{ boxShadow: 'none', borderRadius: 'none', textAlign: 'center', backgroundColor: '#d85600' }}>30%</Paper>
                                             </Grid>
                                             <Grid item xs={9}>
-                                                <Paper style={{ boxShadow: 'none', borderRadius: 'none', textAlign: 'center', backgroundColor: '#43ca2d' }}>70%</Paper>
+                                                <Paper style={{ boxShadow: 'none', borderRadius: 'none', textAlign: 'center', backgroundColor: '#4CB648' }}>70%</Paper>
                                             </Grid>
                                         </Grid>
                                     </Grid>

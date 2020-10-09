@@ -53,6 +53,7 @@ const useStyles = makeStyles((theme) => ({
         color: '#008F4C'
     },
     button: {
+        marginBottom:'10px',
         margin: theme.spacing(1, 0, 1),
         borderRadius: 10,
         justify: 'center',
@@ -129,8 +130,8 @@ export default function uploaddata() {
     return (
         <Grid container direction="column" spacing={1} style={{ paddingTop: '2px' }} >
             <Grid item >
-                <Paper style={{ height: '15vh', boxShadow: 'none' }}>
-                    <div style={{ paddingLeft: '30px', paddingTop: "35px" }}>   <Typography variant="h6" align="bottom"> Unggah File Data IFUA</Typography>
+                <Paper style={{ height: '30vh', boxShadow: 'none' }}>
+                    <div style={{ paddingLeft: '30px', paddingTop: "35px" }}>   <Typography variant="h6" align="bottom"> Unggah File Data Pekerja</Typography>
                         <Breadcrumbs aria-label="breadcrumb" style={{ paddingTop: '10px' }}>
                             <Link color="inherit" href="/listtableuser" onClick={handleClick}>
                                 listtableuser
@@ -141,18 +142,13 @@ export default function uploaddata() {
                     </div>
                 </Paper>
             </Grid>
-            <Grid item container alignContent="flex-end" justify="flex-end" >
-
-                <Button variant="outlined" style={{ marginRight: '50px', color: '#5BB24A' }}>
-                    Unduh IFUA
-</Button>
-            </Grid>
+          
             <Grid item >
 
                 <Paper style={{ height: '50vh' }}>
-                    <div style={{ paddingTop: '20px', paddingLeft: '20px' }}> <Typography variant="subtittle1"> Jenis File yang diunggah adalah .csv dengan ukuran masimal 30MB</Typography></div>
+                    <div style={{ paddingTop: '20px', paddingLeft: '20px' }}> <Typography variant="subtittle1"> Jenis File yang diunggah adalah .csv dengan ukuran masimal 10MB</Typography></div>
 
-                    <Paper style={{ margin: '20px', height: '36vh', borderStyle: 'dotted', boxShadow: 'none', borderColor: 'grey' }}>
+                    <Paper style={{ margin: '20px', height: '42 vh', borderStyle: 'dotted', boxShadow: 'none', borderColor: 'grey' }}>
                         <Grid container direction="column" alignItems="center" justify="center" style={{ paddingTop: '50px' }}>
                             <Grid item >  <CloudUploadOutlinedIcon style={{ fontSize: '30px', color: '#5BB24A' }} /></Grid>
                             <Grid item> <Typography>Seret dan jatuhkan file disini </Typography></Grid>

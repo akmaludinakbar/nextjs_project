@@ -156,27 +156,29 @@ iconRoot2: {
       },
 }));
  function logout() {
-  var token= cookieCutter.get('token');
-  axios.post('http://localhost:9090/auth/logout', {
-  refresh_token:  token
-     
-    })
-    .then(function (response) {
-      console.log("responselogout");
-      console.log(response);
+  Router.push(`/`);
 
-         if(response.status==204)
-      {
-        cookieCutter.set('token', '', { expires: new Date(0) });
-        console.log(cookieCutter.get('token'));
+  var token= cookieCutter.get('token');
+  // axios.post('http://localhost:9090/auth/logout', {
+  // refresh_token:  token
+     
+  //   })
+  //   .then(function (response) {
+  //     console.log("responselogout");
+  //     console.log(response);
+
+  //        if(response.status==204)
+  //     {
+  //       cookieCutter.set('token', '', { expires: new Date(0) });
+  //       console.log(cookieCutter.get('token'));
   
-        Router.push(`/`);
-      }
+  //       Router.push(`/`);
+  //     }
   
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+  //   })
+  //   .catch(function (error) {
+  //     console.log(error);
+  //   });
    
 }
 export default function AppbarDrawer({children,href}) {
@@ -269,7 +271,7 @@ export default function AppbarDrawer({children,href}) {
                    alignItems="center"
                    spacing={2}>
                 
-                  <Grid item>  <Box style={{backgroundColor:"#ffb548",width:"4vw",height:'9vh'}}></Box></Grid>
+                  <Grid item>  <Box style={{backgroundColor:"#FFB548 ",width:"4vw",height:'65px'}}></Box></Grid>
                   </Grid>
                
               

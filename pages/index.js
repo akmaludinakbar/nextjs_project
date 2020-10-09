@@ -29,18 +29,9 @@ const tutorialSteps = [
   {
     label: 'San Francisco – Oakland Bay Bridge, United States',
     imgPath:
-    './../assets/img/XjS2Oo.png',
+    './../assets/svg/XjS2Oo.svg',
   },
-  {
-    label: 'Bird',
-    imgPath:
-      'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
-  },
-  {
-    label: 'Bali, Indonesia',
-    imgPath:
-      'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250&q=80',
-  },
+
   
 ];
 
@@ -90,7 +81,10 @@ const useStyles = makeStyles((theme) => ({
     padding:0,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
+
     margin:0,
+    objectFit:'cover',
+    
     height: '100vh',
     display: 'block',
     overflow: 'hidden',
@@ -142,6 +136,11 @@ function validateEmail(value) {
     error = 'Required';
 
   } 
+  else if(value!="admin")
+  {
+    error = 'Username salah';
+
+  }
   // else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
 
   //   error = 'Invalid email address';
@@ -161,6 +160,10 @@ function validatePassword(value) {
 
 
   if(value.length<1)
+  {
+    error="Password salah"
+  }
+  else if(value!="admin")
   {
     error="Password salah"
   }
@@ -215,7 +218,7 @@ export default function Index() {
      
      <Grid item >
      <Container component="main" maxWidth="false" 
-     style={{margin:'0px',padding:'0px',width:'29vw'}}
+     style={{margin:'0px',padding:'0px',width:'28vw'}}
     >
      
      <Card style={{boxShadow:'none'}}>
@@ -223,9 +226,9 @@ export default function Index() {
         {/* <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar> */}
-        <Typography component="h1" variant="h5">
+        <Box style={{fontWeight:"fontWeightBold",color:'grey'}}><Typography component="h1" variant="h6"  >
          LOGIN
-        </Typography>
+        </Typography></Box>
 
 
 
@@ -245,28 +248,29 @@ export default function Index() {
          // Login(values.email,value.password);
 
          console.log("kesini");
+         Router.push(`/InputPP`);
          var password=values.password;
          var username=values.email;
          var status;
            var userData;
-           axios.post('http://localhost:9090/auth/login', {
-            username: username,
-            password: password
-          })
-          .then(function (response) {
-               if(response.status==200)
-            {
-              cookieCutter.set('token', response.data.refresh_token);
-              console.log(response.status);
-              console.log(response.data.refresh_token);
-              Router.push(`/InputPP`);
-            }
+          //  axios.post('http://localhost:9090/auth/login', {
+          //   username: username,
+          //   password: password
+          // })
+          // .then(function (response) {
+          //      if(response.status==200)
+          //   {
+          //     cookieCutter.set('token', response.data.refresh_token);
+          //     console.log(response.status);
+          //     console.log(response.data.refresh_token);
+          //     Router.push(`/InputPP`);
+          //   }
         
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-         
+          // })
+          // .catch(function (error) {
+          //   console.log(error);
+          // });
+        
           setOpen(true);
      
            
@@ -321,26 +325,26 @@ export default function Index() {
                 type="submit"
                 fullWidth
                 variant="contained"
-                color="primary"
+                style={{backgroundColor:'#519FD7',color:'white'}}
               
               >
 
                 LOGIN
     </Button>
     <Typography align='center'
-    paragraph="true" variant="subtitle2">Atau</Typography>
+    paragraph="true" variant="subtitle2" style={{paddingTop:'10px'}}>Atau</Typography>
       <Button
                 
                 fullWidth
                 variant="contained"
-                color="secondary"
+                style={{backgroundColor:'#FFB94B',color:'white'}}
                 href="/SignUp"
               >
 
                 DAFTAR
     </Button>
-    <Typography align='right'
-    paragraph="true" variant="caption" color="textSecondary">Copyright A</Typography>
+    {/* <Typography align='right'
+    paragraph="true" variant="caption" color="textSecondary">Copyright A</Typography> */}
     <Typography variant="caption"   paragraph="true" color="textSecondary">Lakukan pendaftaran jika belum memiliki akun</Typography>
     <Typography variant="caption" paragraph="true" color="textSecondary">Kata sandi akan terkunci secara otomatis apabila telah melakukan kesalahan (5) kali</Typography>
    
