@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import axios from 'axios';
 import Dashboard from './Dashboard'
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 import DescriptionIcon from '@material-ui/icons/Description';
@@ -13,6 +14,7 @@ import { FormControlLabel, Checkbox, Box, Button, Card, CardContent, Avatar, Typ
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
+import Icon from '@material-ui/core/Icon';
 import { autoPlay } from 'react-swipeable-views-utils';
 import Router from 'next/router'
 
@@ -31,6 +33,12 @@ const tutorialSteps = [
 
 ];
 const useStyles = makeStyles((theme) => ({
+    imageIcon: {
+        height: '100%'
+    },
+    iconRoot: {
+        textAlign: 'center'
+    },
     root: {
         flexGrow: 1,
     },
@@ -74,13 +82,13 @@ const useStyles = makeStyles((theme) => ({
 
     hover: {
         color: 'black',
-       // borderBottom: '3px solid #a8b092',
+        // borderBottom: '3px solid #a8b092',
         margin: "5px",
         '&:hover': {
             backgroundColor: 'white',
             marginLeft: '2px',
             color: 'red',
-          //  borderBottom: '3px solid red',
+            //  borderBottom: '3px solid red',
 
 
         },
@@ -104,7 +112,7 @@ const useStyles = makeStyles((theme) => ({
     },
     overlay: {
         position: 'absolute',
-
+        height:'70px',
         color: 'black',
         backgroundColor: 'transparent'
 
@@ -147,7 +155,7 @@ export default function InputPP() {
         setActiveStep(step);
     };
     const handleMenu = () => {
-        Router.push(`/Tablemaster`);
+        Router.push(`/tablelistpeserta`);
     };
 
     return (
@@ -173,9 +181,13 @@ export default function InputPP() {
                         ))}
                     </AutoPlaySwipeableViews>
                     <Grid item xs={12} container justify="center"
-                        alignItems="center"> <div className={classes.overlay}> <Avatar aria-label="recipe" className={classes.avatar}>
+                        alignItems="center"> <div className={classes.overlay}>
+                         
+                            <Icon classes={{ root: classes.iconRoot }}><img className={classes.imageIcon} src="./../assets/svg/LogoTaperaOrange01.svg" /></Icon>
+                            {/* <Avatar aria-label="recipe" className={classes.avatar}>
                             R
-          </Avatar></div></Grid>
+          </Avatar> */}
+                        </div></Grid>
                 </Grid>
 
                 <Grid item xs={12}  >

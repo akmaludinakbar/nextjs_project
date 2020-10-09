@@ -4,10 +4,12 @@ import React from 'react';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import NotificationsIcon from '@material-ui/icons/Notifications';
+import NotificationsActiveOutlinedIcon from '@material-ui/icons/NotificationsActiveOutlined';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import SearchRoundedIcon from '@material-ui/icons/SearchRounded';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import cookieCutter from 'cookie-cutter'
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -20,13 +22,15 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import PeopleIcon from '@material-ui/icons/People';
 import ViewListIcon from '@material-ui/icons/ViewList';
 import BarChartIcon from '@material-ui/icons/BarChart';
-import AccountCircle from '@material-ui/icons/AccountCircle';
+import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
 import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import LiveHelpIcon from '@material-ui/icons/LiveHelp';
 import HelpIcon from '@material-ui/icons/Help';
 import Router from 'next/router'
 import Link from '@material-ui/core/Link';
+import axios from 'axios';
+
 
 const secondaryListItems = (
   <div>
@@ -132,6 +136,30 @@ const useStyles = makeStyles((theme) => ({
         height: 240,
       },
 }));
+ function logout() {
+  var token= cookieCutter.get('token');
+  axios.post('http://localhost:9090/auth/logout', {
+  refresh_token:  token
+     
+    })
+    .then(function (response) {
+      console.log("responselogout");
+      console.log(response);
+
+         if(response.status==204)
+      {
+        cookieCutter.set('token', '', { expires: new Date(0) });
+        console.log(cookieCutter.get('token'));
+  
+        Router.push(`/`);
+      }
+  
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+   
+}
 export default function AppbarDrawer({children,href}) {
     const [open, setOpen] = React.useState(false);
     const router = useRouter()
@@ -160,9 +188,13 @@ export default function AppbarDrawer({children,href}) {
     const handleClose = () => {
       setAnchorEl(null);
     };
+
+
     const navigate = ()=>
     {
-      Router.push(`/`);
+      logout();
+      
+     // Router.push(`/`);
     };
     const navigatePengguna=()=>
     {
@@ -186,7 +218,7 @@ export default function AppbarDrawer({children,href}) {
     const classes = useStyles();
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
     return  router.pathname=='/'?<div></div>:<div>
-        <AppBar style={{backgroundColor:'white',boxShadow:'0px 0px 1px 0px rgba(0,0,0,0.2)'}} position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
+        <AppBar style={{backgroundColor:'white',boxShadow:'0px 0px 20px 0px rgba(0,0,0,0.2)'}} position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
         <Toolbar className={classes.toolbar}>
             <IconButton
             
@@ -230,7 +262,7 @@ export default function AppbarDrawer({children,href}) {
       <IconButton color="inherit" style={{color:'grey'}}
             onClick={handleMenu2} >
                 <Badge badgeContent={6} color="secondary">
-                    <NotificationsIcon />
+                    <NotificationsActiveOutlinedIcon />
                    
                 </Badge>
 
@@ -259,7 +291,15 @@ export default function AppbarDrawer({children,href}) {
             <IconButton color="inherit" style={{color:'grey'}}
             onClick={handleMenu} >
 
-                <AccountCircle />
+                <PersonOutlineOutlinedIcon />
+
+
+
+            </IconButton>
+             <IconButton color="inherit" style={{color:'grey'}}
+             >
+
+                <SearchRoundedIcon  />
 
 
 
@@ -316,7 +356,7 @@ export default function AppbarDrawer({children,href}) {
                     </ListItemIcon>
                     <ListItemText primary="Dashboard" />
                 </ListItem></Link>
-               <Link href="/Tablemaster">
+               <Link href="/tablelistpeserta">
                <ListItem button  >
                     <ListItemIcon>
                         <ViewListIcon />

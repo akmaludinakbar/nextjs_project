@@ -7,6 +7,7 @@ import Link from '../src/Link';
 import Copyright from '../src/Copyright';
 import { makeStyles,useTheme  } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import cookieCutter from 'cookie-cutter'
 import Avatar from '@material-ui/core/Avatar';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import TextField from '@material-ui/core/TextField';
@@ -20,6 +21,7 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
+import axios from 'axios';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -27,7 +29,7 @@ const tutorialSteps = [
   {
     label: 'San Francisco – Oakland Bay Bridge, United States',
     imgPath:
-      'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
+    './../assets/img/XjS2Oo.png',
   },
   {
     label: 'Bird',
@@ -39,16 +41,7 @@ const tutorialSteps = [
     imgPath:
       'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250&q=80',
   },
-  {
-    label: 'NeONBRAND Digital Marketing, Las Vegas, United States',
-    imgPath:
-      'https://images.unsplash.com/photo-1518732714860-b62714ce0c59?auto=format&fit=crop&w=400&h=250&q=60',
-  },
-  {
-    label: 'Goč, Serbia',
-    imgPath:
-      'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
-  },
+  
 ];
 
 const defaultProps = {
@@ -148,15 +141,13 @@ function validateEmail(value) {
     
     error = 'Required';
 
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
+  } 
+  // else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
 
-    error = 'Invalid email address';
+  //   error = 'Invalid email address';
 
-  }
-  if(value!="admin@test.com")
-  {
-    error = 'Email Salah';
-  }
+  // }
+
 
   return error;
 
@@ -168,11 +159,7 @@ function validatePassword(value) {
 
   let error;
 
-  if (value != 'admin') {
 
-    error = 'Password Salah';
-
-  }
   if(value.length<1)
   {
     error="Password salah"
@@ -183,29 +170,7 @@ function validatePassword(value) {
 }
 
 
-async function Login() {
-  await fetch('https://10.70.8.132/BranchReportCore/api/auth/login',
-      {
-          method: 'POST',
-          body:
-          {
-              "email": "admin@test.com",
-              "password": "admin"
-          }
-            ,
-      })
-      .then((r) => {
-          console.log(r.status)
-          const status = r.status;
-          return r.json();
-      })
 
-      .then((data) => {
-          //console.log(JSON.stringify(data.participants[1].nik))
-          console.log("dara from prh", JSON.stringify(data))
-    
-      })
-}
 
 export default function Index() {
   const classes = useStyles();
@@ -277,11 +242,36 @@ export default function Index() {
  
           // same shape as initial values
           console.log(values.email);
-          setOpen(true);
+         // Login(values.email,value.password);
 
-           // Login(values);
+         console.log("kesini");
+         var password=values.password;
+         var username=values.email;
+         var status;
+           var userData;
+           axios.post('http://localhost:9090/auth/login', {
+            username: username,
+            password: password
+          })
+          .then(function (response) {
+               if(response.status==200)
+            {
+              cookieCutter.set('token', response.data.refresh_token);
+              console.log(response.status);
+              console.log(response.data.refresh_token);
+              Router.push(`/InputPP`);
+            }
         
-          Router.push(`/InputPP`);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+         
+          setOpen(true);
+     
+           
+        
+         // Router.push(`/InputPP`);
  
         }}
      
@@ -294,7 +284,7 @@ export default function Index() {
               <Field name="email" as={TextField} variant="outlined"
                 margin="normal" 
                 fullWidth label="email"
-                type="email"
+               // type="email"
                 required
                 validate={validateEmail}
                 
