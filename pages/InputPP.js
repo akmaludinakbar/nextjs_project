@@ -198,7 +198,6 @@ export default function InputPP() {
                             justify="center"
                             alignItems="center">
 
-
                             <Grid item >
                                 <Paper className={classes.gridheightbgminigrey} onClick={handleMenu} onTouchMove>
                                     <Grid container direction="column"
@@ -224,8 +223,6 @@ export default function InputPP() {
                                     </Grid>
                                 </Paper>
                             </Grid>
-
-
 
                             <Grid item>
                                 <Paper className={classes.gridheightbgminigrey}>

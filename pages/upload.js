@@ -1,33 +1,29 @@
-import React, { Component, Fragment } from 'react'
+import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-import axios from 'axios';
-import Dashboard from './Dashboard'
-import ArrowRightIcon from '@material-ui/icons/ArrowRight';
-import DescriptionIcon from '@material-ui/icons/Description';
-import PeopleIcon from '@material-ui/icons/People';
-import ReceiptIcon from '@material-ui/icons/Receipt';
-import CloudUploadOutlinedIcon from '@material-ui/icons/CloudUploadOutlined';
-import ContactMailIcon from '@material-ui/icons/ContactMail';
-import PersonAddDisabledIcon from '@material-ui/icons/PersonAddDisabled';
-import { TextField, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, TableContainer, Table, TableHead, TableRow, TableCell, TableBody, CardHeader, Container, FormControlLabel, Checkbox, Box, Button, Card, CardContent, Avatar, Typography, CardActions, Divider, Breadcrumbs, Link } from '@material-ui/core';
-import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
-import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
-import SwipeableViews from 'react-swipeable-views';
-import Icon from '@material-ui/core/Icon';
-import { autoPlay } from 'react-swipeable-views-utils';
-import Router from 'next/router'
 import { csv } from 'd3'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-// import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Snackbar } from '@material-ui/core';
-// import { Grid, Card, CardHeader, CardContent, CardActions, Container, Button, TextField, Table, TableHead, TableBody, TableCell, TableRow, TableContainer, Paper, Typography } from '@material-ui/core'
+import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Snackbar } from '@material-ui/core';
+import { Grid, Card, CardHeader, CardContent, CardActions, Container, Button, TextField, Table, TableHead, TableBody, TableCell, TableRow, TableContainer, Paper, Typography } from '@material-ui/core'
 import Layout from "../components/layout"
 import { withAuthSync } from "../utils/auth";
-import { Element } from 'react-scroll'
+import {Element} from 'react-scroll'
 
-const useStyles = makeStyles((theme) => ({
+const initialValues = {
+    file: ''
+}
+
+const validationSchema = Yup.object().shape({
+    file: Yup.mixed().required("Mohon Pilih File Terlebih dahulu")
+        .test("fileFormat", "Tipe File Tidak Sesuai", value =>
+            value && ['application/vnd.ms-excel'].includes(value.type)
+        )
+        .test("fileSize", "Ukuran File Melebihi Kapasitas 10Mb", value =>
+            value && value.size < 10240000
+        )
+})
+
+const useStyles = makeStyles((theme) =>({
     table: {
         maxWidth: 500,
 
@@ -45,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'column',
         alignItems: 'center',
     },
-    typo: {
+    typo:{
         fontStyle: 'normal',
         fontWeight: '600',
         // fontSize: '32px',
@@ -63,34 +59,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-
-const initialValues = {
-    file: ''
-}
-
-const validationSchema = Yup.object().shape({
-    file: Yup.mixed().required("Mohon Pilih File Terlebih dahulu")
-        .test("fileFormat", "Tipe File Tidak Sesuai", value =>
-            value && ['application/vnd.ms-excel'].includes(value.type)
-        )
-        .test("fileSize", "Ukuran File Melebihi Kapasitas 10Mb", value =>
-            value && value.size < 10240000
-        )
-})
-
-function handleClick(event) {
-    event.preventDefault();
-    console.info('You clicked a breadcrumb.');
-}
-
-export default function uploaddata() {
-    const inputEl = React.useRef(null);
-    const onButtonClick = () => {
-        console.log("inside")
-        // `current` points to the mounted file input element
-        inputEl.current.click();
-    };
-
+function upload() {
     const classes = useStyles();
     const [openDialog, setOpenDialog] = React.useState(false);
     const [openSnackBar, setOpenSnackBar] = React.useState(false);
@@ -125,45 +94,28 @@ export default function uploaddata() {
         validationSchema
     })
 
-
     return (
-        <Grid container direction="column" spacing={1} style={{ paddingTop: '2px' }} >
-            <Grid item >
-                <Paper style={{ height: '15vh', boxShadow: 'none' }}>
-                    <div style={{ paddingLeft: '30px', paddingTop: "35px" }}>   <Typography variant="h6" align="bottom"> Unggah File Data IFUA</Typography>
-                        <Breadcrumbs aria-label="breadcrumb" style={{ paddingTop: '10px' }}>
-                            <Link color="inherit" href="/listtableuser" onClick={handleClick}>
-                                listtableuser
-  </Link>
-
-                            <Typography color="textPrimary">upload Data</Typography>
-                        </Breadcrumbs>
+        <Layout>
+             <Element id="daftarSection" name="daftarSection">
+        <Container maxWidth="xl" component="main" className={classes.root}>
+            <Grid container justify="center">
+                <Grid item>
+                    <Card>
+                        <CardHeader className={classes.typo} title="Unggah Data Peserta" titleTypographyProps={{ align: 'center' }}>
+                        </CardHeader>
+                        <CardContent>
+                            <Typography variant="body" align="center" color="textSecondary" component="p">Pemberi Keja saat mengunggah data peserta melalui menu Unggah Data Peserta</Typography>
+                        </CardContent>
+                        <div className={classes.paper}>
+                        <div className={classes.root}>
+                <form onSubmit={formik.handleSubmit}>
+                    <div id="message">
+                        <b>Pastikan file yang akan anda unggah memenuhi syarat:</b>
+                        <li id="filetype" className="invalid">Jenis file <b>.csv</b></li>
+                        <li id="filesize" className="invalid">Ukuran file <b>&lt; 10Mb</b></li>
                     </div>
-                </Paper>
-            </Grid>
-            <Grid item container alignContent="flex-end" justify="flex-end" >
-
-                <Button variant="outlined" style={{ marginRight: '50px', color: '#5BB24A' }}>
-                    Unduh IFUA
-</Button>
-            </Grid>
-            <Grid item >
-
-                <Paper style={{ height: '50vh' }}>
-                    <div style={{ paddingTop: '20px', paddingLeft: '20px' }}> <Typography variant="subtittle1"> Jenis File yang diunggah adalah .csv dengan ukuran masimal 30MB</Typography></div>
-
-                    <Paper style={{ margin: '20px', height: '36vh', borderStyle: 'dotted', boxShadow: 'none', borderColor: 'grey' }}>
-                        <Grid container direction="column" alignItems="center" justify="center" style={{ paddingTop: '50px' }}>
-                            <Grid item >  <CloudUploadOutlinedIcon style={{ fontSize: '30px', color: '#5BB24A' }} /></Grid>
-                            <Grid item> <Typography>Seret dan jatuhkan file disini </Typography></Grid>
-                            <Grid item> <Typography>atau </Typography></Grid>
-                         
-                            <Grid item>
-                           
-                            <form onSubmit={formik.handleSubmit}>
-                 
                     <br/>
-                    {/* <TextField id="txtFileName" disable="true" value={formik.values.file.name} variant="outlined" size="small"/> */}
+                    <TextField id="txtFileName" disable="true" value={formik.values.file.name} variant="outlined" size="small"/>
                     <Typography style={{ color: "red" }}>{formik.errors.file}</Typography>
                     <br/>
                     <Button 
@@ -229,7 +181,15 @@ export default function uploaddata() {
                     <br></br>
                     <TableContainer component={Paper}>
                         <Table className={classes.table} aria-label="simple table" style={(formik.errors.file == undefined && formik.values.file == '') || formik.errors.file ? { display: "none" } : { display: "" }}>
-                           
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell align="right">Nama</TableCell>
+                                    <TableCell align="right">NIK</TableCell>
+                                    <TableCell align="right">Nama Institusi</TableCell>
+                                    <TableCell align="right">NIP</TableCell>
+                                    <TableCell align="right">Tanggal Lahir</TableCell>
+                                </TableRow>
+                            </TableHead>
                             <TableBody>
                                 {data.map((row, index) => {
                                     if (data.length <= 10) {
@@ -258,18 +218,18 @@ export default function uploaddata() {
                         </Table>
                     </TableContainer>
                 </form>
-                  
-                            </Grid>
-                            
-                        </Grid>
-                    </Paper>
-
-                </Paper>
+                <br></br>
+            </div>
+                        </div>
+                        
+                    </Card>
+                </Grid>
             </Grid>
-        </Grid>
+        </Container>
+    </Element>
+           
+        </Layout>
     )
 }
 
-
-
-uploaddata.Layout = Dashboard;
+export default upload

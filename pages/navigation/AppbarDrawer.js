@@ -15,7 +15,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import {Typography,makeStyles,Badge,Drawer,Divider,Box,Grid,Avatar} from '@material-ui/core';
+import {Typography,makeStyles,Badge,Drawer,Divider,Box,Grid,Avatar,Icon} from '@material-ui/core';
 import { useRouter } from 'next/router';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
@@ -63,6 +63,25 @@ const drawerWidth = 240;
 
 
 const useStyles = makeStyles((theme) => ({
+  imageIcon: {
+    height: '100%'
+},
+iconRoot: {
+    textAlign: 'center'
+},
+imageIcon2: {
+  height: '100%',
+  width:'90%',
+  marginRight:'10px'
+  
+},
+iconRoot2: {
+  width:'180px',
+  fontSize:'54px',
+  textAlign: 'center',
+  marginRight:'20px',
+
+},
     appBar: {
         zIndex: theme.zIndex.drawer + 1,
         transition: theme.transitions.create(['width', 'margin'], {
@@ -235,7 +254,8 @@ export default function AppbarDrawer({children,href}) {
           <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
         </IconButton>
       </Link> */}
-      <img src="/assets/img/TAPERA.png" style={{height:'7vh',paddingRight:'10px'}} />
+     <Icon classes={{ root: classes.iconRoot2 }}><img className={classes.imageIcon2} src="./../assets/img/Asset7.png" /></Icon>
+      
             <Typography
             
                 variant="h6"
@@ -248,9 +268,7 @@ export default function AppbarDrawer({children,href}) {
                    justify="flex-start"
                    alignItems="center"
                    spacing={2}>
-                  <Grid item>
-                  BP TAPERA 
-                  </Grid> 
+                
                   <Grid item>  <Box style={{backgroundColor:"#ffb548",width:"4vw",height:'9vh'}}></Box></Grid>
                   </Grid>
                
@@ -299,7 +317,8 @@ export default function AppbarDrawer({children,href}) {
              <IconButton color="inherit" style={{color:'grey'}}
              >
 
-                <SearchRoundedIcon  />
+<Icon classes={{ root: classes.iconRoot }}><img className={classes.imageIcon} src="./../assets/svg/Search.svg" /></Icon>
+                        
 
 
 
