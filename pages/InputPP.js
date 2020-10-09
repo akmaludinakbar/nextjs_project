@@ -223,7 +223,7 @@ export default function InputPP() {
                                 </Paper>
                             </Grid>
 
-                            <Grid item> <Paper style={{widht:'50px',height:'100px'}}> <Divider orientation="vertical" flexItem /></Paper></Grid>
+                            <Grid item> <Paper style={{widht:'50px',height:'100px',marginLeft:'20px',}}> <Divider orientation="vertical" flexItem /></Paper></Grid>
                       
 
                             <Grid item >
@@ -239,7 +239,7 @@ export default function InputPP() {
                                 </Paper>
                             </Grid>
                                 
-                                    <Grid item> <Paper style={{widht:'50px',height:'100px'}}> <Divider orientation="vertical" flexItem /></Paper></Grid>
+                                    <Grid item> <Paper style={{widht:'50px',height:'100px',marginRight:'20px'}}> <Divider orientation="vertical" flexItem /></Paper></Grid>
                             <Grid item>
                          
                                 <Paper className={classes.gridheightbgminigrey}>
