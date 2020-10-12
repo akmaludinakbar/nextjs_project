@@ -23,16 +23,20 @@ const tutorialSteps = [
     {
         label: 'San Francisco – Oakland Bay Bridge, United States',
         imgPath:
-            './../assets/img/image1.png',
+            './../assets/img/Tapera-Banner-Design-1-10-Oct-2020.jpg',
     },
     {
         label: 'Bird',
         imgPath:
-            './../assets/img/image2.png',
+            './../assets/img/Tapera-Banner-Design-3-10-Oct-2020.jpg',
     },
 
 ];
 const useStyles = makeStyles((theme) => ({
+    sizepercent:{
+        height:'11vh',
+        
+    },
     imageIcon3: {
         height: '100%',
         width: '40px'
@@ -272,20 +276,20 @@ export default function InputPP() {
                                     <Grid container direction='column' justify="space-between"
                                         alignItems="stretch">
                                         <Grid item container direction="column" justify="space-between"
-                                            style={{ height: '7vh', backgroundColor: '#62b7cc', color: 'white' }}>
+                                            style={{ height: '7vh', backgroundColor: '#4CB648', color: 'white' }}>
                                             <Grid item style={{ margin: '10px' }}>
                                                 <Typography gutterBottom variant="subtitle"> TOTAL PESERTA
                                                 </Typography>
                                             </Grid>
                                         </Grid>
                                         <Grid item container direction="column" justify="space-between"
-                                            style={{ height: '7vh', backgroundColor: '#62b7cc', color: 'white' }}>
+                                            style={{ height: '7vh', backgroundColor: '#4CB648', color: 'white' }}>
                                             <Grid item> <Typography variant='h6' align='center'
                                                 style={{ marginBottom: '20px' }}>4.213.456</Typography></Grid>
                                         </Grid>
-                                        <Grid item container direction="row" style={{ backgroundColor: '#135f72', color: 'white' }} justify="flex-end"
+                                        <Grid item container direction="row" style={{ backgroundColor: '#1C7516', color: 'white' }} justify="flex-end"
                                             alignItems="flex-end">
-                                            <Typography gutterBottom variant="subtitle2" style={{ paddingBottom: '3px' }}>  View Detail
+                                            <Typography gutterBottom variant="subtitle2" style={{ paddingBottom: '3px' }}>  Lihat Detail
         </Typography>  <ArrowRightIcon fontSize="large" />
 
                                         </Grid>
@@ -299,20 +303,20 @@ export default function InputPP() {
                                     <Grid container direction='column' justify="space-between"
                                         alignItems="stretch">
                                      <Grid item container direction="column" justify="space-between"
-                                              style={{height: '7vh', backgroundColor: '#4CB648', color: 'white'}}>
+                                              style={{height: '7vh', backgroundColor: '#3AA2EF', color: 'white'}}>
                                             <Grid item style={{margin: '10px'}}>
                                                 <Typography gutterBottom variant="subtitle"> PENSIUN BULAN INI
                                                 </Typography>
                                             </Grid>
                                         </Grid>
                                         <Grid item container direction="column" justify="space-between"
-                                              style={{height: '7vh', backgroundColor: '#4CB648', color: 'white'}}>
+                                              style={{height: '7vh', backgroundColor: '#3AA2EF', color: 'white'}}>
                                             <Grid item> <Typography variant='h6' align='center'
                                                                     style={{marginBottom: '20px'}}>4.213.456</Typography></Grid>
                                         </Grid>
-                                        <Grid item container direction="row" style={{ backgroundColor: '#327a16', color: 'white' }} justify="flex-end"
+                                        <Grid item container direction="row" style={{ backgroundColor: '#0D5D8E', color: 'white' }} justify="flex-end"
                                             alignItems="flex-end">
-                                            <Typography gutterBottom variant="subtittle" style={{ paddingBottom: '3px' }}>  View Detail
+                                            <Typography gutterBottom variant="subtittle" style={{ paddingBottom: '3px' }}>  Lihat Detail
 </Typography>  <ArrowRightIcon fontSize="large" />
 
                                         </Grid>
@@ -326,20 +330,20 @@ export default function InputPP() {
                                     <Grid container direction='column' justify="space-between"
                                         alignItems="stretch">
                                        <Grid item container direction="column" justify="space-between"
-                                              style={{height: '7vh', backgroundColor: '#cf738c', color: 'white'}}>
+                                              style={{height: '7vh', backgroundColor: '#FFB548', color: 'white'}}>
                                             <Grid item style={{margin: '10px'}}>
-                                                <Typography gutterBottom variant="subtitle"> PENSIUN BULAN INI
+                                                <Typography gutterBottom variant="subtitle"> TOTAL TABUNGAN
                                                 </Typography>
                                             </Grid>
                                         </Grid>
                                         <Grid item container direction="column" justify="space-between"
-                                              style={{height: '7vh', backgroundColor: '#cf738c', color: 'white'}}>
+                                              style={{height: '7vh', backgroundColor: '#FFB548', color: 'white'}}>
                                             <Grid item> <Typography variant='h6' align='center'
                                                                     style={{marginBottom: '20px'}}>4.213.456</Typography></Grid>
                                         </Grid>
-                                        <Grid item container direction="row" style={{ backgroundColor: '#8f1d3f', color: 'white' }} justify="flex-end"
+                                        <Grid item container direction="row" style={{ backgroundColor: '#A86B1A ', color: 'white' }} justify="flex-end"
                                             alignItems="flex-end">
-                                            <Typography gutterBottom variant="subtittle" style={{ paddingBottom: '3px' }}>  View Detail
+                                            <Typography gutterBottom variant="subtittle" style={{ paddingBottom: '3px' }}>  Lihat Detail
 </Typography>  <ArrowRightIcon fontSize="large" />
 
                                         </Grid>
@@ -352,29 +356,31 @@ export default function InputPP() {
                                     <Grid container
                                         direction="column"
                                         justify="center"
-                                        alignItems="start">
+                                        alignItems="start"
+                                        style={{paddingTop:'5px'}}
+                                        >
                                         <Grid Item>
                                             <Typography variant="subtittle1">STATUS KEPESERTAAN</Typography>
                                         </Grid>
                                         <Grid container >
                                             <Grid item xs={2} >
-                                                <Paper style={{ boxShadow: 'none', borderRadius: 'none', textAlign: 'center', backgroundColor: '#d04435' }}>10%</Paper>
+                                                <Paper className={classes.sizepercent} style={{ boxShadow: 'none', borderRadius: 'unset', textAlign: 'center', backgroundColor: '#FFB548' }}>10%</Paper>
                                             </Grid>
                                             <Grid item xs={10}>
-                                                <Paper style={{ boxShadow: 'none', borderRadius: 'none', textAlign: 'center', backgroundColor: '#4CB648' }}>90% Aktiv</Paper>
+                                                <Paper  className={classes.sizepercent}  style={{ boxShadow: 'none', borderRadius: 'unset', textAlign: 'center', backgroundColor: '#4CB648' }}>Aktif</Paper>
                                             </Grid>
                                         </Grid>
-                                        <Grid Item style={{ paddingTop: '20px' }}>
+                                        {/* <Grid Item style={{ paddingTop: '20px' }}>
                                             <Typography variant="subtittle1">PENSIUN / MENINGGAL</Typography>
                                         </Grid>
                                         <Grid container>
                                             <Grid item xs={3} >
-                                                <Paper style={{ boxShadow: 'none', borderRadius: 'none', textAlign: 'center', backgroundColor: '#d85600' }}>30%</Paper>
+                                                <Paper style={{ boxShadow: 'none', borderRadius: 'none', textAlign: 'center', backgroundColor: '#FFB548' }}>30%</Paper>
                                             </Grid>
                                             <Grid item xs={9}>
-                                                <Paper style={{ boxShadow: 'none', borderRadius: 'none', textAlign: 'center', backgroundColor: '#4CB648' }}>70%</Paper>
-                                            </Grid>
-                                        </Grid>
+                                                <Paper style={{ boxShadow: 'none', borderRadius: 'none', textAlign: 'center', backgroundColor: '#4CB648' }}>Aktif</Paper>
+                                            </Grid> */}
+                                        {/* </Grid> */}
                                     </Grid>
                                 </Paper>
                             </Grid>

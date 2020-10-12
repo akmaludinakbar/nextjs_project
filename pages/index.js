@@ -287,7 +287,8 @@ export default function Index() {
             >
               <Field name="email" as={TextField} variant="outlined"
                 margin="normal" 
-                fullWidth label="email"
+                fullWidth 
+                label="Email/User ID"
                // type="email"
                 required
                 validate={validateEmail}
@@ -301,7 +302,7 @@ export default function Index() {
               <Field name="password" as={TextField} variant="outlined"
                 margin="normal"
                 fullWidth label="password"
-                type="password"
+                type="Password"
                 validate={validatePassword}
                 required
                 ></Field>
@@ -316,7 +317,7 @@ export default function Index() {
              </Grid > 
                  <Grid item className={classes.gridstyle} >
                   <Link href="#" variant="body2">
-                    Forgot password?
+                    Lupa Kata Sandi?
         </Link>
                 </Grid>
             </Grid>

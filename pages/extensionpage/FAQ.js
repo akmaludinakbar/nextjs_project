@@ -20,7 +20,7 @@ import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import MuiTableCell from "@material-ui/core/TableCell";
 import fetch from 'node-fetch';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useEffect, useState,useRef } from 'react';
 
 const MyTypography = styled(Typography)({
   fontStyle: 'normal',
@@ -96,28 +96,57 @@ const useRowStyles = makeStyles({
     );
   }
 
-  
+
+
 
 export default function FAQ({infolist}) {
   const router = useRouter();
+  
+  const textRef = useRef();
+
+ 
 
  const [info, setOwners] = useState(infolist);
+
+ function search()
+ {
+      
+   infolist = infolist.filter(
+       (y) => {
+           return y.title.toLowerCase().match(textRef.current.value.toLowerCase())
+              
+               || y.detail.toLowerCase().match(textRef.current.value.toLowerCase())
+              
+                
+       }
+
+
+   ) 
+   var info=setOwners(infolist);
+   console.log(infolist);
+ }
   useEffect(() => {
     async function loadData() {
-      const response = await fetch('http://10.172.24.130/informations/faq');
-      const infolist = await response.json();
-      setOwners(infolist);
+      //const response = await fetch('http://10.172.24.130/informations/faq');
+      console.log("okeokeokeoke");
+      //console.log(response.json);
+      const infolist = [ { id: 2, title: "Siapa saja yang akan menjadi Peserta Tapera?", detail: "Berdasarkan UU No.4 Tahun 2016 tentang Tabungan Perumahan Rakyat, bahwa setiap pekerja dan pekerja mandiri yang berpenghasilan paling sedikit sebesar upah minimum wajib menjadi Peserta Tapera"} ,{ id: 4, title: "Apa yang dimaksud Dana Murah Jangka Panjang?", detail: "Dana murah jangka panjang adalah dana dengan suku bunga yang terjangkau yang sekaligus mampu menanggulangi ketidaksesuaian antara jangka waktu sumber biaya dan jangka waktu pengembalian atau tenor kredit pemilikan rumah." },{ id: 6, title: "Apa yang dimaksud Pemilikan Rumah?", detail: "Pemilikan rumah adalah pembelian rumah oleh Peserta dari orang perseorangan atau badan hukum"},{ id: 7, title: "Apa yang dimaksud Program Pembiayaan Pemilikan Rumah dengan mekanisme Sewa Beli?", detail: "Mekanisme sewa beli adalah perjanjian sewa dengan hak opsi untuk membeli rumah yang disewa; pembelian rumah dengan pembayaran secara mencicil dalam hal mana hak milik atas rumah tersebut baru beralih secara sah ke pihak pembeli setelah ia membayar angsuran terakhir."},{ id: 9, title: "Apa yang dimaksud Program Pembiayaan Perbaikan Rumah?", detail: "Perbaikan rumah adalah perbaikan rumah miliknya sendiri di atas tanah miliknya atau tanah bukan miliknya yang layak dijaminkan berdasarkan perjanjian dengan pemilik tanah."}]
+      console.log(infolist);
+      
+      
     }
 
     if(infolist.length == 0) {
         loadData();
     }
+    
   }, []);
 
-  if(!info[0]) { 
-      return <div>loading...</div>
-  }
+  // if(!info[0]) { 
+  //     return <div>Data Tidak Ditemukan</div>
+  // }
     
+  
     return <div style={{ margin: '50px' }} >
         <Grid container
             spacing={2}
@@ -130,15 +159,17 @@ export default function FAQ({infolist}) {
             </Grid> 
             <Grid item  xs={6} >
                 <TextField
+                
                   margin="dense"
-                  
+                  inputRef={textRef}
+                 onChange={search}
                     variant="outlined"
                     fullWidth="true"
                     style={{borderRadius:'10px'}}
                     InputProps={{
                         endAdornment: (
                             <InputAdornment>
-                                <IconButton>
+                                <IconButton onClick={search}  >
                                     <SearchIcon />
                                 </IconButton>
                             </InputAdornment>
@@ -175,8 +206,10 @@ export default function FAQ({infolist}) {
 
 
 FAQ.getInitialProps = async (ctx) =>{
-  const res = await fetch(process.env.Dev.FaqInv);
-  const infolist = await res.json();
+  // const res = await fetch(process.env.Dev.FaqInv);
+  const infolist = [ { id: 2, title: "Siapa saja yang akan menjadi Peserta Tapera?", detail: "Berdasarkan UU No.4 Tahun 2016 tentang Tabungan Perumahan Rakyat, bahwa setiap pekerja dan pekerja mandiri yang berpenghasilan paling sedikit sebesar upah minimum wajib menjadi Peserta Tapera"} ,{ id: 4, title: "Apa yang dimaksud Dana Murah Jangka Panjang?", detail: "Dana murah jangka panjang adalah dana dengan suku bunga yang terjangkau yang sekaligus mampu menanggulangi ketidaksesuaian antara jangka waktu sumber biaya dan jangka waktu pengembalian atau tenor kredit pemilikan rumah." },{ id: 6, title: "Apa yang dimaksud Pemilikan Rumah?", detail: "Pemilikan rumah adalah pembelian rumah oleh Peserta dari orang perseorangan atau badan hukum"},{ id: 7, title: "Apa yang dimaksud Program Pembiayaan Pemilikan Rumah dengan mekanisme Sewa Beli?", detail: "Mekanisme sewa beli adalah perjanjian sewa dengan hak opsi untuk membeli rumah yang disewa; pembelian rumah dengan pembayaran secara mencicil dalam hal mana hak milik atas rumah tersebut baru beralih secara sah ke pihak pembeli setelah ia membayar angsuran terakhir."},{ id: 9, title: "Apa yang dimaksud Program Pembiayaan Perbaikan Rumah?", detail: "Perbaikan rumah adalah perbaikan rumah miliknya sendiri di atas tanah miliknya atau tanah bukan miliknya yang layak dijaminkan berdasarkan perjanjian dengan pemilik tanah."}]
+     
+
   // const res2 = await fetch('http://10.172.24.130/informations/bantuan')
   // const data = await res2.json()
   // const join = info.concat(data);

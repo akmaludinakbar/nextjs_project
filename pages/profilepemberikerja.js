@@ -249,7 +249,7 @@ const validationSchema = Yup.object({
 
 
 export default function profilepemberikerja() {
-    const [mode, setMode] = React.useState(false)
+    const [mode, setMode] = React.useState(true)
     const classes = useStyles();
     const formik = useFormik({
         initialValues,
@@ -305,19 +305,20 @@ export default function profilepemberikerja() {
                                     id="namaInstansiPemberiKerja"
                                     label="Nama Instansi Pemberi Kerja *"
                                     name="namaInstansiPemberiKerja"
+                                  
                                     type="input"
-                                    render={({field}) => <TextField {...field} />}
+                                    render={({field}) => <TextField   defaultValue="Pt Aladdin" disabled/>}
                                     helperText={formik.touched.namaInstansiPemberiKerja && formik.errors.namaInstansiPemberiKerja ? formik.errors.namaInstansiPemberiKerja : null}
                                     error={formik.touched.namaInstansiPemberiKerja && formik.errors.namaInstansiPemberiKerja ? true : false}
                                     {...formik.getFieldProps('namaInstansiPemberiKerja')}
-                                disabled={mode}
+                                
                                 >
                                 </Field>
                                 <TextField
                                     id="nomorIdentitasPemberiKerja"
                                     label="Nomor Identitas Pemberi Kerja"
                                     name="nomorIdentitasPemberiKerja"
-                                    defaultValue="Diisi oleh Tapera"
+                                    defaultValue="0988763562728"
                                     disabled='true'
                                 >
                                 </TextField>
@@ -326,18 +327,19 @@ export default function profilepemberikerja() {
                                     id="tanggalDaftarPemberiKerja"
                                     label="Tanggal Daftar Pemberi Kerja"
                                     name="tanggalDaftarPemberiKerja"
-                                    defaultValue="Diisi oleh Tapera"
-                                    disabled='true'
+                                    defaultValue="20/01/2020"
+                                    disabled={mode}
                                 >
                                 </TextField>
                                 <TextField
                                     id="klasifikasiBakuLapanganUsaha"
                                     label="Klasifikasi Baku Lapangan Usaha"
                                     name="klasifikasiBakuLapanganUsaha"
+                                    defaultValue="PENERBITAN PIRANTI LUNAK"
                                     helperText={formik.touched.klasifikasiBakuLapanganUsaha && formik.errors.klasifikasiBakuLapanganUsaha ? formik.errors.klasifikasiBakuLapanganUsaha : null}
-                                    error={formik.touched.klasifikasiBakuLapanganUsaha && formik.errors.klasifikasiBakuLapanganUsaha ? true : false}
-                                    {...formik.getFieldProps('klasifikasiBakuLapanganUsaha')}
-                                disabled={mode}
+                                //     error={formik.touched.klasifikasiBakuLapanganUsaha && formik.errors.klasifikasiBakuLapanganUsaha ? true : false}
+                                //     {...formik.getFieldProps('klasifikasiBakuLapanganUsaha')}
+                                 disabled={mode}
                                 >
                                 </TextField>
                                 <TextField
@@ -345,9 +347,10 @@ export default function profilepemberikerja() {
                                     id="skalaUsaha"
                                     label="Skala Usaha (Berdasarkan Aset) *"
                                     name="skalaUsaha"
+                                    defaultValue="3"
                                     helperText={formik.touched.skalaUsaha && formik.errors.skalaUsaha ? formik.errors.skalaUsaha : null}
-                                    error={formik.touched.skalaUsaha && formik.errors.skalaUsaha ? true : false}
-                                    {...formik.getFieldProps('skalaUsaha')}
+                                    // error={formik.touched.skalaUsaha && formik.errors.skalaUsaha ? true : false}
+                                    // {...formik.getFieldProps('skalaUsaha')}
                                 disabled={mode}
                                 >
                                     <MenuItem key=" " value="">Pilih Skala Usaha</MenuItem>
@@ -360,10 +363,11 @@ export default function profilepemberikerja() {
                                     id="jumlahPekerja"
                                     label="Jumlah Pekerja *"
                                     name="jumlahPekerja"
+                                    defaultValue="30"
                                     disabled={mode}
                                     helperText={formik.touched.jumlahPekerja && formik.errors.jumlahPekerja ? formik.errors.jumlahPekerja : null}
-                                    error={formik.touched.jumlahPekerja && formik.errors.jumlahPekerja ? true : false}
-                                    {...formik.getFieldProps('jumlahPekerja')}
+                                    // error={formik.touched.jumlahPekerja && formik.errors.jumlahPekerja ? true : false}
+                                    // {...formik.getFieldProps('jumlahPekerja')}
                                 >
                                 </TextField>
                                 <MuiPickersUtilsProvider utils={DateFnsUtils}>
@@ -372,11 +376,12 @@ export default function profilepemberikerja() {
                                         id="tanggalPendirianPerusahaan"
                                         label="Tanggal Pendirian Perusahaan *"
                                         name="tanggalPendirianPerusahaan"
+                                        defaultValue="2017-05-27"
                                         disabled={mode}
                                         helperText={formik.touched.tanggalPendirianPerusahaan && formik.errors.tanggalPendirianPerusahaan ? formik.errors.tanggalPendirianPerusahaan : null}
-                                        error={formik.touched.tanggalPendirianPerusahaan && formik.errors.tanggalPendirianPerusahaan ? true : false}
-                                        {...formik.getFieldProps('tanggalPendirianPerusahaan')}
-                                        value={tanggalPendirianPerusahaan}
+                                        // error={formik.touched.tanggalPendirianPerusahaan && formik.errors.tanggalPendirianPerusahaan ? true : false}
+                                        // {...formik.getFieldProps('tanggalPendirianPerusahaan')}
+                                      //  value={tanggalPendirianPerusahaan}
                                         onChange={(handleTanggalPendirianPerusahaan) => {
                                             formik.setFieldValue("tanggalPendirianPerusahaan", moment(handleTanggalPendirianPerusahaan).format('YYYYMMDD'));
                                             handleDateChange5(handleTanggalPendirianPerusahaan);
@@ -391,20 +396,22 @@ export default function profilepemberikerja() {
                                     id="tempatPendirianPerusahaan"
                                     label="Tempat Pendirian Perusahaan *"
                                     name="tempatPendirianPerusahaan"
+                                    defaultValue="Jakarta Barat"
                                     disabled={mode}
                                     helperText={formik.touched.tempatPendirianPerusahaan && formik.errors.tempatPendirianPerusahaan ? formik.errors.tempatPendirianPerusahaan : null}
-                                    error={formik.touched.tempatPendirianPerusahaan && formik.errors.tempatPendirianPerusahaan ? true : false}
-                                    {...formik.getFieldProps('tempatPendirianPerusahaan')}
+                                    // error={formik.touched.tempatPendirianPerusahaan && formik.errors.tempatPendirianPerusahaan ? true : false}
+                                    // {...formik.getFieldProps('tempatPendirianPerusahaan')}
                                 >
                                 </TextField>
                                 <TextField
                                     id="kelompokPemberiKerja"
                                     label="Kelompok Pemberi Kerja *"
                                     name="kelompokPemberiKerja"
+                                    defaultValue="Kelompok A"
                                     disabled={mode}
                                     helperText={formik.touched.kelompokPemberiKerja && formik.errors.kelompokPemberiKerja ? formik.errors.kelompokPemberiKerja : null}
-                                    error={formik.touched.kelompokPemberiKerja && formik.errors.kelompokPemberiKerja ? true : false}
-                                    {...formik.getFieldProps('kelompokPemberiKerja')}
+                                    // error={formik.touched.kelompokPemberiKerja && formik.errors.kelompokPemberiKerja ? true : false}
+                                    // {...formik.getFieldProps('kelompokPemberiKerja')}
                                 >
                                     <MenuItem key=" " value="">Pilih Kelompok Pemberi Kerja</MenuItem>
                                     <MenuItem key="1" value="1">Penyelenggara Negara</MenuItem>
@@ -414,19 +421,20 @@ export default function profilepemberikerja() {
         mask={"99.999.999.9-999.999"}
         maskChar=""
         onChange={formik.handleChange}
-        value={formik.values.npwp || ''}
+        // value={formik.values.npwp || ''}
+        defaultValue="92.051.036.9-551.000"
         disabled={mode}
       >
         {() => (
                                 <TextField
-                                    id="npwp"
+                                  //  id="npwp"
                                     label="NPWP *"
-                                    name="npwp"
-                                    type="input"
-                                    
-                                    helperText={formik.touched.npwp && formik.errors.npwp ? formik.errors.npwp : null}
-                                    error={formik.touched.npwp && formik.errors.npwp ? true : false}
-                                   
+                                    // name="npwp"
+                                    // type="input"
+                                    defaultValue="92.051.036.9-551.000"
+                                  //  helperText={formik.touched.npwp && formik.errors.npwp ? formik.errors.npwp : null}
+                                //    error={formik.touched.npwp && formik.errors.npwp ? true : false}
+                                   disabled={mode}
                                 >
                                 </TextField>
                                 )}
@@ -435,20 +443,22 @@ export default function profilepemberikerja() {
                                     id="noTelp"
                                     label="Nomor Telepon *"
                                     name="noTelp"
+                                    defaultValue="0812265798476"
                                     disabled={mode}
                                     helperText={formik.touched.noTelp && formik.errors.noTelp ? formik.errors.noTelp : null}
-                                    error={formik.touched.noTelp && formik.errors.noTelp ? true : false}
-                                    {...formik.getFieldProps('noTelp')}
+                                    // error={formik.touched.noTelp && formik.errors.noTelp ? true : false}
+                                    // {...formik.getFieldProps('noTelp')}
                                 >
                                 </TextField>
                                 <TextField
                                     id="alamatEmail"
                                     label="Alamat E-Mail *"
                                     name="alamatEmail"
+                                     defaultValue="aladding@gmail.com"
                                     disabled={mode}
                                     helperText={formik.touched.alamatEmail && formik.errors.alamatEmail ? formik.errors.alamatEmail : null}
-                                    error={formik.touched.alamatEmail && formik.errors.alamatEmail ? true : false}
-                                    {...formik.getFieldProps('alamatEmail')}
+                                    // error={formik.touched.alamatEmail && formik.errors.alamatEmail ? true : false}
+                                    // {...formik.getFieldProps('alamatEmail')}
                                 >
                                 </TextField>
 
@@ -457,7 +467,7 @@ export default function profilepemberikerja() {
                                     label="Status Pendaftaran Pemberi Kerja *"
                                     name="statusPendaftaranPemberiKerja"
                                     disabled='true'
-                                    defaultValue="Diisi oleh Tapera"
+                                    defaultValue="Terpenuhi"
                                 // helperText={formik.touched.statusPendaftaranPemberiKerja && formik.errors.statusPendaftaranPemberiKerja ? formik.errors.statusPendaftaranPemberiKerja : null}
                                 // error={formik.touched.statusPendaftaranPemberiKerja && formik.errors.statusPendaftaranPemberiKerja ? true : false}
                                 // {...formik.getFieldProps('statusPendaftaranPemberiKerja')}
@@ -468,7 +478,7 @@ export default function profilepemberikerja() {
                                     label="Status Pemberi Kerja *"
                                     name="statusPemberiKerja"
                                     disabled='true'
-                                    defaultValue="Diisi oleh Tapera"
+                                    defaultValue="Terpenuhi"
                                 // helperText={formik.touched.statusPemberiKerja && formik.errors.statusPemberiKerja ? formik.errors.statusPemberiKerja : null}
                                 // error={formik.touched.statusPemberiKerja && formik.errors.statusPemberiKerja ? true : false}
                                 // {...formik.getFieldProps('statusPemberiKerja')}
@@ -479,10 +489,11 @@ export default function profilepemberikerja() {
                                     id="statusInstansiPemberiKerja"
                                     label="Status Instansi Pemberi Kerja *"
                                     name="statusInstansiPemberiKerja"
+                                    defaultValue="2"
                                     disabled={mode}
                                     helperText={formik.touched.statusInstansiPemberiKerja && formik.errors.statusInstansiPemberiKerja ? formik.errors.statusInstansiPemberiKerja : null}
-                                    error={formik.touched.statusInstansiPemberiKerja && formik.errors.statusInstansiPemberiKerja ? true : false}
-                                    {...formik.getFieldProps('statusInstansiPemberiKerja')}
+                                    // error={formik.touched.statusInstansiPemberiKerja && formik.errors.statusInstansiPemberiKerja ? true : false}
+                                    // {...formik.getFieldProps('statusInstansiPemberiKerja')}
                                 >
                                     <MenuItem key=" " value="">Pilih Status Instansi Pemberi Kerja</MenuItem>
                                     <MenuItem key="1" value="1">Pusat</MenuItem>
@@ -496,10 +507,11 @@ export default function profilepemberikerja() {
                                     id="statusBadanUsaha"
                                     label="Status Badan Usaha *"
                                     name="statusBadanUsaha"
+                                    defaultValue="3"
                                     disabled={mode}
                                     helperText={formik.touched.statusBadanUsaha && formik.errors.statusBadanUsaha ? formik.errors.statusBadanUsaha : null}
-                                    error={formik.touched.statusBadanUsaha && formik.errors.statusBadanUsaha ? true : false}
-                                    {...formik.getFieldProps('statusBadanUsaha')}
+                                    // error={formik.touched.statusBadanUsaha && formik.errors.statusBadanUsaha ? true : false}
+                                    // {...formik.getFieldProps('statusBadanUsaha')}
                                 >
                                     <MenuItem key=" " value="">Pilih Status Badan Usaha</MenuItem>
                                     <MenuItem key="1" value="1">Badan Usaha Milik Negara</MenuItem>
@@ -574,10 +586,11 @@ export default function profilepemberikerja() {
                                         id="alamatDomisili"
                                         label="Alamat Domisili *"
                                         name="alamatDomisili"
+                                        defaultValue="Jalan U 9a no 26"
                                         disabled={mode}
                                         helperText={formik.touched.alamatDomisili && formik.errors.alamatDomisili ? formik.errors.alamatDomisili : null}
-                                        error={formik.touched.alamatDomisili && formik.errors.alamatDomisili ? true : false}
-                                        {...formik.getFieldProps('alamatDomisili')}
+                                        // error={formik.touched.alamatDomisili && formik.errors.alamatDomisili ? true : false}
+                                        // {...formik.getFieldProps('alamatDomisili')}
                                     >
                                     </TextField>
                                     <TextField
@@ -585,10 +598,11 @@ export default function profilepemberikerja() {
                                         id="kabupatenKotaDomisili"
                                         label="Kabupaten/Kota Domisili *"
                                         name="kabupatenKota"
+                                        defaultValue="KAB. BANYUMAS"
                                         disabled={mode}
                                         helperText={formik.touched.kabupatenKota && formik.errors.kabupatenKota ? formik.errors.kabupatenKota : null}
-                                        error={formik.touched.kabupatenKota && formik.errors.kabupatenKota ? true : false}
-                                        {...formik.getFieldProps('kabupatenKota')}
+                                        // error={formik.touched.kabupatenKota && formik.errors.kabupatenKota ? true : false}
+                                        // {...formik.getFieldProps('kabupatenKota')}
                                     >
                                          {listKabupatenKota.map((option) => (
                                             <MenuItem key={option.id} value={option.nama}  >
@@ -600,10 +614,11 @@ export default function profilepemberikerja() {
                                         id="kodePosDomisili"
                                         label="Kode Pos Domisili *"
                                         name="kodePosDomisili"
+                                        defaultValue="51211"
                                         disabled={mode}
                                         helperText={formik.touched.kodePosDomisili && formik.errors.kodePosDomisili ? formik.errors.kodePosDomisili : null}
-                                        error={formik.touched.kodePosDomisili && formik.errors.kodePosDomisili ? true : false}
-                                        {...formik.getFieldProps('kodePosDomisili')}
+                                        // error={formik.touched.kodePosDomisili && formik.errors.kodePosDomisili ? true : false}
+                                        // {...formik.getFieldProps('kodePosDomisili')}
                                     >
                                     </TextField>
                                     <TextField
@@ -611,10 +626,11 @@ export default function profilepemberikerja() {
                                         id="provinsiDomisili"
                                         label="Provinsi Domisili *"
                                         name="provinsiDomisili"
+                                        defaultValue="SUMATERA UTARA"
                                         disabled={mode}
                                         helperText={formik.touched.provinsiDomisili && formik.errors.provinsiDomisili ? formik.errors.provinsiDomisili : null}
-                                        error={formik.touched.provinsiDomisili && formik.errors.provinsiDomisili ? true : false}
-                                        {...formik.getFieldProps('provinsiDomisili')}
+                                        // error={formik.touched.provinsiDomisili && formik.errors.provinsiDomisili ? true : false}
+                                        // {...formik.getFieldProps('provinsiDomisili')}
                                     >
                                          {listProvinsi.map((option) => (
                                             <MenuItem key={option.id} value={option.nama}  >
@@ -627,6 +643,7 @@ export default function profilepemberikerja() {
                                         id="negaraDomisili"
                                         label="Negara Domisili *"
                                         name="negaraDomisili"
+                                        defaultValue="Afghanistan"
                                         disabled={mode}
                                         helperText={formik.touched.negaraDomisili && formik.errors.negaraDomisili ? formik.errors.negaraDomisili : null}
                                         error={formik.touched.negaraDomisili && formik.errors.negaraDomisili ? true : false}
@@ -747,20 +764,22 @@ export default function profilepemberikerja() {
                                                 id="namaPenanggungJawab1"
                                                 label="Nama Lengkap *"
                                                 name="namaPenanggungJawab1"
+                                                defaultValue="Ilham Saputra"
                                                 disabled={mode}
                                                 helperText={formik.touched.namaPenanggungJawab1 && formik.errors.namaPenanggungJawab1 ? formik.errors.namaPenanggungJawab1 : null}
-                                                error={formik.touched.namaPenanggungJawab1 && formik.errors.namaPenanggungJawab1 ? true : false}
-                                                {...formik.getFieldProps('namaPenanggungJawab1')}
+                                                // error={formik.touched.namaPenanggungJawab1 && formik.errors.namaPenanggungJawab1 ? true : false}
+                                                // {...formik.getFieldProps('namaPenanggungJawab1')}
                                             >
                                             </TextField>
                                             <TextField
                                                 id="noSelulerPenanggungJawab1"
                                                 label="Nomor Seluler *"
                                                 name="noSelulerPenanggungJawab1"
+                                                defaultValue="08122765343"
                                                 disabled={mode}
                                                 helperText={formik.touched.noSelulerPenanggungJawab1 && formik.errors.noSelulerPenanggungJawab1 ? formik.errors.noSelulerPenanggungJawab1 : null}
-                                                error={formik.touched.noSelulerPenanggungJawab1 && formik.errors.noSelulerPenanggungJawab1 ? true : false}
-                                                {...formik.getFieldProps('noSelulerPenanggungJawab1')}
+                                                // error={formik.touched.noSelulerPenanggungJawab1 && formik.errors.noSelulerPenanggungJawab1 ? true : false}
+                                                // {...formik.getFieldProps('noSelulerPenanggungJawab1')}
                                             >
                                             </TextField>
 
@@ -770,20 +789,22 @@ export default function profilepemberikerja() {
                                                 id="jabatanPenanggungJawab1"
                                                 label="Jabatan *"
                                                 name="jabatanPenanggungJawab1"
+                                                defaultValue="Manager"
                                                 disabled={mode}
                                                 helperText={formik.touched.jabatanPenanggungJawab1 && formik.errors.jabatanPenanggungJawab1 ? formik.errors.jabatanPenanggungJawab1 : null}
-                                                error={formik.touched.jabatanPenanggungJawab1 && formik.errors.jabatanPenanggungJawab1 ? true : false}
-                                                {...formik.getFieldProps('jabatanPenanggungJawab1')}
+                                                // error={formik.touched.jabatanPenanggungJawab1 && formik.errors.jabatanPenanggungJawab1 ? true : false}
+                                                // {...formik.getFieldProps('jabatanPenanggungJawab1')}
                                             >
                                             </TextField>
                                             <TextField
                                                 id="alamatEmailPenanggungJawab1"
                                                 label="Alamat E-Mail *"
                                                 name="alamatEmailPenanggungJawab1"
+                                                defaultValue="Saputra@gmail.com"
                                                 disabled={mode}
                                                 helperText={formik.touched.alamatEmailPenanggungJawab1 && formik.errors.alamatEmailPenanggungJawab1 ? formik.errors.alamatEmailPenanggungJawab1 : null}
-                                                error={formik.touched.alamatEmailPenanggungJawab1 && formik.errors.alamatEmailPenanggungJawab1 ? true : false}
-                                                {...formik.getFieldProps('alamatEmailPenanggungJawab1')}
+                                                // error={formik.touched.alamatEmailPenanggungJawab1 && formik.errors.alamatEmailPenanggungJawab1 ? true : false}
+                                                // {...formik.getFieldProps('alamatEmailPenanggungJawab1')}
                                             >
                                             </TextField>
 
@@ -794,10 +815,11 @@ export default function profilepemberikerja() {
                                                 id="noTelpPenanggungJawab1"
                                                 label="Nomor Telepon *"
                                                 name="noTelpPenanggungJawab1"
+                                                defaultValue="0872661232"
                                                 disabled={mode}
                                                 helperText={formik.touched.noTelpPenanggungJawab1 && formik.errors.noTelpPenanggungJawab1 ? formik.errors.noTelpPenanggungJawab1 : null}
-                                                error={formik.touched.noTelpPenanggungJawab1 && formik.errors.noTelpPenanggungJawab1 ? true : false}
-                                                {...formik.getFieldProps('noTelpPenanggungJawab1')}
+                                                // error={formik.touched.noTelpPenanggungJawab1 && formik.errors.noTelpPenanggungJawab1 ? true : false}
+                                                // {...formik.getFieldProps('noTelpPenanggungJawab1')}
                                             >
                                             </TextField>
 
@@ -825,22 +847,24 @@ export default function profilepemberikerja() {
                                             id="namaPenanggungJawab2"
                                             label="Nama Lengkap *"
                                             name="namaPenanggungJawab2"
+                                            defaultValue="Eko Supri"
                                             disabled={mode}
                                             type="input"
                                             helperText={formik.touched.namaPenanggungJawab2 && formik.errors.namaPenanggungJawab2 ? formik.errors.namaPenanggungJawab2 : null}
-                                            error={formik.touched.namaPenanggungJawab2 && formik.errors.namaPenanggungJawab2 ? true : false}
-                                            {...formik.getFieldProps('namaPenanggungJawab2')}
+                                            // error={formik.touched.namaPenanggungJawab2 && formik.errors.namaPenanggungJawab2 ? true : false}
+                                            // {...formik.getFieldProps('namaPenanggungJawab2')}
                                         >
                                         </TextField>
                                         <TextField
                                             id="noSelulerPenanggungJawab2"
                                             label="Nomor Seluler *"
                                             name="noSelulerPenanggungJawab2"
+                                            defaultValue="082653722"
                                             disabled={mode}
                                             type="input"
                                             helperText={formik.touched.noSelulerPenanggungJawab2 && formik.errors.noSelulerPenanggungJawab2 ? formik.errors.noSelulerPenanggungJawab2 : null}
-                                            error={formik.touched.noSelulerPenanggungJawab2 && formik.errors.noSelulerPenanggungJawab2 ? true : false}
-                                            {...formik.getFieldProps('noSelulerPenanggungJawab2')}
+                                            // error={formik.touched.noSelulerPenanggungJawab2 && formik.errors.noSelulerPenanggungJawab2 ? true : false}
+                                            // {...formik.getFieldProps('noSelulerPenanggungJawab2')}
                                         >
                                         </TextField>
 
@@ -850,22 +874,24 @@ export default function profilepemberikerja() {
                                             id="jabatanPenanggungJawab2"
                                             label="Jabatan *"
                                             name="jabatanPenanggungJawab2"
+                                            defaultValue="Humas"
                                             disabled={mode}
                                             type="input"
                                             helperText={formik.touched.jabatanPenanggungJawab2 && formik.errors.jabatanPenanggungJawab2 ? formik.errors.jabatanPenanggungJawab2 : null}
-                                            error={formik.touched.jabatanPenanggungJawab2 && formik.errors.jabatanPenanggungJawab2 ? true : false}
-                                            {...formik.getFieldProps('jabatanPenanggungJawab2')}
+                                            // error={formik.touched.jabatanPenanggungJawab2 && formik.errors.jabatanPenanggungJawab2 ? true : false}
+                                            // {...formik.getFieldProps('jabatanPenanggungJawab2')}
                                         >
                                         </TextField>
                                         <TextField
                                             id="alamatEmailPenanggungJawab2"
                                             label="Alamat E-Mail *"
                                             name="alamatEmailPenanggungJawab2"
+                                            defaultValue="Eko@gmail.com"
                                             disabled={mode}
                                             type="input"
                                             helperText={formik.touched.alamatEmailPenanggungJawab2 && formik.errors.alamatEmailPenanggungJawab2 ? formik.errors.alamatEmailPenanggungJawab2 : null}
-                                            error={formik.touched.alamatEmailPenanggungJawab2 && formik.errors.alamatEmailPenanggungJawab2 ? true : false}
-                                            {...formik.getFieldProps('alamatEmailPenanggungJawab2')}
+                                            // error={formik.touched.alamatEmailPenanggungJawab2 && formik.errors.alamatEmailPenanggungJawab2 ? true : false}
+                                            // {...formik.getFieldProps('alamatEmailPenanggungJawab2')}
                                         >
                                         </TextField>
                                     </div>
@@ -874,11 +900,12 @@ export default function profilepemberikerja() {
                                             id="noTelpPenanggungJawab2"
                                             label="Nomor Telepon *"
                                             name="noTelpPenanggungJawab2"
+                                            defaultValue="082128873678"
                                             disabled={mode}
                                             type="input"
                                             helperText={formik.touched.noTelpPenanggungJawab2 && formik.errors.noTelpPenanggungJawab2 ? formik.errors.noTelpPenanggungJawab2 : null}
-                                            error={formik.touched.noTelpPenanggungJawab2 && formik.errors.noTelpPenanggungJawab2 ? true : false}
-                                            {...formik.getFieldProps('noTelpPenanggungJawab2')}
+                                            // error={formik.touched.noTelpPenanggungJawab2 && formik.errors.noTelpPenanggungJawab2 ? true : false}
+                                            // {...formik.getFieldProps('noTelpPenanggungJawab2')}
                                         >
                                         </TextField>
 
@@ -964,7 +991,7 @@ export default function profilepemberikerja() {
                             </ExpansionPanel>
                             <div>
                                 <Grid container justify="space-between" className={classes.buttonGrid}>
-                                    <Grid container item spacing={0} xs={3} sm={3} md={3} justify="space-between" marginRight={10} className={classes.buttonGrid}>
+                                    {/* <Grid container item spacing={0} xs={3} sm={3} md={3} justify="space-between" marginRight={10} className={classes.buttonGrid}>
                                          <Button
                                             className={classes.button}
                                             id="btnEdit"
@@ -997,7 +1024,7 @@ export default function profilepemberikerja() {
                                             color="primary"
                                             disabled={mode}
                                         > Simpan </Button>
-                                    </Grid>
+                                    </Grid> */}
                                 </Grid>
                             </div>
                         </Form>

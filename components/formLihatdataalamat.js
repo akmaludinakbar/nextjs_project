@@ -497,7 +497,7 @@ export default function formdataalamat(props) {
           {...formik.getFieldProps('txtAlamatAhliWaris')}>
         </TextField>
         </div>
-      <Button type="button" onClick={() => formik.resetForm()} className={classes.tombolconfig1} fullWidth variant="contained" color="primary"  >Batal</Button>
+      {/* <Button type="button" onClick={() => formik.resetForm()} className={classes.tombolconfig1} fullWidth variant="contained" color="primary"  >Batal</Button> */}
 	    <Button onClick={(e) => {props.handleNext(e, 1)}} className={classes.tombolconfig1} fullWidth variant="contained" color="primary"  type="button">Sebelumnya</Button>
 	    <Button onClick={(e) => {props.handleNext(e, 3)}} className={classes.tombolconfig1} fullWidth variant="contained" color="primary"  type="button">Selanjutnya</Button>
       {/* <Button type="submit" onClick={handleChange} className={classes.tombolconfig1} fullWidth variant="contained" color="primary" >Simpan</Button> */}

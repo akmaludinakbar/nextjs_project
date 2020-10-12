@@ -61,7 +61,7 @@ export const initialValues = {
   txtPaspor: '98678576',
   txtKITAS:'0912839164712',
   tglExpPaspor: 'selamanya',
-  namaLengkap: 'Jerry Niu',
+  namaLengkap: 'Abizar',
   selectJenisKelamin: '1',
   tempatLahir: 'Rumah Sakit',
   negaraKelahiran: 'DE',
@@ -678,7 +678,7 @@ export default function formdatapribadi(props) {
         </div>
 
         <div className={classes.tombol} style={{ width: '100%' }}>
-            <Button type="button" onClick={() => formik.resetForm()} className={classes.tombolconfig} fullWidth variant="contained" color="primary">Batal</Button>
+            {/* <Button type="button" onClick={() => formik.resetForm()} className={classes.tombolconfig} fullWidth variant="contained" color="primary">Batal</Button> */}
             <Button type="button" onClick={(e) => { props.handleNext(e, 0) }} className={classes.tombolconfig} fullWidth variant="contained" color="primary">Sebelumnya</Button>
             <Button type="button" onClick={(e) => { props.handleNext(e, 2) }} className={classes.tombolconfig} fullWidth variant="contained" color="primary">Selanjutnya</Button>
             {/* <Button className={classes.tombolconfig} type="submit" onClick={handleChange} fullWidth variant="contained" color="primary" disabled="True" >Simpan</Button> */}

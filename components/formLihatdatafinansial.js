@@ -905,7 +905,7 @@ export default function formdatafinansial(props) {
         </TextField>
         
       </div>
-      <Button type="button" onClick={() => formik.resetForm()} className={classes.tombolconfig3} fullWidth variant="contained" color="primary" >Batal</Button>
+      {/* <Button type="button" onClick={() => formik.resetForm()} className={classes.tombolconfig3} fullWidth variant="contained" color="primary" >Batal</Button> */}
       <Button onClick={(e) => {props.handleNext(e, 3)}} className={classes.tombolconfig3} fullWidth variant="contained" color="primary" type="button">Sebelumnya</Button>
       {/* <Button type="submit" onClick={handleChange} className={classes.tombolconfig3} fullWidth variant="contained" color="primary" >Simpan</Button> */}
       {/* <Button disabled={value} onClick={handleOnClickSubmit} className={classes.tombolconfig3} fullWidth variant="contained" color="primary" >Submit</Button> */}

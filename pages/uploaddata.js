@@ -133,11 +133,9 @@ export default function uploaddata() {
                 <Paper style={{ height: '30vh', boxShadow: 'none' }}>
                     <div style={{ paddingLeft: '30px', paddingTop: "35px" }}>   <Typography variant="h6" align="bottom"> Unggah File Data Pekerja</Typography>
                         <Breadcrumbs aria-label="breadcrumb" style={{ paddingTop: '10px' }}>
-                            <Link color="inherit" href="/listtableuser" onClick={handleClick}>
-                                listtableuser
-  </Link>
+                        
 
-                            <Typography color="textPrimary">upload Data</Typography>
+                            <Typography color="textPrimary">Unggah Data</Typography>
                         </Breadcrumbs>
                     </div>
                 </Paper>
@@ -151,7 +149,7 @@ export default function uploaddata() {
                     <Paper style={{ margin: '20px', height: '42 vh', borderStyle: 'dotted', boxShadow: 'none', borderColor: 'grey' }}>
                         <Grid container direction="column" alignItems="center" justify="center" style={{ paddingTop: '50px' }}>
                             <Grid item >  <CloudUploadOutlinedIcon style={{ fontSize: '30px', color: '#5BB24A' }} /></Grid>
-                            <Grid item> <Typography>Seret dan jatuhkan file disini </Typography></Grid>
+                            <Grid item> <Typography>Tarik dan lepaskan file disini </Typography></Grid>
                             <Grid item> <Typography>atau </Typography></Grid>
                          
                             <Grid item>
@@ -200,7 +198,7 @@ export default function uploaddata() {
                                 Tidak
                         </Button>
                             <Button onClick={handleCloseDialogYes} color="primary" autoFocus>
-                                Iya
+                                Ya
                             </Button>
                         </DialogActions>
                     </Dialog>

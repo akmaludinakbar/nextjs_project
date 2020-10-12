@@ -5,7 +5,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
 import fetch from 'node-fetch';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useEffect, useState,useRef } from 'react';
 import { styled } from "@material-ui/core/styles";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
@@ -20,13 +20,30 @@ const MyTypography = styled(Typography)({
 export default function PanduanPengguna({infolist}) {
     
     const router = useRouter();
-
+    const textRef = useRef();
     const [info, setOwners] = useState(infolist);
     
+    function search()
+ {
+      
+   infolist = infolist.filter(
+       (y) => {
+           return y.title.toLowerCase().match(textRef.current.value.toLowerCase())
+              
+               || y.detail.toLowerCase().match(textRef.current.value.toLowerCase())
+              
+                
+       }
+
+
+   ) 
+   var info=setOwners(infolist);
+   console.log(infolist);
+ }
    
-     if(!info[0]) { 
-         return <div>loading...</div>
-     }
+    //  if(!info[0]) { 
+    //      return <div>Data Tidak Ditemukan</div>
+    //  }
     return <div style={{ margin: '50px' }} >
         <Grid container
             spacing={2}
@@ -40,7 +57,8 @@ export default function PanduanPengguna({infolist}) {
             <Grid item  xs={6} >
                 <TextField
                 margin="dense"
-              
+                inputRef={textRef}
+                 onChange={search}
                     variant="outlined"
                     fullWidth="true"
                     style={{borderRadius:'10px'}}
@@ -86,7 +104,7 @@ PanduanPengguna.getInitialProps = async (ctx) =>{
     const infolist = [{
       title:  'Panduan Pengisian Form Pendaftaran Peserta',
       detail: 'Panduan untuk pengisian form pendaftaran peserta dapat diunduh melalui url berikut : ',
-      url:    '/assets/pdf/Panduan Pengisian Data Untuk Pendaftaran Peserta Tapera kedalam Portal Sitara.pdf'
+      url:    '/assets/pdf/Panduan_Pengisian_Data_Untuk_Pendaftaran_Peserta_Tapera_kedalam_Portal_Sitara.pdf'
     }]
     
     return {infolist:infolist};

@@ -277,11 +277,12 @@ export default function AppbarDrawer({children,href}) {
               
       </Typography>
           
-      <Link style={{color:'grey',paddingRight:'10px'}}>Bantuan & Informasi</Link>
-      <Link style={{color:'grey'}}>Data Kepesertaan</Link>
+      <Link style={{color:'grey',paddingRight:'10px'}} href="/extensionpage/PanduanPengguna">Panduan Pengguna</Link>
+      <Link style={{color:'grey',paddingRight:'10px'}}  href="/extensionpage/FAQ">FAQ</Link>
+       <Link style={{color:'grey'}}  href="/extensionpage/ContactCenter">Contact Center</Link> 
       <IconButton color="inherit" style={{color:'grey'}}
             onClick={handleMenu2} >
-                <Badge badgeContent={6} color="secondary">
+                <Badge badgeContent={4} color="secondary">
                     <NotificationsActiveOutlinedIcon />
                    
                 </Badge>
@@ -302,11 +303,10 @@ export default function AppbarDrawer({children,href}) {
                 open={openmenu2}
                 onClose={handleClose2}
               >
-                <MenuItem >Ilham mengirim anda sebuah  pesan</MenuItem>
-                <MenuItem >Anda mendapatkan satu notif</MenuItem>
+                <MenuItem >Admin mengirim anda sebuah  pesan</MenuItem>
+                <MenuItem >Pengajuan Anda Ditolak !!</MenuItem>
                 <MenuItem >Data telah disetujui !!</MenuItem>
-                <MenuItem onClick={navigateFAQ}>FAQ telah diupdate</MenuItem>
-                <MenuItem onClick={navigatePengguna}>Panduan Pengguna</MenuItem>
+                <MenuItem onClick={navigatePengguna}>Data Baru Telah Ditambahkan</MenuItem>
               </Menu>
             <IconButton color="inherit" style={{color:'grey'}}
             onClick={handleMenu} >
@@ -316,15 +316,7 @@ export default function AppbarDrawer({children,href}) {
 
 
             </IconButton>
-             <IconButton color="inherit" style={{color:'grey'}}
-             >
-
-<Icon classes={{ root: classes.iconRoot }}><img className={classes.imageIcon} src="./../assets/svg/Search.svg" /></Icon>
-                        
-
-
-
-            </IconButton>
+          
             <Menu
                 id="menu-appbar"
                 anchorEl={anchorEl}

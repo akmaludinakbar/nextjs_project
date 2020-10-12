@@ -1008,7 +1008,7 @@ export default function formdatapekerjaan(props) {
             >
             </TextField>
         </div>
-        <Button type="button" onClick={() => formik.resetForm()} className={classes.tombolconfig2} fullWidth variant="contained" color="primary"  >Batal</Button>
+        {/* <Button type="button" onClick={() => formik.resetForm()} className={classes.tombolconfig2} fullWidth variant="contained" color="primary"  >Batal</Button> */}
         <Button onClick={(e) => { props.handleNext(e, 2) }} className={classes.tombolconfig2} fullWidth variant="contained" color="primary" >Sebelumnya</Button>
         <Button onClick={(e) => { props.handleNext(e, 4) }} className={classes.tombolconfig2} fullWidth variant="contained" color="primary" >Selanjutnya</Button>
         {/* <Button type="submit" onClick={handleChange} className={classes.tombolconfig2} fullWidth variant="contained" color="primary" >Simpan</Button> */}
