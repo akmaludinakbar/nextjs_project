@@ -201,111 +201,173 @@ export default function formdataalamat(props) {
   }, []);
 
   async function GetCountry() {
-    await fetch('http://devsitara.tapera.go.id/redis/country')
-        .then((r) => {
-            return r.json();
-        })
-        .then((data) => {
-            setCountryData(data);
-        })
-    }
+    setCountryData([
+    
+      {
+          value: '1',
+          ISOCode: 'AF',
+          nama: 'Afghanistan'
+      },
+      {
+          value: '2',
+          ISOCode: 'AX',
+          nama: 'Indonesia'
+      }
+  ]);
+    // await fetch('http://devsitara.tapera.go.id/redis/country')
+    //     .then((r) => {
+    //         return r.json();
+    //     })
+    //     .then((data) => {
+    //         setCountryData( [
+    //           {
+
+    //               Nilai: '',
+    //               Kode: 'Pilih Negara'
+    //           },
+    //           {
+    //               Nilai: 'AF',
+    //               Kode: 'Afghanistan'
+    //           },
+    //           {
+
+    //               Nilai: 'AX',
+    //               Kode: 'Åland Islands'
+    //           }
+    //       ]);
+    //     })
+  }
   async function handleProvinsi(provValue) {
-    if ( !provValue ){
-    await fetch('http://devsitara.tapera.go.id/redis/ID')
-        .then((r) => {
-          return r.json();
-        })
-        .then((data) => {
-          setProvinsiData(data);
-        })
-    }else {
-      await fetch('http://devsitara.tapera.go.id/redis/'+ provValue)
-        .then((r) => {
-          return r.json();
-        })
-        .then((data) => {
-          setProvinsiData(data);
-        })
-    }
+    setProvinsiData([
+      {id:"",nama:"Pilih Provinsi"},
+    {id:"11",nama:"ACEH"},
+    {id:"12",nama:"SUMATERA UTARA"},
+    {id:"13",nama:"SUMATERA BARAT"},
+  ]);
+
+  //  if (!provValue) {
+     
+      // await fetch('http://devsitara.tapera.go.id/redis/ID')
+      //   .then((r) => {
+      //     return r.json();
+      //   })
+      //   .then((data) => {
+      //     setProvinsiData(data);
+      //   })
+    // } else {
+    //   await fetch('http://devsitara.tapera.go.id/redis/' + provValue)
+    //     .then((r) => {
+    //       return r.json();
+    //     })
+    //     .then((data) => {
+    //       setProvinsiData(data);
+    //     })
+    // }
   }
   async function handleKabupaten(kabValue) {
-    if ( !kabValue ){
-    await fetch('http://devsitara.tapera.go.id/redis/initvalue')
-        .then((r) => {
-          return r.json();
-        })
-        .then((data) => {
-          setKabupatenData(data);
-        })
-    }else {
-      await fetch('http://devsitara.tapera.go.id/redis/'+ countryValue + '/' + kabValue)
-        .then((r) => {
-          return r.json();
-        })
-        .then((data) => {
-          setKabupatenData(data);
-        })
-    }
+    setKabupatenData([
+      {id:'',nama:'Pilih Kab/Kota'},
+      {id:'3301',nama:'KAB. CILACAP'},
+      {id:'3302',nama:'KAB. BANYUMAS'},
+      {id:'3303',nama:'KAB. PURBALINGGA'},
+      ]);
+    // console.log('http://devsitara.tapera.go.id/redis/' + countryValue + '/' + kabValue)
+    // if (!kabValue) {
+    //   await fetch('http://devsitara.tapera.go.id/redis/initvalue')
+    //     .then((r) => {
+    //       return r.json();
+    //     })
+    //     .then((data) => {
+    //       setKabupatenData(data);
+    //     })
+    // } else {
+    //   await fetch('http://devsitara.tapera.go.id/redis/' + countryValue + '/' + kabValue)
+    //     .then((r) => {
+    //       return r.json();
+    //     })
+    //     .then((data) => {
+    //       setKabupatenData(data);
+    //     })
+    // }
   }
 
   async function handleKecamatan(kecValue) {
-    if ( !kecValue ){
-    await fetch('http://devsitara.tapera.go.id/redis/initvalue')
-        .then((r) => {
-          return r.json();
-        })
-        .then((data) => {
-          setKecamatanData(data);
-        })
-    }else {
-      await fetch('http://devsitara.tapera.go.id/redis/'+ countryValue + '/' + provValue + '/' + kecValue)
-        .then((r) => {
-          return r.json();
-        })
-        .then((data) => {
-          setKecamatanData(data);
-        })
-    }
-  }
+    setKecamatanData([
+    
+      {id:'3301',nama:'KEC. UTARA'},
+      {id:'3302',nama:'KEC. BANYUMAS'},
+      {id:'3303',nama:'KEC. PURBALINGGA'},
+      ]);
+  //   console.log('http://devsitara.tapera.go.id/redis/' + countryValue + '/' + provValue + '/' + kecValue)
+  //   if (!kecValue) {
+  //     await fetch('http://devsitara.tapera.go.id/redis/initvalue')
+  //       .then((r) => {
+  //         return r.json();
+  //       })
+  //       .then((data) => {
+  //         setKecamatanData(data);
+  //       })
+  //   } else {
+  //     await fetch('http://devsitara.tapera.go.id/redis/' + countryValue + '/' + provValue + '/' + kecValue)
+  //       .then((r) => {
+  //         return r.json();
+  //       })
+  //       .then((data) => {
+  //         setKecamatanData(data);
+  //       })
+  //   }
+   }
 
   async function handleKelurahan(kelValue) {
-    if ( !kelValue ){
-    await fetch('http://devsitara.tapera.go.id/redis/initvalue')
-        .then((r) => {
-          return r.json();
-        })
-        .then((data) => {
-          setKelurahanData(data);
-        })
-    }else {
-      await fetch('http://devsitara.tapera.go.id/redis/'+ countryValue + '/' + provValue + '/' + kabValue + '/' + kelValue)
-        .then((r) => {
-          return r.json();
-        })
-        .then((data) => {
-          setKelurahanData(data);
-        })
-    }
+    setKelurahanData([
+    
+      {id:'3301',nama:'KEL. MUARA ANGKE'},
+      {id:'3302',nama:'KEL. BUARAN'},
+      {id:'3303',nama:'KEL. JAYAPURA'},
+      ]);
+    // if (!kelValue) {
+    //   await fetch('http://devsitara.tapera.go.id/redis/initvalue')
+    //     .then((r) => {
+    //       return r.json();
+    //     })
+    //     .then((data) => {
+    //       setKelurahanData(data);
+    //     })
+    // } else {
+    //   await fetch('http://devsitara.tapera.go.id/redis/' + countryValue + '/' + provValue + '/' + kabValue + '/' + kelValue)
+    //     .then((r) => {
+    //       return r.json();
+    //     })
+    //     .then((data) => {
+    //       setKelurahanData(data);
+    //     })
+    // }
   }
 
   async function handleKodePos(kodeposValue) {
-    if ( !kodeposValue ){
-    await fetch('http://devsitara.tapera.go.id/redis/initvalue')
-        .then((r) => {
-          return r.json();
-        })
-        .then((data) => {
-          setKodePosData(data);
-        })
-    }else {
-      await fetch('http://devsitara.tapera.go.id/redis/'+ countryValue + '/' + provValue + '/' + kabValue + '/' + kecValue + '/' + kodeposValue)
-        .then((r) => {
-          return r.json();
-        })
-        .then((data) => {
-          setKodePosData(data);
-        })
-    }
+    setKodePosData([
+    
+      {id:'3301',nama:'51211'},
+      {id:'3302',nama:'2345'},
+      {id:'3303',nama:'5412'},
+      ]);
+    // if (!kodeposValue) {
+    //   await fetch('http://devsitara.tapera.go.id/redis/initvalue')
+    //     .then((r) => {
+    //       return r.json();
+    //     })
+    //     .then((data) => {
+    //       setKodePosData(data);
+    //     })
+    // } else {
+    //   await fetch('http://devsitara.tapera.go.id/redis/' + countryValue + '/' + provValue + '/' + kabValue + '/' + kecValue + '/' + kodeposValue)
+    //     .then((r) => {
+    //       return r.json();
+    //     })
+    //     .then((data) => {
+    //       setKodePosData(data);
+    //     })
+    // }
   }
 
   async function GetCountryDom() {
@@ -626,8 +688,8 @@ export default function formdataalamat(props) {
           //required
         >
           {countryData.map((country, index) => (
-            <MenuItem key={index} value={country.Kode}>
-              {country.Nilai}
+            <MenuItem key={index} value={country.nama}>
+              {country.nama}
             </MenuItem>
           ))}
         </TextField>
@@ -653,8 +715,8 @@ export default function formdataalamat(props) {
           // {... formik.getFieldProps('txtProvinsi')}
         >
           {provinsiData.map((prov, index) => (
-            <MenuItem key={index} value={prov.Kode}>
-              {prov.Nilai}
+            <MenuItem key={index} value={prov.nama}>
+              {prov.nama}
             </MenuItem>
           ))}
         </TextField>
@@ -679,8 +741,8 @@ export default function formdataalamat(props) {
          // required
         >
           {kabupatenData.map((kab, index) => (
-            <MenuItem key={index} value={kab.Kode}>
-              {kab.Nilai}
+            <MenuItem key={index} value={kab.nama}>
+              {kab.nama}
             </MenuItem>
           ))}
         </TextField>
@@ -703,8 +765,8 @@ export default function formdataalamat(props) {
           //required
         >
           {kecamatanData.map((kec, index) => (
-            <MenuItem key={index} value={kec.Kode}>
-              {kec.Nilai}
+            <MenuItem key={index} value={kec.nama}>
+              {kec.nama}
             </MenuItem>
           ))}
         </TextField>
@@ -725,8 +787,8 @@ export default function formdataalamat(props) {
           //required
         >
           {kelurahanData.map((kel, index) => (
-            <MenuItem key={index} value={kel.Kode}>
-              {kel.Nilai}
+            <MenuItem key={index} value={kel.nama}>
+              {kel.nama}
             </MenuItem>
           ))}
         </TextField>
@@ -765,8 +827,8 @@ export default function formdataalamat(props) {
          // required
         >
           {kodeposData.map((kp, index) => (
-            <MenuItem key={index} value={kp.Kode}>
-              {kp.Nilai}
+            <MenuItem key={index} value={kp.nama}>
+              {kp.nama}
             </MenuItem>
           ))}
         </TextField>
@@ -822,9 +884,9 @@ export default function formdataalamat(props) {
           error={formik.touched.selectNegaraDomisili && formik.errors.selectNegaraDomisili?true:false}
           // {...formik.getFieldProps('selectNegaraDomisili')}
         >
-          {countryDomData.map((country, index) => (
-            <MenuItem key={index} value={country.Kode}>
-              {country.Nilai}
+          {countryData.map((country, index) => (
+            <MenuItem key={index} value={country.nama}>
+              {country.nama}
             </MenuItem>
           ))}
         </TextField>
@@ -849,9 +911,9 @@ export default function formdataalamat(props) {
           error={formik.touched.txtProvinsiDomisili && formik.errors.txtProvinsiDomisili?true:false}
           // {... formik.getFieldProps('txtProvinsiDomisili')}
         >
-          {provinsiDomData.map((prov, index) => (
-            <MenuItem key={index} value={prov.Kode}>
-              {prov.Nilai}
+          {provinsiData.map((prov, index) => (
+            <MenuItem key={index} value={prov.nama}>
+              {prov.nama}
             </MenuItem>
           ))}
         </TextField>
@@ -874,9 +936,9 @@ export default function formdataalamat(props) {
           error={formik.touched.txtKabDomisili && formik.errors.txtKabDomisili ? true : false}
           // {...formik.getFieldProps('txtKabDomisili')}
         >
-           {kabupatenDomData.map((kab, index) => (
-            <MenuItem key={index} value={kab.Kode}>
-              {kab.Nilai}
+           {kabupatenData.map((kab, index) => (
+            <MenuItem key={index} value={kab.nama}>
+              {kab.nama}
             </MenuItem>
           ))}
         </TextField>
@@ -897,9 +959,9 @@ export default function formdataalamat(props) {
           error={formik.touched.txtKecamatanDomisili && formik.errors.txtKecamatanDomisili ? true : false}
           // {...formik.getFieldProps('txtKecamatanDomisili')}
         >
-          {kecamatanDomData.map((kec, index) => (
-            <MenuItem key={index} value={kec.Kode}>
-              {kec.Nilai}
+          {kecamatanData.map((kec, index) => (
+            <MenuItem key={index} value={kec.nama}>
+              {kec.nama}
             </MenuItem>
           ))}
         </TextField>
@@ -918,9 +980,9 @@ export default function formdataalamat(props) {
           error={formik.touched.txtKelurahanDomisili && formik.errors.txtKelurahanDomisili ? true : false}
           // {...formik.getFieldProps('txtKelurahanDomisili')}
         >
-          {kelurahanDomData.map((kel, index) => (
-            <MenuItem key={index} value={kel.Kode}>
-              {kel.Nilai}
+          {kelurahanData.map((kel, index) => (
+            <MenuItem key={index} value={kel.nama}>
+              {kel.nama}
             </MenuItem>
           ))}
         </TextField>
@@ -955,9 +1017,9 @@ export default function formdataalamat(props) {
           error={formik.touched.txtKodeposDomisili && formik.errors.txtKodeposDomisili ? true : false}
           // {...formik.getFieldProps('txtKodeposDomisili')}
         >
-          {kodeposDomData.map((kp, index) => (
-            <MenuItem key={index} value={kp.Kode}>
-              {kp.Nilai}
+          {kodeposData.map((kp, index) => (
+            <MenuItem key={index} value={kp.nama}>
+              {kp.nama}
             </MenuItem>
           ))}
         </TextField>
@@ -1006,9 +1068,9 @@ export default function formdataalamat(props) {
           value={formik.values.selectNegaraKerja}
           // {...formik.getFieldProps('selectNegaraKerja')}
         >
-          {countryWorkData.map((country, index) => (
-            <MenuItem key={index} value={country.Kode}>
-              {country.Nilai}
+          {countryData.map((country, index) => (
+            <MenuItem key={index} value={country.nama}>
+              {country.nama}
             </MenuItem>
           ))}
         </TextField>
@@ -1028,9 +1090,9 @@ export default function formdataalamat(props) {
           }}
           // {...formik.getFieldProps('txtProvinsiKerja')}
         >
-          {provinsiWorkData.map((prov, index) => (
-            <MenuItem key={index} value={prov.Kode}>
-              {prov.Nilai}
+          {provinsiData.map((prov, index) => (
+            <MenuItem key={index} value={prov.nama}>
+              {prov.nama}
             </MenuItem>
           ))}
         </TextField>
@@ -1053,9 +1115,9 @@ export default function formdataalamat(props) {
           error={formik.touched.txtKabKerja && formik.errors.txtKabKerja?true:false}
           // {...formik.getFieldProps('txtKabKerja')}
         >
-           {kabupatenWorkData.map((kab, index) => (
-            <MenuItem key={index} value={kab.Kode}>
-            {kab.Nilai}
+           {kabupatenData.map((kab, index) => (
+            <MenuItem key={index} value={kab.nama}>
+            {kab.nama}
           </MenuItem>
           ))}
         </TextField>
@@ -1076,9 +1138,9 @@ export default function formdataalamat(props) {
           error={formik.touched.txtKecamatanKerja && formik.errors.txtKecamatanKerja?true:false}
           // {...formik.getFieldProps('txtKecamatanKerja')}
         >
-          {kecamatanWorkData.map((kec, index) => (
-            <MenuItem key={index} value={kec.Kode}>
-              {kec.Nilai}
+          {kecamatanData.map((kec, index) => (
+            <MenuItem key={index} value={kec.nama}>
+              {kec.nama}
             </MenuItem>
           ))} 
         </TextField>
@@ -1097,9 +1159,9 @@ export default function formdataalamat(props) {
           error={formik.touched.txtKelurahanKerja && formik.errors.txtKelurahanKerja?true:false}
           // {...formik.getFieldProps('txtKelurahanKerja')}
         >
-          {kelurahanWorkData.map((kel, index) => (
-            <MenuItem key={index} value={kel.Kode}>
-              {kel.Nilai}
+          {kelurahanData.map((kel, index) => (
+            <MenuItem key={index} value={kel.nama}>
+              {kel.nama}
             </MenuItem>
           ))}
         </TextField>
@@ -1134,9 +1196,9 @@ export default function formdataalamat(props) {
           error={formik.touched.txtKodePosKerja && formik.errors.txtKodePosKerja?true:false}
           // {...formik.getFieldProps('txtKodePosKerja')}
         >
-          {kodeposWorkData.map((kp, index) => (
-            <MenuItem key={index} value={kp.Kode}>
-              {kp.Nilai}
+          {kodeposData.map((kp, index) => (
+            <MenuItem key={index} value={kp.nama}>
+              {kp.nama}
             </MenuItem>
           ))}
         </TextField>
