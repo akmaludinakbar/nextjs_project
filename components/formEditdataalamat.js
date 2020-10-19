@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { TextField, Typography, MenuItem, Button, Grid } from '@material-ui/core';
-import { useFormik } from 'formik'
+import {TextField, Typography, MenuItem, Button, Grid} from '@material-ui/core';
+import { useFormik} from 'formik'
 import * as Yup from 'yup'
 import { styled } from '@material-ui/core/styles';
 
@@ -37,65 +37,65 @@ const useStyles = makeStyles((theme) => ({
     direction: "row",
     alignItems: "center",
     marginBottom: theme.spacing(2),
-  },
-  buttonconfig: {
-    marginRight: theme.spacing(3),
-    margin: theme.spacing(1, 0, 1),
-    borderRadius: 15,
-    justify: 'center',
-    marginTop: 5,
-    width: 110,
-    backgroundColor: '#008F4C',
-  },
-  buttonsimpan: {
-    margin: theme.spacing(1, -1, 1),
-    borderRadius: 15,
-    marginTop: 5,
-    width: 180,
-    backgroundColor: '#008F4C',
-  },
-  btnSalin: {
-    margin: theme.spacing(0, 2, 1),
-    backgroundColor: '#008F4C',
-    borderRadius: 30,
-    fontSize: 12,
-    width: '21ch',
-    height: '5ch'
-  },
+},
+buttonconfig: {
+  marginRight: theme.spacing(3),
+  margin: theme.spacing(1, 0, 1),
+  borderRadius: 15,
+  justify: 'center',
+  marginTop: 5,
+  width: 110,
+  backgroundColor: '#008F4C',
+},
+buttonsimpan: {
+  margin: theme.spacing(1, -1, 1),
+  borderRadius: 15,
+  marginTop: 5,
+  width: 180,
+  backgroundColor: '#008F4C',
+},
+btnSalin: {
+  margin: theme.spacing(0, 2, 1),
+  backgroundColor: '#008F4C',
+  borderRadius: 30,
+  fontSize: 12,
+  width: '21ch',
+  height: '5ch' 
+},
 }));
 
 const initialValues = {
-  txtAlamat: 'CENGKARENG INDAH BLOK PC 9',
-  txtRt: '007',
-  txtRw: '007',
-  txtKelurahan: 'CGKB',
-  txtKecamatan: 'CGK',
-  txtKabupaten: 'JAKBAR',
-  txtKodePos: 'PCGKB',
-  txtProvinsi: 'DKI',
-  selectNegara: 'ID',
+  txtAlamat:'CENGKARENG INDAH BLOK PC 9',
+  txtRt:'007',
+  txtRw:'007',
+  txtKelurahan:'CGKB',
+  txtKecamatan:'CGK',
+  txtKabupaten:'JAKBAR',
+  txtKodePos:'PCGKB',
+  txtProvinsi:'DKI',
+  selectNegara:'ID',
 
-  txtAlamatDomisili: 'Cibubur',
-  txtRtDomisili: '007',
-  txtRwDomisili: '007',
-  txtKelurahanDomisili: 'CGKB',
-  txtKecamatanDomisili: 'CGK',
-  txtKabDomisili: 'JAKBAR',
-  txtKodeposDomisili: 'PCGKB',
-  txtProvinsiDomisili: 'DKI',
-  selectNegaraDomisili: 'ID',
+  txtAlamatDomisili:'Cibubur',
+  txtRtDomisili:'007',
+  txtRwDomisili:'007',
+  txtKelurahanDomisili:'CGKB',
+  txtKecamatanDomisili:'CGK',
+  txtKabDomisili:'JAKBAR',
+  txtKodeposDomisili:'PCGKB',
+  txtProvinsiDomisili:'DKI',
+  selectNegaraDomisili:'ID',
 
-  txtAlamatKerja: 'Apl Tower lt. 70',
-  txtRtKerja: '007',
-  txtRwKerja: '007',
-  txtKelurahanKerja: 'CGKB',
-  txtKecamatanKerja: 'CGK',
-  txtKabKerja: 'JAKBAR',
-  txtKodePosKerja: 'PCGKB',
-  txtProvinsiKerja: 'DKI',
-  selectNegaraKerja: 'ID',
+  txtAlamatKerja:'Apl Tower lt. 70',
+  txtRtKerja:'007',
+  txtRwKerja:'007',
+  txtKelurahanKerja:'CGKB',
+  txtKecamatanKerja:'CGK',
+  txtKabKerja:'JAKBAR',
+  txtKodePosKerja:'PCGKB',
+  txtProvinsiKerja:'DKI',
+  selectNegaraKerja:'ID',
 
-  txtAlamatAhliWaris: 'White House',
+  txtAlamatAhliWaris:'White House',
 }
 
 // const onSubmit = values => {
@@ -106,7 +106,7 @@ const validationSchema = Yup.object({
 
   //Alamat Utama
   txtAlamat: Yup.string().required('wajib diisi').matches(/^[a-zA-Z0-9.,':/; ]+$/, 'format alamat tidak sesuai').max(100, 'maksimal 100 karakter'),
-  txtRt: Yup.string().required('wajib diisi').matches(/^[0-9]+$/, 'hanya angka').max(3, 'Nomor RT harus 3 karakter').min(3, 'Nomor RT harus 3 karakter'),
+  txtRt: Yup.string().required('wajib diisi').matches(/^[0-9]+$/, 'hanya angka').max(3, 'Nomor RT harus 3 karakter').min(3,'Nomor RT harus 3 karakter'),
   txtRw: Yup.string().required('wajib diisi').matches(/^[0-9]+$/, 'hanya angka').max(3, 'Nomor RW harus 3 karakter').min(3, 'Nomor RW harus 3 karakter'),
   txtKelurahan: Yup.string().required('wajib diisi').max(100, 'maksimal 100 karakter'),
   txtKecamatan: Yup.string().required('wajib diisi').max(100, 'maksimal 100 karakter'),
@@ -114,12 +114,12 @@ const validationSchema = Yup.object({
   txtKodePos: Yup.string().required('wajib diisi'),
   txtProvinsi: Yup.string().required('wajib diisi'),
   selectNegara: Yup.string().required('wajib diisi'),
-  txtAlamatAhliWaris: Yup.string().required('wajib diisi').max(255, 'maksimal 255 karakter'),
+  txtAlamatAhliWaris: Yup.string().required('wajib diisi').max(255,'maksimal 255 karakter'),
 
   //Alamat Domisili
   txtAlamatDomisili: Yup.string().required('wajib diisi').matches(/^[a-zA-Z0-9.,':/; ]+$/, 'format alamat tidak sesuai').max(100, 'maksimal 100 karakter'),
   txtRtDomisili: Yup.string().required('wajib diisi').matches(/^[0-9]+$/, 'hanya angka').max(3, 'Nomor RT Harus 3 karakter').min(3, 'Nomor RT Harus 3 karakter'),
-  txtRwDomisili: Yup.string().required('wajib diisi').matches(/^[0-9]+$/, 'hanya angka').max(3, 'Nomor RW Harus 3 karakter').min(3, 'Nomor RW Harus 3 karakter'),
+  txtRwDomisili: Yup.string().required('wajib diisi').matches(/^[0-9]+$/, 'hanya angka').max(3, 'Nomor RW Harus 3 karakter').min(3,'Nomor RW Harus 3 karakter'),
   txtKelurahanDomisili: Yup.string().required('wajib diisi').max(100, 'maksimal 100 karakter'),
   txtKecamatanDomisili: Yup.string().required('wajib diisi').max(100, 'maksimal 100 karakter'),
   txtKodeposDomisili: Yup.string().required('wajib diisi'),
@@ -129,14 +129,14 @@ const validationSchema = Yup.object({
   //Alamat Kantor
   txtAlamatKerja: Yup.string().nullable(true).matches(/^[a-zA-Z0-9.,':/; ]+$/, 'format alamat tidak sesuai').max(100, 'maksimal 100 karakter'),
   txtRtKerja: Yup.string().nullable(true).matches(/^[0-9]+$/, 'hanya angka').max(3, 'Nomor RT Harus 3 karakter').min(3, 'Nomor RT Harus 3 karakter'),
-  txtRwKerja: Yup.string().nullable(true).matches(/^[0-9]+$/, 'hanya angka').max(3, 'Nomor RW Harus 3 karakter').min(3, 'Nomor RW Harus 3 karakter'),
+  txtRwKerja: Yup.string().nullable(true).matches(/^[0-9]+$/, 'hanya angka').max(3, 'Nomor RW Harus 3 karakter').min(3,'Nomor RW Harus 3 karakter'),
   txtKelurahanKerja: Yup.string().nullable(true).max(100, 'maksimal 100 karakter'),
   txtKecamatanKerja: Yup.string().nullable(true).max(100, 'maksimal 100 karakter'),
   txtKodePosKerja: Yup.string().nullable(true),
 })
 
 export default function formdataalamat(props) {
-
+  
   const classes = useStyles();
   const [countryData, setCountryData] = React.useState([])
   const [provinsiData, setProvinsiData] = React.useState([])
@@ -174,7 +174,7 @@ export default function formdataalamat(props) {
     initialValues,
     onSubmit: values => {
       handleSave()
-    },
+  },
     validationSchema
   })
 
@@ -203,15 +203,11 @@ export default function formdataalamat(props) {
   async function GetCountry() {
     setCountryData([
     
-      {
-          value: '1',
-          ISOCode: 'AF',
-          Country: 'Afghanistan'
-      },
+   
       {
           value: '2',
-          ISOCode: 'AX',
-          Country: 'Indonesia'
+          Kode: 'AX',
+          Nilai: 'INDONESIA'
       }
   ]);
     // await fetch('http://devsitara.tapera.go.id/redis/country')
@@ -219,256 +215,218 @@ export default function formdataalamat(props) {
     //         return r.json();
     //     })
     //     .then((data) => {
-    //         setCountryData( [
-    //           {
-
-    //               Nilai: '',
-    //               Kode: 'Pilih Negara'
-    //           },
-    //           {
-    //               Nilai: 'AF',
-    //               Kode: 'Afghanistan'
-    //           },
-    //           {
-
-    //               Nilai: 'AX',
-    //               Kode: 'Åland Islands'
-    //           }
-    //       ]);
-    //     })
-  }
-  async function handleProvinsi(provValue) {
-    setProvinsiData([
-      {id:"",nama:"Pilih Provinsi"},
-    {id:"11",nama:"ACEH"},
-    {id:"12",nama:"SUMATERA UTARA"},
-    {id:"13",nama:"SUMATERA BARAT"},
-  ]);
-
-  //  if (!provValue) {
+    //          setCountryData(data);
      
-      // await fetch('http://devsitara.tapera.go.id/redis/ID')
-      //   .then((r) => {
-      //     return r.json();
-      //   })
-      //   .then((data) => {
-      //     setProvinsiData(data);
-      //   })
-    // } else {
-    //   await fetch('http://devsitara.tapera.go.id/redis/' + provValue)
-    //     .then((r) => {
-    //       return r.json();
     //     })
-    //     .then((data) => {
-    //       setProvinsiData(data);
-    //     })
-    // }
+    }
+  async function handleProvinsi(provValue) {
+    if ( !provValue ){
+    await fetch('http://devsitaracore.tapera.go.id/datareferensi/provinsi')
+        .then((r) => {
+          return r.json();
+        })
+        .then((data) => {
+          setProvinsiData(data["result"]);
+        })
+    }else {
+      await fetch('http://devsitaracore.tapera.go.id/datareferensi/'+ provValue)
+        .then((r) => {
+          return r.json();
+        })
+        .then((data) => {
+          setProvinsiData(data["result"]);
+        })
+    }
   }
   async function handleKabupaten(kabValue) {
-    setKabupatenData([
-      {id:'',nama:'Pilih Kab/Kota'},
-      {id:'3301',nama:'KAB. CILACAP'},
-      {id:'3302',nama:'KAB. BANYUMAS'},
-      {id:'3303',nama:'KAB. PURBALINGGA'},
-      ]);
-    // console.log('http://devsitara.tapera.go.id/redis/' + countryValue + '/' + kabValue)
-    // if (!kabValue) {
-    //   await fetch('http://devsitara.tapera.go.id/redis/initvalue')
-    //     .then((r) => {
-    //       return r.json();
-    //     })
-    //     .then((data) => {
-    //       setKabupatenData(data);
-    //     })
-    // } else {
-    //   await fetch('http://devsitara.tapera.go.id/redis/' + countryValue + '/' + kabValue)
-    //     .then((r) => {
-    //       return r.json();
-    //     })
-    //     .then((data) => {
-    //       setKabupatenData(data);
-    //     })
-    // }
+
+    console.log('http://devsitara.tapera.go.id/redis/'+ countryValue + '/' + kabValue)
+    if ( !kabValue ){
+    await fetch('http://devsitaracore.tapera.go.id/datareferensi/kabkota?induk=1bda9145-292f-4308-a92d-78fb799cfa20')
+        .then((r) => {
+          return r.json();
+        })
+        .then((data) => {
+          setKabupatenData(data["result"]);
+        })
+    }else {
+      await fetch('http://devsitaracore.tapera.go.id/datareferensi/kabkota?induk='+ kabValue)
+        .then((r) => {
+          return r.json();
+        })
+        .then((data) => {
+          setKabupatenData(data["result"]);
+        })
+    }
   }
 
   async function handleKecamatan(kecValue) {
-    setKecamatanData([
-    
-      {id:'3301',nama:'KEC. UTARA'},
-      {id:'3302',nama:'KEC. BANYUMAS'},
-      {id:'3303',nama:'KEC. PURBALINGGA'},
-      ]);
-  //   console.log('http://devsitara.tapera.go.id/redis/' + countryValue + '/' + provValue + '/' + kecValue)
-  //   if (!kecValue) {
-  //     await fetch('http://devsitara.tapera.go.id/redis/initvalue')
-  //       .then((r) => {
-  //         return r.json();
-  //       })
-  //       .then((data) => {
-  //         setKecamatanData(data);
-  //       })
-  //   } else {
-  //     await fetch('http://devsitara.tapera.go.id/redis/' + countryValue + '/' + provValue + '/' + kecValue)
-  //       .then((r) => {
-  //         return r.json();
-  //       })
-  //       .then((data) => {
-  //         setKecamatanData(data);
-  //       })
-  //   }
-   }
+    console.log('http://devsitara.tapera.go.id/redis/'+ countryValue + '/' + provValue + '/' + kecValue)
+    if ( !kecValue ){
+    await fetch('http://devsitaracore.tapera.go.id/datareferensi/kecamatan?induk=0fbb08ea-db65-4591-9fa1-45278dbf035a')
+        .then((r) => {
+          return r.json();
+        })
+        .then((data) => {
+          setKecamatanData(data['result']);
+        })
+    }else {
+      await fetch('http://devsitaracore.tapera.go.id/datareferensi/kecamatan?induk='+kecValue)
+        .then((r) => {
+          return r.json();
+        })
+        .then((data) => {
+          setKecamatanData(data['result']);
+        })
+    }
+  }
 
   async function handleKelurahan(kelValue) {
-    setKelurahanData([
-    
-      {id:'3301',nama:'KEL. MUARA ANGKE'},
-      {id:'3302',nama:'KEL. BUARAN'},
-      {id:'3303',nama:'KEL. JAYAPURA'},
-      ]);
-    // if (!kelValue) {
-    //   await fetch('http://devsitara.tapera.go.id/redis/initvalue')
-    //     .then((r) => {
-    //       return r.json();
-    //     })
-    //     .then((data) => {
-    //       setKelurahanData(data);
-    //     })
-    // } else {
-    //   await fetch('http://devsitara.tapera.go.id/redis/' + countryValue + '/' + provValue + '/' + kabValue + '/' + kelValue)
-    //     .then((r) => {
-    //       return r.json();
-    //     })
-    //     .then((data) => {
-    //       setKelurahanData(data);
-    //     })
-    // }
+    if ( !kelValue ){
+    await fetch('http://devsitaracore.tapera.go.id/datareferensi/desa?induk=5e4dbcfc-fdaf-4101-9aa1-ea3cb7a1e3d8')
+        .then((r) => {
+          return r.json();
+        })
+        .then((data) => {
+          setKelurahanData(data['result']);
+        })
+    }else {
+      await fetch('http://devsitaracore.tapera.go.id/datareferensi/desa?induk=' + kelValue)
+        .then((r) => {
+          return r.json();
+        })
+        .then((data) => {
+          setKelurahanData(data['result']);
+        })
+    }
   }
 
   async function handleKodePos(kodeposValue) {
-    setKodePosData([
-    
-      {id:'3301',nama:'51211'},
-      {id:'3302',nama:'2345'},
-      {id:'3303',nama:'5412'},
-      ]);
-    // if (!kodeposValue) {
-    //   await fetch('http://devsitara.tapera.go.id/redis/initvalue')
-    //     .then((r) => {
-    //       return r.json();
-    //     })
-    //     .then((data) => {
-    //       setKodePosData(data);
-    //     })
-    // } else {
-    //   await fetch('http://devsitara.tapera.go.id/redis/' + countryValue + '/' + provValue + '/' + kabValue + '/' + kecValue + '/' + kodeposValue)
-    //     .then((r) => {
-    //       return r.json();
-    //     })
-    //     .then((data) => {
-    //       setKodePosData(data);
-    //     })
-    // }
+    if ( !kodeposValue ){
+    await fetch('http://devsitara.tapera.go.id/redis/initvalue')
+        .then((r) => {
+          return r.json();
+        })
+        .then((data) => {
+          setKodePosData(data);
+        })
+    }else {
+      await fetch('http://devsitara.tapera.go.id/redis/'+ countryValue + '/' + provValue + '/' + kabValue + '/' + kecValue + '/' + kodeposValue)
+        .then((r) => {
+          return r.json();
+        })
+        .then((data) => {
+          setKodePosData(data);
+        })
+    }
   }
 
   async function GetCountryDom() {
-    await fetch('http://devsitara.tapera.go.id/redis/country')
+    setCountryDomData( [
+        {
+          value: '2',
+          Kode: 'AX',
+          Nilai: 'INDONESIA'
+      }
+  ])  
+    // await fetch('http://devsitara.tapera.go.id/redis/country')
+    //     .then((r) => {
+    //         return r.json();
+    //     })
+    //     .then((data) => {
+    //         setCountryDomData(data);
+    //     })
+    }
+  async function handleProvinsiDom(provValue) {
+    if ( !provValue ){
+      await fetch('http://devsitaracore.tapera.go.id/datareferensi/provinsi')
       .then((r) => {
         return r.json();
       })
       .then((data) => {
-        setCountryDomData(data);
+        setProvinsiDomData(data["result"]);
       })
-  }
-  async function handleProvinsiDom(provValue) {
-    if (!provValue) {
-      await fetch('http://devsitara.tapera.go.id/redis/ID')
+  }else {
+    await fetch('http://devsitaracore.tapera.go.id/datareferensi/'+ provValue)
         .then((r) => {
           return r.json();
         })
         .then((data) => {
-          setProvinsiDomData(data);
-        })
-    } else {
-      await fetch('http://devsitara.tapera.go.id/redis/' + provValue)
-        .then((r) => {
-          return r.json();
-        })
-        .then((data) => {
-          setProvinsiDomData(data);
+          setProvinsiDomData(data["result"]);
         })
     }
   }
   async function handleKabupatenDom(kabValue, countryDomValue) {
-    if (!kabValue) {
-      await fetch('http://devsitara.tapera.go.id/redis/initvalue')
+    if ( !kabValue ){
+      await fetch('http://devsitaracore.tapera.go.id/datareferensi/kabkota?induk=1bda9145-292f-4308-a92d-78fb799cfa20')
+          .then((r) => {
+            return r.json();
+          })
+          .then((data) => {
+            setKabupatenDomData(data["result"]);
+          })
+      }else {
+        await fetch('http://devsitaracore.tapera.go.id/datareferensi/kabkota?induk='+ kabValue)
         .then((r) => {
           return r.json();
         })
         .then((data) => {
-          setKabupatenDomData(data);
-        })
-    } else {
-      await fetch('http://devsitara.tapera.go.id/redis/' + countryDomValue + '/' + kabValue)
-        .then((r) => {
-          return r.json();
-        })
-        .then((data) => {
-          setKabupatenDomData(data);
+          setKabupatenDomData(data["result"]);
         })
     }
   }
 
   async function handleKecamatanDom(kecValue, countryDomValue, provDomValue) {
-    if (!kecValue) {
-      await fetch('http://devsitara.tapera.go.id/redis/initvalue')
+    if ( !kecValue ){
+      await fetch('http://devsitaracore.tapera.go.id/datareferensi/kecamatan?induk=0fbb08ea-db65-4591-9fa1-45278dbf035a')
+      .then((r) => {
+        return r.json();
+      })
+      .then((data) => {
+        setKecamatanDomData(data['result']);
+      })
+  }else {
+    await fetch('http://devsitaracore.tapera.go.id/datareferensi/kecamatan?induk='+kecValue)
         .then((r) => {
           return r.json();
         })
         .then((data) => {
-          setKecamatanDomData(data);
-        })
-    } else {
-      await fetch('http://devsitara.tapera.go.id/redis/' + countryDomValue + '/' + provDomValue + '/' + kecValue)
-        .then((r) => {
-          return r.json();
-        })
-        .then((data) => {
-          setKecamatanDomData(data);
+          setKecamatanDomData(data['result']);
         })
     }
   }
 
   async function handleKelurahanDom(kelValue, countryDomValue, provDomValue, kabDomValue) {
-    if (!kelValue) {
-      await fetch('http://devsitara.tapera.go.id/redis/initvalue')
+    if ( !kelValue ){
+      await fetch('http://devsitaracore.tapera.go.id/datareferensi/desa?induk=5e4dbcfc-fdaf-4101-9aa1-ea3cb7a1e3d8')
+      .then((r) => {
+        return r.json();
+      })
+      .then((data) => {
+        setKelurahanDomData(data['result']);
+      })
+  }else {
+    await fetch('http://devsitaracore.tapera.go.id/datareferensi/desa?induk=' + kelValue)
         .then((r) => {
           return r.json();
         })
         .then((data) => {
-          setKelurahanDomData(data);
-        })
-    } else {
-      await fetch('http://devsitara.tapera.go.id/redis/' + countryDomValue + '/' + provDomValue + '/' + kabDomValue + '/' + kelValue)
-        .then((r) => {
-          return r.json();
-        })
-        .then((data) => {
-          setKelurahanDomData(data);
+          setKelurahanDomData(data['result']);
         })
     }
   }
 
   async function handleKodePosDom(kodeposValue, countryDomValue, provDomValue, kabDomValue, kecDomValue) {
-    if (!kodeposValue) {
-      await fetch('http://devsitara.tapera.go.id/redis/initvalue')
+    if ( !kodeposValue ){
+    await fetch('http://devsitara.tapera.go.id/redis/initvalue')
         .then((r) => {
           return r.json();
         })
         .then((data) => {
           setKodePosDomData(data);
         })
-    } else {
-      await fetch('http://devsitara.tapera.go.id/redis/' + countryDomValue + '/' + provDomValue + '/' + kabDomValue + '/' + kecDomValue + '/' + kodeposValue)
+    }else {
+      await fetch('http://devsitara.tapera.go.id/redis/'+ countryDomValue + '/' + provDomValue + '/' + kabDomValue + '/' + kecDomValue + '/' + kodeposValue)
         .then((r) => {
           return r.json();
         })
@@ -479,104 +437,116 @@ export default function formdataalamat(props) {
   }
 
   async function GetCountryWork() {
-    await fetch('http://devsitara.tapera.go.id/redis/country')
-      .then((r) => {
-        return r.json();
-      })
-      .then((data) => {
-        setCountryWorkData(data);
-      })
-  }
+    setCountryWorkData( [
+      {
+        value: '2',
+        Kode: 'AX',
+        Nilai: 'INDONESIA'
+    }
+])  
+    // await fetch('http://devsitara.tapera.go.id/redis/country')
+    //     .then((r) => {
+    //         return r.json();
+    //     })
+    //     .then((data) => {
+    //         setCountryWorkData(data);
+    //     })
+    }
   async function handleProvinsiWork(provValue) {
-    if (!provValue) {
-      await fetch('http://devsitara.tapera.go.id/redis/ID')
+    if ( !provValue ){
+    await fetch('http://devsitaracore.tapera.go.id/datareferensi/provinsi')
+        .then((r) => {
+     
+          return r.json();
+        })
+        .then((data) => {
+      
+          setProvinsiWorkData(data["result"]);
+        })
+    }else {
+      await fetch('http://devsitaracore.tapera.go.id/datareferensi/'+ provValue)
         .then((r) => {
           return r.json();
         })
         .then((data) => {
-          setProvinsiWorkData(data);
-        })
-    } else {
-      await fetch('http://devsitara.tapera.go.id/redis/' + provValue)
-        .then((r) => {
-          return r.json();
-        })
-        .then((data) => {
-          setProvinsiWorkData(data);
+          setProvinsiWorkData(data["result"]);
         })
     }
   }
   async function handleKabupatenWork(kabValue, countryWorkValue) {
-    if (!kabValue) {
-      await fetch('http://devsitara.tapera.go.id/redis/initvalue')
+    if ( !kabValue ){
+      await fetch('http://devsitaracore.tapera.go.id/datareferensi/kabkota?induk=1bda9145-292f-4308-a92d-78fb799cfa20')
         .then((r) => {
           return r.json();
         })
         .then((data) => {
-          setKabupatenWorkData(data);
+          setKabupatenWorkData(data["result"]);
         })
-    } else {
-      await fetch('http://devsitara.tapera.go.id/redis/' + countryWorkValue + '/' + kabValue)
+    }else {
+      await fetch('http://devsitaracore.tapera.go.id/datareferensi/kabkota?induk='+kabValue)
         .then((r) => {
           return r.json();
         })
         .then((data) => {
-          setKabupatenWorkData(data);
+          console.log("kesini");
+          console.log(kabValue);
+          console.log(data);
+          setKabupatenWorkData(data["result"]);
         })
     }
   }
 
   async function handleKecamatanWork(kecValue, countryWorkValue, provWorkValue) {
-    if (!kecValue) {
-      await fetch('http://devsitara.tapera.go.id/redis/initvalue')
+    if ( !kecValue ){
+      await fetch('http://devsitaracore.tapera.go.id/datareferensi/kecamatan?induk=0fbb08ea-db65-4591-9fa1-45278dbf035a')
+      .then((r) => {
+        return r.json();
+      })
+      .then((data) => {
+        setKecamatanWorkData(data['result']);
+      })
+  }else {
+    await fetch('http://devsitaracore.tapera.go.id/datareferensi/kecamatan?induk='+kecValue)
         .then((r) => {
           return r.json();
         })
         .then((data) => {
-          setKecamatanWorkData(data);
-        })
-    } else {
-      await fetch('http://devsitara.tapera.go.id/redis/' + countryWorkValue + '/' + provWorkValue + '/' + kecValue)
-        .then((r) => {
-          return r.json();
-        })
-        .then((data) => {
-          setKecamatanWorkData(data);
+          setKecamatanWorkData(data['result']);
         })
     }
   }
 
   async function handleKelurahanWork(kelValue, countryWorkValue, provWorkValue, kabWorkValue) {
-    if (!kelValue) {
-      await fetch('http://devsitara.tapera.go.id/redis/initvalue')
+    if ( !kelValue ){
+      await fetch('http://devsitaracore.tapera.go.id/datareferensi/desa?induk=5e4dbcfc-fdaf-4101-9aa1-ea3cb7a1e3d8')
+      .then((r) => {
+        return r.json();
+      })
+      .then((data) => {
+        setKelurahanWorkData(data['result']);
+      })
+  }else {
+    await fetch('http://devsitaracore.tapera.go.id/datareferensi/desa?induk=' + kelValue)
         .then((r) => {
           return r.json();
         })
         .then((data) => {
-          setKelurahanWorkData(data);
-        })
-    } else {
-      await fetch('http://devsitara.tapera.go.id/redis/' + countryWorkValue + '/' + provWorkValue + '/' + kabWorkValue + '/' + kelValue)
-        .then((r) => {
-          return r.json();
-        })
-        .then((data) => {
-          setKelurahanWorkData(data);
+          setKelurahanWorkData(data['result']);
         })
     }
   }
 
   async function handleKodePosWork(kodeposValue, countryWorkValue, provWorkValue, kabWorkValue, kecWorkValue) {
-    if (!kodeposValue) {
-      await fetch('http://devsitara.tapera.go.id/redis/initvalue')
+    if ( !kodeposValue ){
+    await fetch('http://devsitara.tapera.go.id/redis/initvalue')
         .then((r) => {
           return r.json();
         })
         .then((data) => {
           setKodePosWorkData(data);
         })
-    } else {
-      await fetch('http://devsitara.tapera.go.id/redis/' + countryWorkValue + '/' + provWorkValue + '/' + kabWorkValue + '/' + kecWorkValue + '/' + kodeposValue)
+    }else {
+      await fetch('http://devsitara.tapera.go.id/redis/'+ countryWorkValue + '/' + provWorkValue + '/' + kabWorkValue + '/' + kecWorkValue + '/' + kodeposValue)
         .then((r) => {
           return r.json();
         })
@@ -587,7 +557,7 @@ export default function formdataalamat(props) {
   }
 
 
-  function salinAlamatDomisili() {
+  function salinAlamatDomisili(){
     // setcountryDomValue(JSON.stringify(formik.values.selectNegara))
     // setprovDomValue(JSON.stringify(formik.values.txtProvinsi))
     // setkabDomValue(JSON.stringify(formik.values.txtKabupaten))
@@ -610,7 +580,7 @@ export default function formdataalamat(props) {
     formik.setFieldValue("txtKodeposDomisili", formik.values.txtKodePos)
   }
 
-  function salinAlamatKantor() {
+  function salinAlamatKantor(){
     formik.setFieldValue("txtAlamatKerja", formik.values.txtAlamat)
     formik.setFieldValue("selectNegaraKerja", formik.values.selectNegara)
     handleProvinsiWork(formik.values.selectNegara)
@@ -631,13 +601,13 @@ export default function formdataalamat(props) {
   const handleSave = () => {
     return handleChange();
     // alert("Data Berhasil Disimpan")
-  };
+};
 
   const [value, setValue] = React.useState(true)
   const handleChange = () => {
     return setValue(false);
   };
-
+  
   async function initValue() {
     console.log('masuk init' + countryValue + provValue + kabValue)
     GetCountry()
@@ -656,648 +626,648 @@ export default function formdataalamat(props) {
     handleKecamatanWork(formik.values.txtKabupaten, formik.values.selectNegara, formik.values.txtProvinsi)
     handleKelurahanWork(formik.values.txtKecamatan, formik.values.selectNegara, formik.values.txtProvinsi, formik.values.txtKabupaten)
     handleKodePosWork(formik.values.txtKelurahan, formik.values.selectNegara, formik.values.txtProvinsi, formik.values.txtKabupaten, formik.values.txtKecamatan);
-  };
+    };
 
   // console.log(countryValue)
-
+  
   return (
 
     <div className={classes.root}>
-      <form onSubmit={formik.handleSubmit} >
-        <TypographAlamat onClick={initValue}
+      <form  onSubmit={formik.handleSubmit} >
+      <TypographAlamat onClick={initValue}
           className={classes.subtitle2}>Informasi Alamat Peserta</TypographAlamat>
-        <div>
-
-          <TextField
-            id="txtAlamat"
-            label="Alamat KTP/Paspor *"
-            name="txtAlamat"
-            helperText={formik.touched.txtAlamat && formik.errors.txtAlamat ? formik.errors.txtAlamat : null}
-            error={formik.touched.txtAlamat && formik.errors.txtAlamat ? true : false}
-            {...formik.getFieldProps('txtAlamat')}
-            value={formik.values.txtAlamat.toUpperCase()}
-            onChange={formik.handleChange}
+    <div>
+    
+        <TextField
+          id="txtAlamat"
+          label="Alamat KTP/Paspor *"
+          name="txtAlamat"
+          helperText={formik.touched.txtAlamat && formik.errors.txtAlamat ? formik.errors.txtAlamat : null}
+          error={formik.touched.txtAlamat && formik.errors.txtAlamat ? true : false}
+          {...formik.getFieldProps('txtAlamat')}
+          value={formik.values.txtAlamat.toUpperCase()}
+          onChange={formik.handleChange}
           //required
-          >
-          </TextField>
-          <TextField
-            select
-            id="selectNegara"
-            label="Negara *"
-            value={formik.values.selectNegara}
+        >
+        </TextField>
+        <TextField
+          select
+          id="selectNegara"
+          label="Negara *"
+          value={formik.values.selectNegara}
 
-            name="selectNegara"
-
-            onChange={(event) => {
-              formik.setFieldValue('selectNegara', event.target.value);
-              formik.setFieldValue('txtProvinsi', '');
-              formik.setFieldValue('txtKabupaten', '');
-              formik.setFieldValue('txtKecamatan', '');
-              formik.setFieldValue('txtKelurahan', '');
-              formik.setFieldValue('txtKodePos', '');
-              setprovValue('');
-              setkabValue('');
-              setkecValue('');
-              setcountryValue(event.target.value);
-              handleProvinsi(event.target.value);
-              // console.log('http://devsitara.tapera.go.id/redis/'+ countryValue + '/' + provValue + '/' + kabValue);
-            }}
-            onBlur={formik.handleBlur}
-            helperText={formik.touched.selectNegara && formik.errors.selectNegara ? formik.errors.selectNegara : null}
-            error={formik.touched.selectNegara && formik.errors.selectNegara ? true : false}
+          name="selectNegara"
+          
+          onChange={(event) => {
+            formik.setFieldValue('selectNegara', event.target.value);
+            formik.setFieldValue('txtProvinsi', '');
+            formik.setFieldValue('txtKabupaten', '');
+            formik.setFieldValue('txtKecamatan', '');
+            formik.setFieldValue('txtKelurahan', '');
+            formik.setFieldValue('txtKodePos', '');
+            setprovValue('');
+            setkabValue('');
+            setkecValue('');
+            setcountryValue(event.target.value);
+            handleProvinsi(event.target.value);
+            // console.log('http://devsitara.tapera.go.id/redis/'+ countryValue + '/' + provValue + '/' + kabValue);
+          }}
+          onBlur={formik.handleBlur}
+          helperText={formik.touched.selectNegara && formik.errors.selectNegara ? formik.errors.selectNegara : null}
+          error={formik.touched.selectNegara && formik.errors.selectNegara ? true : false}
           // {...formik.getFieldProps('selectNegara')}
           //required
-          >
-            {countryData.map((country, index) => (
-              <MenuItem key={index} value={country.ISOCode}>
-                {country.Country}
-              </MenuItem>
-            ))}
-          </TextField>
-          <TextField
-            select
-            id="txtProvinsi"
-            label="Provinsi *"
-            name="txtProvinsi"
-            value={formik.values.txtProvinsi}
-            onChange={(e) => {
-              formik.setFieldValue('txtProvinsi', e.target.value);
-              formik.setFieldValue('txtKabupaten', '');
-              formik.setFieldValue('txtKecamatan', '');
-              formik.setFieldValue('txtKelurahan', '');
-              formik.setFieldValue('txtKodePos', '');
-              setkabValue('');
-              setkecValue('');
-              setprovValue(e.target.value);
-              handleKabupaten(e.target.value);
-            }}
-            helperText={formik.touched.txtProvinsi && formik.errors.txtProvinsi ? formik.errors.txtProvinsi : null}
-            error={formik.touched.txtProvinsi && formik.errors.txtProvinsi ? true : false}
+        >
+          {countryData.map((country, index) => (
+            <MenuItem key={index} value={country.Kode}>
+              {country.Nilai}
+            </MenuItem>
+          ))}
+        </TextField>
+        <TextField
+          select
+          id="txtProvinsi"
+          label="Provinsi *"
+          name="txtProvinsi"
+          value={formik.values.txtProvinsi}
+          onChange={(e) => {
+            formik.setFieldValue('txtProvinsi', e.target.value);
+            formik.setFieldValue('txtKabupaten', '');
+            formik.setFieldValue('txtKecamatan', '');
+            formik.setFieldValue('txtKelurahan', '');
+            formik.setFieldValue('txtKodePos', '');
+            setkabValue('');
+            setkecValue('');
+            setprovValue(e.target.value);
+            handleKabupaten(e.target.value);
+          }}
+          helperText={formik.touched.txtProvinsi && formik.errors.txtProvinsi ? formik.errors.txtProvinsi : null}
+          error={formik.touched.txtProvinsi && formik.errors.txtProvinsi?true:false}
           // {... formik.getFieldProps('txtProvinsi')}
-          >
-            {provinsiData.map((prov, index) => (
-              <MenuItem key={index} value={prov.nama}>
-                {prov.nama}
-              </MenuItem>
-            ))}
-          </TextField>
-          <TextField
-            select
-            id="txtKabupaten"
-            label="Kabupaten/Kota *"
-            name="txtKabupaten"
-            value={formik.values.txtKabupaten}
-            onChange={(e) => {
-              formik.setFieldValue('txtKabupaten', e.target.value);
-              formik.setFieldValue('txtKecamatan', '');
-              formik.setFieldValue('txtKelurahan', '');
-              formik.setFieldValue('txtKodePos', '');
-              setkecValue('');
-              setkabValue(e.target.value);
-              handleKecamatan(e.target.value);
-            }}
-            helperText={formik.touched.txtKabupaten && formik.errors.txtKabupaten ? formik.errors.txtKabupaten : null}
-            error={formik.touched.txtKabupaten && formik.errors.txtKabupaten ? true : false}
+        >
+          {provinsiData.map((prov, index) => (
+            <MenuItem key={index} value={prov.id}>
+              {prov.nama}
+            </MenuItem>
+          ))}
+        </TextField>
+        <TextField
+          select 
+          id="txtKabupaten"
+          label="Kabupaten/Kota *"
+          name="txtKabupaten"
+          value={formik.values.txtKabupaten}
+          onChange={(e) => {
+            formik.setFieldValue('txtKabupaten', e.target.value);
+            formik.setFieldValue('txtKecamatan', '');
+            formik.setFieldValue('txtKelurahan', '');
+            formik.setFieldValue('txtKodePos', '');
+            setkecValue('');
+            setkabValue(e.target.value);
+            handleKecamatan(e.target.value);
+          }}
+          helperText={formik.touched.txtKabupaten && formik.errors.txtKabupaten ? formik.errors.txtKabupaten : null}
+          error={formik.touched.txtKabupaten && formik.errors.txtKabupaten ? true : false}
           // {...formik.getFieldProps('txtKabupaten')}
-          // required
-          >
-            {kabupatenData.map((kab, index) => (
-              <MenuItem key={index} value={kab.nama}>
-                {kab.nama}
-              </MenuItem>
-            ))}
-          </TextField>
-          <TextField
-            select
-            id="txtKecamatan"
-            label="Kecamatan *"
-            name="txtKecamatan"
-            value={formik.values.txtKecamatan}
-            onChange={(e) => {
-              formik.setFieldValue('txtKecamatan', e.target.value);
-              formik.setFieldValue('txtKelurahan', '');
-              formik.setFieldValue('txtKodePos', '');
-              setkecValue(e.target.value);
-              handleKelurahan(e.target.value);
-            }}
-            helperText={formik.touched.txtKecamatan && formik.errors.txtKecamatan ? formik.errors.txtKecamatan : null}
-            error={formik.touched.txtKecamatan && formik.errors.txtKecamatan ? true : false}
+         // required
+        >
+          {kabupatenData.map((kab, index) => (
+            <MenuItem key={index} value={kab.id}>
+              {kab.nama}
+            </MenuItem>
+          ))}
+        </TextField>
+        <TextField
+          select
+          id="txtKecamatan"
+          label="Kecamatan *"
+          name="txtKecamatan"
+          value={formik.values.txtKecamatan}
+          onChange={(e) => {
+            formik.setFieldValue('txtKecamatan', e.target.value);
+            formik.setFieldValue('txtKelurahan', '');
+            formik.setFieldValue('txtKodePos', '');
+            setkecValue(e.target.value);
+            handleKelurahan(e.target.value);
+          }}
+          helperText={formik.touched.txtKecamatan && formik.errors.txtKecamatan ? formik.errors.txtKecamatan : null}
+          error={formik.touched.txtKecamatan && formik.errors.txtKecamatan ? true : false}
           // {...formik.getFieldProps('txtKecamatan')}
           //required
-          >
-            {kecamatanData.map((kec, index) => (
-              <MenuItem key={index} value={kec.nama}>
-                {kec.nama}
-              </MenuItem>
-            ))}
-          </TextField>
-          <TextField
-            select
-            id="txtKelurahan"
-            label="Kelurahan *"
-            name="txtKelurahan"
-            value={formik.values.txtKelurahan}
-            onChange={(e) => {
-              formik.setFieldValue('txtKelurahan', e.target.value);
-              formik.setFieldValue('txtKodePos', '');
-              handleKodePos(e.target.value);
-            }}
-            helperText={formik.touched.txtKelurahan && formik.errors.txtKelurahan ? formik.errors.txtKelurahan : null}
-            error={formik.touched.txtKelurahan && formik.errors.txtKelurahan ? true : false}
+        >
+          {kecamatanData.map((kec, index) => (
+            <MenuItem key={index} value={kec.id}>
+              {kec.nama}
+            </MenuItem>
+          ))}
+        </TextField>
+        <TextField
+          select
+          id="txtKelurahan"
+          label="Kelurahan *"
+          name="txtKelurahan"
+          value={formik.values.txtKelurahan}
+          onChange={(e) => {
+            formik.setFieldValue('txtKelurahan', e.target.value);
+            formik.setFieldValue('txtKodePos', '');
+            handleKodePos(e.target.value);
+          }}
+          helperText={formik.touched.txtKelurahan && formik.errors.txtKelurahan ? formik.errors.txtKelurahan : null}
+          error={formik.touched.txtKelurahan && formik.errors.txtKelurahan ? true : false}
           // {...formik.getFieldProps('txtKelurahan')}
           //required
-          >
-            {kelurahanData.map((kel, index) => (
-              <MenuItem key={index} value={kel.nama}>
-                {kel.nama}
-              </MenuItem>
-            ))}
-          </TextField>
-          <TextField
-            id="txtRw"
-            label="Nomor RW *"
-            name="txtRw"
-            helperText={formik.touched.txtRw && formik.errors.txtRw ? formik.errors.txtRw : null}
-            error={formik.touched.txtRw && formik.errors.txtRw ? true : false}
-            {...formik.getFieldProps('txtRw')}
+        >
+          {kelurahanData.map((kel, index) => (
+            <MenuItem key={index} value={kel.id}>
+              {kel.nama}
+            </MenuItem>
+          ))}
+        </TextField>
+        <TextField
+          id="txtRw"
+          label="Nomor RW *"
+          name="txtRw"
+          helperText={formik.touched.txtRw && formik.errors.txtRw ? formik.errors.txtRw : null}
+          error={formik.touched.txtRw && formik.errors.txtRw ? true : false}
+          {...formik.getFieldProps('txtRw')}
           //required
-          >
-          </TextField>
-          <TextField
-            id="txtRt"
-            label="Nomor RT *"
-            name="txtRt"
-            helperText={formik.touched.txtRt && formik.errors.txtRt ? formik.errors.txtRt : null}
-            error={formik.touched.txtRt && formik.errors.txtRt ? true : false}
-            {...formik.getFieldProps('txtRt')}
+        >
+        </TextField>
+        <TextField
+          id="txtRt"
+          label="Nomor RT *"
+          name="txtRt"
+          helperText={formik.touched.txtRt && formik.errors.txtRt ? formik.errors.txtRt : null}
+          error={formik.touched.txtRt && formik.errors.txtRt ? true : false}
+          {...formik.getFieldProps('txtRt')}
           //required
-          >
-          </TextField>
-          <TextField
-            select
-            id="txtKodePos"
-            label="Kode Pos *"
-            name="txtKodePos"
-            value={formik.values.txtKodePos}
-            onChange={(e) => {
-              formik.setFieldValue('txtKodePos', e.target.value);
-            }}
-            helperText={formik.touched.txtKodePos && formik.errors.txtKodePos ? formik.errors.txtKodePos : null}
-            error={formik.touched.txtKodePos && formik.errors.txtKodePos ? true : false}
+        >
+        </TextField>
+        <TextField
+          select
+          id="txtKodePos"
+          label="Kode Pos *"
+          name="txtKodePos"
+          value={formik.values.txtKodePos}
+          onChange={(e) => {
+            formik.setFieldValue('txtKodePos', e.target.value);
+          }}
+          helperText={formik.touched.txtKodePos && formik.errors.txtKodePos ? formik.errors.txtKodePos : null}
+          error={formik.touched.txtKodePos && formik.errors.txtKodePos ? true : false}
           // {...formik.getFieldProps('txtKodePos')}
-          // required
-          >
-            {kodeposData.map((kp, index) => (
-              <MenuItem key={index} value={kp.nama}>
-                {kp.nama}
-              </MenuItem>
-            ))}
-          </TextField>
+         // required
+        >
+          {kodeposData.map((kp, index) => (
+            <MenuItem key={index} value={kp.Kode}>
+              {kp.Nilai}
+            </MenuItem>
+          ))}
+        </TextField>
         </div>
         <TypographAlamat className={classes.subtitle2}>Informasi Alamat Domisili</TypographAlamat>
         <Grid container className={classes.root2} >
-          <Button
-            type="button"
-            fullWidth
-            onClick={salinAlamatDomisili}
-            variant="contained"
-            color="primary"
-            className={classes.btnSalin}
-          >Salin
+        <Button 
+          type="button" 
+          fullWidth
+          onClick={salinAlamatDomisili}
+          variant="contained"
+          color="primary"  
+          className={classes.btnSalin}
+        >Salin
         </Button>
-          <p>*Salin dari alamat KTP</p>
+        <p>*Salin dari alamat KTP</p>
         </Grid>
         <div>
-
-          <TextField
-            id="txtAlamatDomisili"
-            label="Alamat Domisili *"
-            name="txtAlamatDomisili"
-            helperText={formik.touched.txtAlamatDomisili && formik.errors.txtAlamatDomisili ? formik.errors.txtAlamatDomisili : null}
-            error={formik.touched.txtAlamatDomisili && formik.errors.txtAlamatDomisili ? true : false}
-            //{...formik.getFieldProps('txtAlamatDomisili')}
-            value={formik.values.txtAlamatDomisili.toUpperCase()}
-            onChange={formik.handleChange}
+        
+        <TextField
+          id="txtAlamatDomisili"
+          label="Alamat Domisili *"
+          name="txtAlamatDomisili"
+          helperText={formik.touched.txtAlamatDomisili && formik.errors.txtAlamatDomisili ? formik.errors.txtAlamatDomisili : null}
+          error={formik.touched.txtAlamatDomisili && formik.errors.txtAlamatDomisili?true:false}
+          //{...formik.getFieldProps('txtAlamatDomisili')}
+          value={formik.values.txtAlamatDomisili.toUpperCase()}
+          onChange={formik.handleChange}
           //helperText="Opsional"
-          >
-          </TextField>
-          <TextField
-            select
-            id="selectNegaraDomisili"
-            label="Negara Domisili *"
-            name="selectNegaraDomisili"
-            onChange={(e) => {
-              formik.setFieldValue('selectNegaraDomisili', e.target.value);
-              formik.setFieldValue('txtProvinsiDomisili', '');
-              formik.setFieldValue('txtKabDomisili', '');
-              formik.setFieldValue('txtKecamatanDomisili', '');
-              formik.setFieldValue('txtKelurahanDomisili', '');
-              formik.setFieldValue('txtKodeposDomisili', '');
-              // setprovDomValue('');
-              // setkabDomValue('');
-              // setkecDomValue('');
-              // setcountryDomValue(e.target.value);
-              handleProvinsiDom(e.target.value);
-            }}
-            onBlur={formik.handleBlur}
-            value={formik.values.selectNegaraDomisili}
-            helperText={formik.touched.selectNegaraDomisili && formik.errors.selectNegaraDomisili ? formik.errors.selectNegaraDomisili : null}
-            error={formik.touched.selectNegaraDomisili && formik.errors.selectNegaraDomisili ? true : false}
+        >
+        </TextField>
+        <TextField
+          select
+          id="selectNegaraDomisili"
+          label="Negara Domisili *"
+          name="selectNegaraDomisili"
+          onChange={(e) => {
+            formik.setFieldValue('selectNegaraDomisili', e.target.value);
+            formik.setFieldValue('txtProvinsiDomisili', '');
+            formik.setFieldValue('txtKabDomisili', '');
+            formik.setFieldValue('txtKecamatanDomisili', '');
+            formik.setFieldValue('txtKelurahanDomisili', '');
+            formik.setFieldValue('txtKodeposDomisili', '');
+            // setprovDomValue('');
+            // setkabDomValue('');
+            // setkecDomValue('');
+            // setcountryDomValue(e.target.value);
+            handleProvinsiDom(e.target.value);
+          }}
+          onBlur={formik.handleBlur}
+          value={formik.values.selectNegaraDomisili}
+          helperText={formik.touched.selectNegaraDomisili && formik.errors.selectNegaraDomisili ? formik.errors.selectNegaraDomisili : null}
+          error={formik.touched.selectNegaraDomisili && formik.errors.selectNegaraDomisili?true:false}
           // {...formik.getFieldProps('selectNegaraDomisili')}
-          >
-            {countryData.map((country, index) => (
-              <MenuItem key={index} value={country.ISOCode}>
-                {country.Country}
-              </MenuItem>
-            ))}
-          </TextField>
-          <TextField
-            select
-            id="txtProvinsiDomisili"
-            label="Provinsi Domisili *"
-            name="txtProvinsiDomisili"
-            value={formik.values.txtProvinsiDomisili}
-            onChange={(e) => {
-              formik.setFieldValue('txtProvinsiDomisili', e.target.value);
-              formik.setFieldValue('txtKabDomisili', '');
-              formik.setFieldValue('txtKecamatanDomisili', '');
-              formik.setFieldValue('txtKelurahanDomisili', '');
-              formik.setFieldValue('txtKodeposDomisili', '');
-              // setkabDomValue('');
-              // setkecDomValue('');
-              // setprovDomValue(e.target.value);
-              handleKabupatenDom(e.target.value, formik.values.selectNegaraDomisili);
-            }}
-            helperText={formik.touched.txtProvinsiDomisili && formik.errors.txtProvinsiDomisili ? formik.errors.txtProvinsiDomisili : null}
-            error={formik.touched.txtProvinsiDomisili && formik.errors.txtProvinsiDomisili ? true : false}
+        >
+          {countryDomData.map((country, index) => (
+            <MenuItem key={index} value={country.Kode}>
+              {country.Nilai}
+            </MenuItem>
+          ))}
+        </TextField>
+        <TextField
+          select
+          id="txtProvinsiDomisili"
+          label="Provinsi Domisili *"
+          name="txtProvinsiDomisili"
+          value={formik.values.txtProvinsiDomisili}
+          onChange={(e) => {
+            formik.setFieldValue('txtProvinsiDomisili', e.target.value);
+            formik.setFieldValue('txtKabDomisili', '');
+            formik.setFieldValue('txtKecamatanDomisili', '');
+            formik.setFieldValue('txtKelurahanDomisili', '');
+            formik.setFieldValue('txtKodeposDomisili', '');
+            // setkabDomValue('');
+            // setkecDomValue('');
+            // setprovDomValue(e.target.value);
+            handleKabupatenDom(e.target.value, formik.values.selectNegaraDomisili);
+          }}
+          helperText={formik.touched.txtProvinsiDomisili && formik.errors.txtProvinsiDomisili ? formik.errors.txtProvinsiDomisili : null}
+          error={formik.touched.txtProvinsiDomisili && formik.errors.txtProvinsiDomisili?true:false}
           // {... formik.getFieldProps('txtProvinsiDomisili')}
-          >
-             {kelurahanData.map((kel, index) => (
-              <MenuItem key={index} value={kel.nama}>
-                {kel.nama}
-              </MenuItem>
-            ))}
-          </TextField>
-          <TextField
-            select
-            id="txtKabDomisili"
-            label="Kabupaten/Kota Domisili *"
-            name="txtKabDomisili"
-            value={formik.values.txtKabDomisili}
-            onChange={(e) => {
-              formik.setFieldValue('txtKabDomisili', e.target.value);
-              formik.setFieldValue('txtKecamatanDomisili', '');
-              formik.setFieldValue('txtKelurahanDomisili', '');
-              formik.setFieldValue('txtKodeposDomisili', '');
-              // setkecDomValue('');
-              // setkabDomValue(e.target.value);
-              handleKecamatanDom(e.target.value, formik.values.selectNegaraDomisili, formik.values.txtProvinsiDomisili);
-            }}
-            helperText={formik.touched.txtKabDomisili && formik.errors.txtKabDomisili ? formik.errors.txtKabDomisili : null}
-            error={formik.touched.txtKabDomisili && formik.errors.txtKabDomisili ? true : false}
+        >
+          {provinsiDomData.map((prov, index) => (
+            <MenuItem key={index} value={prov.id}>
+              {prov.nama}
+            </MenuItem>
+          ))}
+        </TextField>
+        <TextField
+          select
+          id="txtKabDomisili"
+          label="Kabupaten/Kota Domisili *"
+          name="txtKabDomisili"
+          value={formik.values.txtKabDomisili}
+          onChange={(e) => {
+            formik.setFieldValue('txtKabDomisili', e.target.value);
+            formik.setFieldValue('txtKecamatanDomisili', '');
+            formik.setFieldValue('txtKelurahanDomisili', '');
+            formik.setFieldValue('txtKodeposDomisili', '');
+            // setkecDomValue('');
+            // setkabDomValue(e.target.value);
+            handleKecamatanDom(e.target.value, formik.values.selectNegaraDomisili, formik.values.txtProvinsiDomisili);
+          }}
+          helperText={formik.touched.txtKabDomisili && formik.errors.txtKabDomisili ? formik.errors.txtKabDomisili : null}
+          error={formik.touched.txtKabDomisili && formik.errors.txtKabDomisili ? true : false}
           // {...formik.getFieldProps('txtKabDomisili')}
-          >
-            {kabupatenData.map((kab, index) => (
-              <MenuItem key={index} value={kab.nama}>
-                {kab.nama}
-              </MenuItem>
-            ))}
-          </TextField>
-          <TextField
-            select
-            id="txtKecamatanDomisili"
-            label="Kecamatan Domisili *"
-            name="txtKecamatanDomisili"
-            value={formik.values.txtKecamatanDomisili}
-            onChange={(e) => {
-              formik.setFieldValue('txtKecamatanDomisili', e.target.value);
-              formik.setFieldValue('txtKelurahanDomisili', '');
-              formik.setFieldValue('txtKodeposDomisili', '');
-              // setkecDomValue(e.target.value);
-              handleKelurahanDom(e.target.value, formik.values.selectNegaraDomisili, formik.values.txtProvinsiDomisili, formik.values.txtKabDomisili);
-            }}
-            helperText={formik.touched.txtKecamatanDomisili && formik.errors.txtKecamatanDomisili ? formik.errors.txtKecamatanDomisili : null}
-            error={formik.touched.txtKecamatanDomisili && formik.errors.txtKecamatanDomisili ? true : false}
+        >
+           {kabupatenDomData.map((kab, index) => (
+            <MenuItem key={index} value={kab.id}>
+              {kab.nama}
+            </MenuItem>
+          ))}
+        </TextField>
+        <TextField
+          select
+          id="txtKecamatanDomisili"
+          label="Kecamatan Domisili *"
+          name="txtKecamatanDomisili"
+          value={formik.values.txtKecamatanDomisili}
+          onChange={(e) => {
+            formik.setFieldValue('txtKecamatanDomisili', e.target.value);
+            formik.setFieldValue('txtKelurahanDomisili', '');
+            formik.setFieldValue('txtKodeposDomisili', '');
+            // setkecDomValue(e.target.value);
+            handleKelurahanDom(e.target.value, formik.values.selectNegaraDomisili, formik.values.txtProvinsiDomisili, formik.values.txtKabDomisili);
+          }}
+          helperText={formik.touched.txtKecamatanDomisili && formik.errors.txtKecamatanDomisili ? formik.errors.txtKecamatanDomisili : null}
+          error={formik.touched.txtKecamatanDomisili && formik.errors.txtKecamatanDomisili ? true : false}
           // {...formik.getFieldProps('txtKecamatanDomisili')}
-          >
-            {kecamatanData.map((kec, index) => (
-              <MenuItem key={index} value={kec.nama}>
-                {kec.nama}
-              </MenuItem>
-            ))}
-          </TextField>
-          <TextField
-            select
-            id="txtKelurahanDomisili"
-            label="Kelurahan Domisili *"
-            name="txtKelurahanDomisili"
-            value={formik.values.txtKelurahanDomisili}
-            onChange={(e) => {
-              formik.setFieldValue('txtKelurahanDomisili', e.target.value);
-              formik.setFieldValue('txtKodeposDomisili', '');
-              handleKodePosDom(e.target.value, formik.values.selectNegaraDomisili, formik.values.txtProvinsiDomisili, formik.values.txtKabDomisili, formik.values.txtKecamatanDomisili);
-            }}
-            helperText={formik.touched.txtKelurahanDomisili && formik.errors.txtKelurahanDomisili ? formik.errors.txtKelurahanDomisili : null}
-            error={formik.touched.txtKelurahanDomisili && formik.errors.txtKelurahanDomisili ? true : false}
+        >
+          {kecamatanDomData.map((kec, index) => (
+            <MenuItem key={index} value={kec.id}>
+              {kec.nama}
+            </MenuItem>
+          ))}
+        </TextField>
+        <TextField
+          select
+          id="txtKelurahanDomisili"
+          label="Kelurahan Domisili *"
+          name="txtKelurahanDomisili"
+          value={formik.values.txtKelurahanDomisili}
+          onChange={(e) => {
+            formik.setFieldValue('txtKelurahanDomisili', e.target.value);
+            formik.setFieldValue('txtKodeposDomisili', '');
+            handleKodePosDom(e.target.value, formik.values.selectNegaraDomisili, formik.values.txtProvinsiDomisili, formik.values.txtKabDomisili, formik.values.txtKecamatanDomisili);
+          }}
+          helperText={formik.touched.txtKelurahanDomisili && formik.errors.txtKelurahanDomisili ? formik.errors.txtKelurahanDomisili : null}
+          error={formik.touched.txtKelurahanDomisili && formik.errors.txtKelurahanDomisili ? true : false}
           // {...formik.getFieldProps('txtKelurahanDomisili')}
-          >
-            {kelurahanData.map((kel, index) => (
-              <MenuItem key={index} value={kel.nama}>
-                {kel.nama}
-              </MenuItem>
-            ))}
-          </TextField>
-          <TextField
-            id="txtRwDomisili"
-            label="Nomor RW Domisili *"
-            name="txtRwDomisili"
-            helperText={formik.touched.txtRwDomisili && formik.errors.txtRwDomisili ? formik.errors.txtRwDomisili : null}
-            error={formik.touched.txtRwDomisili && formik.errors.txtRwDomisili ? true : false}
-            {...formik.getFieldProps('txtRwDomisili')}
-          >
-          </TextField>
-          <TextField
-            id="txtRtDomisili"
-            label="Nomor RT Domisili *"
-            name="txtRtDomisili"
-            helperText={formik.touched.txtRtDomisili && formik.errors.txtRtDomisili ? formik.errors.txtRtDomisili : null}
-            error={formik.touched.txtRtDomisili && formik.errors.txtRtDomisili ? true : false}
-            {...formik.getFieldProps('txtRtDomisili')}
-          >
-          </TextField>
-          <TextField
-            select
-            id="txtKodeposDomisili"
-            label="Kode Pos Domisili *"
-            name="txtKodeposDomisili"
-            value={formik.values.txtKodeposDomisili}
-            onChange={(e) => {
-              formik.setFieldValue('txtKodeposDomisili', e.target.value);
-            }}
-            helperText={formik.touched.txtKodeposDomisili && formik.errors.txtKodeposDomisili ? formik.errors.txtKodeposDomisili : null}
-            error={formik.touched.txtKodeposDomisili && formik.errors.txtKodeposDomisili ? true : false}
+        >
+          {kelurahanDomData.map((kel, index) => (
+            <MenuItem key={index} value={kel.id}>
+              {kel.nama}
+            </MenuItem>
+          ))}
+        </TextField>
+        <TextField
+          id="txtRwDomisili"
+          label="Nomor RW Domisili *"
+          name="txtRwDomisili"
+          helperText={formik.touched.txtRwDomisili && formik.errors.txtRwDomisili ? formik.errors.txtRwDomisili : null}
+          error={formik.touched.txtRwDomisili && formik.errors.txtRwDomisili ? true : false}
+          {...formik.getFieldProps('txtRwDomisili')}
+        >
+        </TextField>
+        <TextField
+          id="txtRtDomisili"
+          label="Nomor RT Domisili *"
+          name="txtRtDomisili"
+          helperText={formik.touched.txtRtDomisili && formik.errors.txtRtDomisili ? formik.errors.txtRtDomisili : null}
+          error={formik.touched.txtRtDomisili && formik.errors.txtRtDomisili ? true : false}
+          {...formik.getFieldProps('txtRtDomisili')}
+        >
+        </TextField>
+        <TextField
+          select
+          id="txtKodeposDomisili"
+          label="Kode Pos Domisili *"
+          name="txtKodeposDomisili"
+          value={formik.values.txtKodeposDomisili}
+          onChange={(e) => {
+            formik.setFieldValue('txtKodeposDomisili', e.target.value);
+          }}
+          helperText={formik.touched.txtKodeposDomisili && formik.errors.txtKodeposDomisili ? formik.errors.txtKodeposDomisili : null}
+          error={formik.touched.txtKodeposDomisili && formik.errors.txtKodeposDomisili ? true : false}
           // {...formik.getFieldProps('txtKodeposDomisili')}
-          >
-            {kodeposData.map((kp, index) => (
-              <MenuItem key={index} value={kp.nama}>
-                {kp.nama}
-              </MenuItem>
-            ))}
-          </TextField>
+        >
+          {kodeposDomData.map((kp, index) => (
+            <MenuItem key={index} value={kp.Kode}>
+              {kp.Nilai}
+            </MenuItem>
+          ))}
+        </TextField>
         </div>
         <TypographAlamat className={classes.subtitle2}>Informasi Alamat Kantor</TypographAlamat>
         <Grid container className={classes.root2} >
-          <Button
-            type="button"
-            fullWidth
-            variant="contained"
-            color="primary"
-            onClick={salinAlamatKantor}
-            className={classes.btnSalin}
-          >Salin
+        <Button 
+          type="button" 
+          fullWidth
+          variant="contained"
+          color="primary"  
+          onClick={salinAlamatKantor}
+          className={classes.btnSalin}
+        >Salin
         </Button>
-          <p>*Salin dari alamat KTP</p>
+        <p>*Salin dari alamat KTP</p>
         </Grid>
-
+        
         <div>
-          <TextField
-            id="txtAlamatKerja"
-            label="Alamat Kantor"
-            name="txtAlamatKerja"
-            helperText={formik.touched.txtAlamatKerja && formik.errors.txtAlamatKerja ? formik.errors.txtAlamatKerja : null}
-            error={formik.touched.txtAlamatKerja && formik.errors.txtAlamatKerja ? true : false}
-            {...formik.getFieldProps('txtAlamatKerja')}
-            value={formik.values.txtAlamatKerja.toUpperCase()}
-            onChange={formik.handleChange}
-          >
-          </TextField>
-          <TextField
-            select
-            id="selectNegaraKerja"
-            label="Negara Kantor"
-            name="selectNegaraKerja"
-            onChange={(e) => {
-              formik.setFieldValue('selectNegaraKerja', e.target.value);
-              formik.setFieldValue('txtProvinsiKerja', '');
-              formik.setFieldValue('txtKabKerja', '');
-              formik.setFieldValue('txtKecamatanKerja', '');
-              formik.setFieldValue('txtKelurahanKerja', '');
-              formik.setFieldValue('txtKodePosKerja', '');
-              handleProvinsiWork(e.target.value);
-            }}
-            onBlur={formik.handleBlur}
-            value={formik.values.selectNegaraKerja}
+        <TextField
+          id="txtAlamatKerja"
+          label="Alamat Kantor"
+          name="txtAlamatKerja"
+          helperText={formik.touched.txtAlamatKerja && formik.errors.txtAlamatKerja ? formik.errors.txtAlamatKerja : null}
+          error={formik.touched.txtAlamatKerja && formik.errors.txtAlamatKerja?true:false}
+          {...formik.getFieldProps('txtAlamatKerja')}
+          value={formik.values.txtAlamatKerja.toUpperCase()}
+          onChange={formik.handleChange}
+        >
+        </TextField>
+        <TextField
+          select
+          id="selectNegaraKerja"
+          label="Negara Kantor"
+          name="selectNegaraKerja"
+          onChange={(e) => {
+            formik.setFieldValue('selectNegaraKerja', e.target.value);
+            formik.setFieldValue('txtProvinsiKerja', '');
+            formik.setFieldValue('txtKabKerja', '');
+            formik.setFieldValue('txtKecamatanKerja', '');
+            formik.setFieldValue('txtKelurahanKerja', '');
+            formik.setFieldValue('txtKodePosKerja', '');
+            handleProvinsiWork(e.target.value);
+          }}
+          onBlur={formik.handleBlur}
+          value={formik.values.selectNegaraKerja}
           // {...formik.getFieldProps('selectNegaraKerja')}
-          >
-           {countryData.map((country, index) => (
-              <MenuItem key={index} value={country.ISOCode}>
-                {country.Country}
-              </MenuItem>
-            ))}
-          </TextField>
-          <TextField
-            select
-            id="txtProvinsiKerja"
-            label="Provinsi Kantor"
-            name="txtProvinsiKerja"
-            value={formik.values.txtProvinsiKerja}
-            onChange={(e) => {
-              formik.setFieldValue('txtProvinsiKerja', e.target.value);
-              formik.setFieldValue('txtKabKerja', '');
-              formik.setFieldValue('txtKecamatanKerja', '');
-              formik.setFieldValue('txtKelurahanKerja', '');
-              formik.setFieldValue('txtKodePosKerja', '');
-              handleKabupatenWork(e.target.value, formik.values.selectNegaraKerja);
-            }}
+        >
+          {countryWorkData.map((country, index) => (
+            <MenuItem key={index} value={country.Kode}>
+              {country.Nilai}
+            </MenuItem>
+          ))}
+        </TextField>
+        <TextField
+          select
+          id="txtProvinsiKerja"
+          label="Provinsi Kantor"
+          name="txtProvinsiKerja"
+          value={formik.values.txtProvinsiKerja}
+          onChange={(e) => {
+            formik.setFieldValue('txtProvinsiKerja', e.target.value);
+            formik.setFieldValue('txtKabKerja', '');
+            formik.setFieldValue('txtKecamatanKerja', '');
+            formik.setFieldValue('txtKelurahanKerja', '');
+            formik.setFieldValue('txtKodePosKerja', '');
+            handleKabupatenWork(e.target.value, formik.values.selectNegaraKerja);
+          }}
           // {...formik.getFieldProps('txtProvinsiKerja')}
-          >
-            {provinsiData.map((prov, index) => (
-              <MenuItem key={index} value={prov.nama}>
-                {prov.nama}
-              </MenuItem>
-            ))}
-          </TextField>
-          <TextField
-            select
-            id="txtKabKerja"
-            label="Kabupaten/Kota Kantor"
-            name="txtKabKerja"
-            value={formik.values.txtKabKerja}
-            onChange={(e) => {
-              formik.setFieldValue('txtKabKerja', e.target.value);
-              formik.setFieldValue('txtKecamatanKerja', '');
-              formik.setFieldValue('txtKelurahanKerja', '');
-              formik.setFieldValue('txtKodePosKerja', '');
-              // setkecDomValue('');
-              // setkabDomValue(e.target.value);
-              handleKecamatanWork(e.target.value, formik.values.selectNegaraKerja, formik.values.txtProvinsiKerja);
-            }}
-            helperText={formik.touched.txtKabKerja && formik.errors.txtKabKerja ? formik.errors.txtKabKerja : null}
-            error={formik.touched.txtKabKerja && formik.errors.txtKabKerja ? true : false}
+        >
+          {provinsiWorkData.map((prov, index) => (
+            <MenuItem key={index} value={prov.id}>
+              {prov.nama}
+            </MenuItem>
+          ))}
+        </TextField>
+        <TextField
+          select
+          id="txtKabKerja"
+          label="Kabupaten/Kota Kantor"
+          name="txtKabKerja"
+          value={formik.values.txtKabKerja}
+          onChange={(e) => {
+            formik.setFieldValue('txtKabKerja', e.target.value);
+            formik.setFieldValue('txtKecamatanKerja', '');
+            formik.setFieldValue('txtKelurahanKerja', '');
+            formik.setFieldValue('txtKodePosKerja', '');
+            // setkecDomValue('');
+            // setkabDomValue(e.target.value);
+            handleKecamatanWork(e.target.value, formik.values.selectNegaraKerja, formik.values.txtProvinsiKerja);
+          }}
+          helperText={formik.touched.txtKabKerja && formik.errors.txtKabKerja ? formik.errors.txtKabKerja : null}
+          error={formik.touched.txtKabKerja && formik.errors.txtKabKerja?true:false}
           // {...formik.getFieldProps('txtKabKerja')}
-          >
-            {kabupatenData.map((kab, index) => (
-              <MenuItem key={index} value={kab.nama}>
-                {kab.nama}
-              </MenuItem>
-            ))}
-          </TextField>
-          <TextField
-            select
-            id="txtKecamatanKerja"
-            label="Kecamatan Kantor"
-            name="txtKecamatanKerja"
-            value={formik.values.txtKecamatanKerja}
-            onChange={(e) => {
-              formik.setFieldValue('txtKecamatanKerja', e.target.value);
-              formik.setFieldValue('txtKelurahanKerja', '');
-              formik.setFieldValue('txtKodePosKerja', '');
-              // setkecDomValue(e.target.value);
-              handleKelurahanWork(e.target.value, formik.values.selectNegaraKerja, formik.values.txtProvinsiKerja, formik.values.txtKabKerja);
-            }}
-            helperText={formik.touched.txtKecamatanKerja && formik.errors.txtKecamatanKerja ? formik.errors.txtKecamatanKerja : null}
-            error={formik.touched.txtKecamatanKerja && formik.errors.txtKecamatanKerja ? true : false}
+        >
+           {kabupatenWorkData.map((kab, index) => (
+            <MenuItem key={index} value={kab.id}>
+            {kab.nama}
+          </MenuItem>
+          ))}
+        </TextField>
+        <TextField
+          select
+          id="txtKecamatanKerja"
+          label="Kecamatan Kantor"
+          name="txtKecamatanKerja"
+          value={formik.values.txtKecamatanKerja}
+          onChange={(e) => {
+            formik.setFieldValue('txtKecamatanKerja', e.target.value);
+            formik.setFieldValue('txtKelurahanKerja', '');
+            formik.setFieldValue('txtKodePosKerja', '');
+            // setkecDomValue(e.target.value);
+            handleKelurahanWork(e.target.value, formik.values.selectNegaraKerja, formik.values.txtProvinsiKerja, formik.values.txtKabKerja);
+          }}
+          helperText={formik.touched.txtKecamatanKerja && formik.errors.txtKecamatanKerja ? formik.errors.txtKecamatanKerja : null}
+          error={formik.touched.txtKecamatanKerja && formik.errors.txtKecamatanKerja?true:false}
           // {...formik.getFieldProps('txtKecamatanKerja')}
-          >
-            {kecamatanData.map((kec, index) => (
-              <MenuItem key={index} value={kec.nama}>
-                {kec.nama}
-              </MenuItem>
-            ))}
-          </TextField>
-          <TextField
-            select
-            id="txtKelurahanKerja"
-            label="Kelurahan Kantor"
-            name="txtKelurahanKerja"
-            value={formik.values.txtKelurahanKerja}
-            onChange={(e) => {
-              formik.setFieldValue('txtKelurahanKerja', e.target.value);
-              formik.setFieldValue('txtKodePosKerja', '');
-              handleKodePosDom(e.target.value, formik.values.selectNegaraKerja, formik.values.txtProvinsiKerja, formik.values.txtKabKerja, formik.values.txtKecamatanKerja);
-            }}
-            helperText={formik.touched.txtKelurahanKerja && formik.errors.txtKelurahanKerja ? formik.errors.txtKelurahanKerja : null}
-            error={formik.touched.txtKelurahanKerja && formik.errors.txtKelurahanKerja ? true : false}
+        >
+          {kecamatanWorkData.map((kec, index) => (
+            <MenuItem key={index} value={kec.id}>
+              {kec.nama}
+            </MenuItem>
+          ))} 
+        </TextField>
+        <TextField
+          select
+          id="txtKelurahanKerja"
+          label="Kelurahan Kantor"
+          name="txtKelurahanKerja"
+          value={formik.values.txtKelurahanKerja}
+          onChange={(e) => {
+            formik.setFieldValue('txtKelurahanKerja', e.target.value);
+            formik.setFieldValue('txtKodePosKerja', '');
+            handleKodePosDom(e.target.value, formik.values.selectNegaraKerja, formik.values.txtProvinsiKerja, formik.values.txtKabKerja, formik.values.txtKecamatanKerja);
+          }}
+          helperText={formik.touched.txtKelurahanKerja && formik.errors.txtKelurahanKerja ? formik.errors.txtKelurahanKerja : null}
+          error={formik.touched.txtKelurahanKerja && formik.errors.txtKelurahanKerja?true:false}
           // {...formik.getFieldProps('txtKelurahanKerja')}
-          >
-            {kelurahanData.map((kel, index) => (
-              <MenuItem key={index} value={kel.nama}>
-                {kel.nama}
-              </MenuItem>
-            ))}
-          </TextField>
-          <TextField
-            id="txtRwKerja"
-            label="Nomor RW Kantor"
-            name="txtRwKerja"
-            helperText={formik.touched.txtRwKerja && formik.errors.txtRwKerja ? formik.errors.txtRwKerja : null}
-            error={formik.touched.txtRwKerja && formik.errors.txtRwKerja ? true : false}
-            {...formik.getFieldProps('txtRwKerja')}
-          >
-          </TextField>
-          <TextField
-            id="txtRtkerja"
-            label="Nomor RT Kantor"
-            name="txtRtKerja"
-            helperText={formik.touched.txtRtKerja && formik.errors.txtRtKerja ? formik.errors.txtRtKerja : null}
-            error={formik.touched.txtRtKerja && formik.errors.txtRtKerja ? true : false}
-            {...formik.getFieldProps('txtRtKerja')}
-          >
-          </TextField>
-          <TextField
-            select
-            id="txtKodePosKerja"
-            label="Kode Pos Kantor"
-            name="txtKodePosKerja"
-            value={formik.values.txtKodePosKerja}
-            onChange={(e) => {
-              formik.setFieldValue('txtKodePosKerja', e.target.value);
-            }}
-            helperText={formik.touched.txtKodePosKerja && formik.errors.txtKodePosKerja ? formik.errors.txtKodePosKerja : null}
-            error={formik.touched.txtKodePosKerja && formik.errors.txtKodePosKerja ? true : false}
+        >
+          {kelurahanWorkData.map((kel, index) => (
+            <MenuItem key={index} value={kel.id}>
+              {kel.nama}
+            </MenuItem>
+          ))}
+        </TextField>
+        <TextField
+          id="txtRwKerja"
+          label="Nomor RW Kantor"
+          name="txtRwKerja"
+          helperText={formik.touched.txtRwKerja && formik.errors.txtRwKerja ? formik.errors.txtRwKerja : null}
+          error={formik.touched.txtRwKerja && formik.errors.txtRwKerja?true:false}
+          {...formik.getFieldProps('txtRwKerja')}
+        >
+        </TextField>
+        <TextField
+          id="txtRtkerja"
+          label="Nomor RT Kantor"
+          name="txtRtKerja"
+          helperText={formik.touched.txtRtKerja && formik.errors.txtRtKerja ? formik.errors.txtRtKerja : null}
+          error={formik.touched.txtRtKerja && formik.errors.txtRtKerja?true:false}
+          {...formik.getFieldProps('txtRtKerja')}
+        >
+        </TextField>
+        <TextField
+          select
+          id="txtKodePosKerja"
+          label="Kode Pos Kantor"
+          name="txtKodePosKerja"
+          value={formik.values.txtKodePosKerja}
+          onChange={(e) => {
+            formik.setFieldValue('txtKodePosKerja', e.target.value);
+          }}
+          helperText={formik.touched.txtKodePosKerja && formik.errors.txtKodePosKerja ? formik.errors.txtKodePosKerja : null}
+          error={formik.touched.txtKodePosKerja && formik.errors.txtKodePosKerja?true:false}
           // {...formik.getFieldProps('txtKodePosKerja')}
-          >
-            {kodeposData.map((kp, index) => (
-              <MenuItem key={index} value={kp.nama}>
-                {kp.nama}
-              </MenuItem>
-            ))}
-          </TextField>
+        >
+          {kodeposWorkData.map((kp, index) => (
+            <MenuItem key={index} value={kp.id}>
+              {kp.nama}
+            </MenuItem>
+          ))}
+        </TextField>
         </div>
         <TypographAlamat className={classes.subtitle2}>Informasi Alamat Ahli Waris</TypographAlamat>
 
         <div>
           <TextField
-            id="txtAlamatAhliWaris"
-            label="Alamat Lengkap Ahli Waris *"
-            name="txtAlamatAhliWaris"
-            helperText={formik.touched.txtAlamatAhliWaris && formik.errors.txtAlamatAhliWaris ? formik.errors.txtAlamatAhliWaris : null}
-            error={formik.touched.txtAlamatAhliWaris && formik.errors.txtAlamatAhliWaris ? true : false}
-            //{...formik.getFieldProps('txtAlamatAhliWaris')}
-            value={formik.values.txtAlamatAhliWaris.toUpperCase()}
-            onChange={formik.handleChange}
+          id="txtAlamatAhliWaris"
+          label="Alamat Lengkap Ahli Waris *"
+          name="txtAlamatAhliWaris"
+          helperText={formik.touched.txtAlamatAhliWaris && formik.errors.txtAlamatAhliWaris ? formik.errors.txtAlamatAhliWaris : null}
+          error={formik.touched.txtAlamatAhliWaris && formik.errors.txtAlamatAhliWaris?true:false}
+          //{...formik.getFieldProps('txtAlamatAhliWaris')}
+          value={formik.values.txtAlamatAhliWaris.toUpperCase()}
+          onChange={formik.handleChange}
           >
           </TextField>
         </div>
         <div className={classes.button}>
-          <Grid container spacing={0}>
-            <Grid
-              direction="row"
-              item
-              maxwidth="xl"
-              // className={classes.myGrid} 
-              spacing={0}
-              xs={10} sm={10} md={10}
-              justify="space-between">
-              <Button
-                type="button"
-                onClick={() => formik.resetForm()}
-                className={classes.buttonconfig}
-                fullWidth
-                variant="contained"
-                color="primary"
-              >Batal</Button>
-              <Button
-                onClick={(e) => { props.handleNext(e, 1) }}
-                className={classes.buttonconfig}
-                fullWidth
-                variant="contained"
-                color="primary"
-                type="button"
-              >Sebelumnya</Button>
-              <Button
-                disabled={value}
-                onClick={(e) => { props.handleNext(e, 3) }}
-                className={classes.buttonconfig}
-                fullWidth
-                variant="contained"
-                color="primary"
-                type="button"
-              >Selanjutnya</Button>
-            </Grid>
+        <Grid container spacing={0}>
+          <Grid 
+          direction="row"
+          item
+          maxwidth="xl" 
+          // className={classes.myGrid} 
+          spacing={0} 
+          xs={10} sm={10} md={10} 
+          justify="space-between">
+      <Button 
+      type="button" 
+      onClick={() => formik.resetForm()} 
+      className={classes.buttonconfig}
+         fullWidth
+         variant="contained"
+         color="primary"  
+      >Batal</Button>
+      <Button 
+      onClick={(e) => {props.handleNext(e, 1)}}
+      className={classes.buttonconfig}
+         fullWidth
+         variant="contained"
+         color="primary" 
+         type="button"
+         >Sebelumnya</Button>
+      <Button 
+      disabled={value}
+      onClick={(e) => {props.handleNext(e, 3)}}
+      className={classes.buttonconfig}
+         fullWidth
+         variant="contained"
+         color="primary" 
+         type="button"
+      >Selanjutnya</Button>
+       </Grid>
 
-            <Grid
-              direction="row"
-              item
-              maxwidth="xl"
-              // className={classes.myGrid} 
-              spacing={0}
-              xs={1} sm={1} md={1}
-              justify="space-between"
-            >
-              <Button
-                type="submit"
-                //onClick={handleChange} 
-                className={classes.buttonsimpan}
-                fullWidth
-                justifyContent="flex-end"
-                variant="contained"
-                color="primary"
-              >Simpan Sementara</Button>
-            </Grid>
-          </Grid>
-        </div>
-      </form>
+<Grid 
+direction="row"
+item
+maxwidth="xl" 
+// className={classes.myGrid} 
+spacing={0} 
+xs={1} sm={1} md={1} 
+justify="space-between"
+>
+      <Button 
+      type="submit"
+      //onClick={handleChange} 
+      className={classes.buttonsimpan}
+         fullWidth
+         justifyContent="flex-end"
+         variant="contained"
+         color="primary" 
+      >Simpan Sementara</Button>
+      </Grid>
+      </Grid>
+      </div>
+    </form>
     </div>
   );
 }
